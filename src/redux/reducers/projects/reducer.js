@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 const initialState = {
   projectList: [],
-  fetch: false, // have 1 speciel reducers
+  fetch: false, // have 1 special reducers to handle fetch and errors
   error: null,
 };
 

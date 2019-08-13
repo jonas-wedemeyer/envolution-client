@@ -6,8 +6,17 @@ const getProjects = (projectLat, projectLong) => ({
   },
 });
 
+// Get one project
+const getOneProject = (projectId) => ({
+  type: 'GET_ONE_PROJECT',
+  api: {
+    path: `/projects/${projectId}`,
+  },
+});
+
 const projects = {
   getProjects,
+  getOneProject,
 };
 
 export default projects;
