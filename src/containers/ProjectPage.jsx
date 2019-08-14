@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getProjects } from '../redux/reducers/projects/actions';
 import ProjectList from '../components/ProjectList';
-import getAllProjects from '../redux/reducers/projects/selector'
+import getAllProjects from '../redux/reducers/projects/selector';
 
 export default function ProjectPage() {
   // Use the state and pass down the list
@@ -12,24 +12,22 @@ export default function ProjectPage() {
 
   // On componentDidMount (useEffect), dispatch action to get the list
   useEffect(() => {
-    // const userLocation = window.localStorage.getItem('loc');
-    const mockLoc = {
-      latitude: 41.390205,
-      longitude: 2.154007,
-    };
+    // user geolocation
+    const geolocation = navigator.geolocation.watchPosition((position) => {
+      console.log(position.coords.latitude, position.coords.longitude); // eslint-disable-line no-console
+      // return {latitude: position.coords.latitude, longitude: position.coords.longitude};
+    });
 
-    // replace mock data with this 2 const
-    // const geolocLat = navigator.geolocation.watchPosition((position) => {
-    //   console.log(position.coords.latitude, position.coords.longitude);
-    //   return position.coords.latitude;
-    // });
+    // later: handle async to get the "locality" from:
+    //   const googleKey = AIzaSyDYRMsU6xJVfoYKQvSdfziqaxcA-b8ZyUE;
+    //   const google = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${geolocation.latitude},${geolocation.longitude}&key=${googleKey}`
+    //   console.log('google link is:', google); // eslint-disable-line no-console
 
-    dispatch(getProjects(mockLoc.latitude, mockLoc.longitude));
+    dispatch(getProjects(geolocation.latitude, geolocation.longitude));
   }, [dispatch]);
 
   return (
     <div>
-      <p>Hi I am the project page.</p>
       <ProjectList projects={projects} />
     </div>
   );
