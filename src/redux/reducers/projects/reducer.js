@@ -1,7 +1,5 @@
-import { combineReducers } from 'redux';
-
 const initialState = {
-  projectList: [],
+  projects: [],
   fetch: false, // have 1 special reducers to handle fetch and errors
   error: null,
 };
@@ -19,7 +17,7 @@ const projectList = (state = initialState, action) => {
       console.log('Here is the list: ', action.data); // eslint-disable-line no-console
       return {
         ...state,
-        projectList: action.data,
+        projects: action.data,
         fetch: false,
       };
     } // sort by distance, later
@@ -35,8 +33,4 @@ const projectList = (state = initialState, action) => {
   }
 };
 
-const projects = combineReducers({
-  projectList,
-});
-
-export default projects;
+export default projectList;

@@ -1,8 +1,6 @@
 const apiMiddleware = (store) => (next) => (action) => {
-  if (!action.api) next(action);
-
+  if (!action.api) return next(action);
   const { api } = action;
-
   const BASE_URL = 'https://private-a8c0e93-envolution.apiary-mock.com';
   const method = api.method || 'GET';
 
