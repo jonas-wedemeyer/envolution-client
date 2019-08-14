@@ -1,5 +1,5 @@
-import ProjectList from './ProjectList';
+import ProjectPage from './ProjectPage';
 import ProjectDetail from './ProjectDetail';
 import OrgDetail from './OrgDetail';
 
-export { ProjectList, ProjectDetail, OrgDetail };
+export { ProjectPage, ProjectDetail, OrgDetail };
