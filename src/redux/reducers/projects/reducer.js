@@ -1,6 +1,6 @@
 const initialState = {
   projects: [],
-  fetch: false, // have 1 special reducers to handle fetch and errors
+  fetch: false, // later focus : have 1 special reducers to handle fetch and errors
   error: null,
 };
 
@@ -8,7 +8,6 @@ const initialState = {
 const projectList = (state = initialState, action) => {
   switch (action.type) {
     case 'GET_PROJECTS_REQUEST':
-      console.log('Requesting all projects, wait...'); // eslint-disable-line no-console
       return {
         ...state, // grab previous state
         fetch: true,

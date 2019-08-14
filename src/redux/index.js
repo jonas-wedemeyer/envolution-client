@@ -7,9 +7,9 @@ const middlewares = [apiMiddleware];
 
 const enhancer = composeEnhancers(applyMiddleware(...middlewares));
 
-const createRedux = () => {
+const createReduxStore = () => {
   const store = createStore(reducers, enhancer);
   return store;
 };
 
-export default createRedux;
+export default createReduxStore;
