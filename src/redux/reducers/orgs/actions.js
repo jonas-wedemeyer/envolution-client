@@ -1,8 +1,8 @@
 // Get one org by ID
-const getOneOrg = (organizationId) => ({
+const getOneOrg = (orgId) => ({
   type: 'GET_ONE_ORG',
   api: {
-    path: `/orgs/${organizationId}`,
+    path: `/orgs/${orgId}`,
     method: 'GET',
   },
 });
