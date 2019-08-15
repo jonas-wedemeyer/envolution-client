@@ -1,12 +1,21 @@
 import React from 'react';
+import ProjectCard from './ProjectCard';
 
 const ProjectList = ({ projects }) => {
   return (
     <div>
-      <p>Here is the list:</p>
       <ul>
         {projects.map((project) => (
-          <li key={project.projectId}>{project.name}</li>
+          <li key={project.projectId}>
+            <ProjectCard
+              name={project.name}
+              id={project.projectId}
+              date={project.date}
+              organization={project.organization}
+              shortTerm={project.shortTerm}
+              category={project.category}
+            />
+          </li>
         ))}
       </ul>
     </div>
