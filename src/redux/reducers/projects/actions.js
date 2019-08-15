@@ -1,4 +1,4 @@
-// Get all/unfiltered projects from the API
+// Get all projects
 export const getProjects = (projectLat, projectLong) => ({
   type: 'GET_PROJECTS',
   api: {

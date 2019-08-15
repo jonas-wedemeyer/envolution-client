@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getProjects } from '../redux/reducers/projects/actions';
 import ProjectList from '../components/ProjectList';
-import getAllProjects from '../redux/reducers/projects/selector';
+import { getAllProjects } from '../redux/reducers/projects/selector';
 
 export default function ProjectPage() {
   // Use the state and pass down the list
@@ -19,7 +19,7 @@ export default function ProjectPage() {
     });
 
     // later: handle async to get the "locality" from:
-    //   const googleKey = AIzaSyDYRMsU6xJVfoYKQvSdfziqaxcA-b8ZyUE;
+    //   const googleKey = process.env.GOOGLE_API_KEY;
     //   const google = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${geolocation.latitude},${geolocation.longitude}&key=${googleKey}`
     //   console.log('google link is:', google); // eslint-disable-line no-console
 

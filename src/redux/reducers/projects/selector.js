@@ -1,6 +1,3 @@
-const getAllProjects = (state) => {
-  const { projects } = state.projects;
-  return projects;
-};
+export const getAllProjects = (state) => state.projects.allProjects;
 
-export default getAllProjects;
+export const getProject = (state) => state.projects.selectedProject;
