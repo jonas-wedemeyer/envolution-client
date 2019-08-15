@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProjects } from '../redux/reducers/projects/actions';
 import ProjectList from '../components/ProjectList';
 import { getAllProjects } from '../redux/reducers/projects/selector';
+import Navbar from '../components/Navbar';
 
 export default function ProjectPage() {
   // Use the state and pass down the list
@@ -28,6 +29,7 @@ export default function ProjectPage() {
 
   return (
     <div>
+      <Navbar />
       <ProjectList projects={projects} />
     </div>
   );
