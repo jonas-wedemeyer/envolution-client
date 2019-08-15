@@ -1,7 +1,7 @@
 const apiMiddleware = (store) => (next) => (action) => {
   if (!action.api) return next(action);
   const { api } = action;
-  const BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
+  const url = process.env.REACT_APP_SERVER_BASE_URL;
   const method = api.method || 'GET';
 
   const headers = {
@@ -20,7 +20,7 @@ const apiMiddleware = (store) => (next) => (action) => {
   next({
     type: `${action.type}_REQUEST`,
   });
-  fetch(BASE_URL + api.path, {
+  fetch(url + api.path, {
     method,
     headers,
     body,

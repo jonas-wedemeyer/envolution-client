@@ -13,7 +13,13 @@ import Wildlife from '../assets/Wildlife.jpg';
 
 const ProjectById = (props) => {
   console.log('props', props); // eslint-disable-line no-console
-  const { category, name, shortTerm, organization, date } = props.selectedProject; // eslint-disable-line
+  const {
+    category,
+    name,
+    shortTerm,
+    organization,
+    date,
+  } = props.selectedProject; // eslint-disable-line
 
   // render category pics --placeholders-- refactoring to do:
   const renderImage = () => {
