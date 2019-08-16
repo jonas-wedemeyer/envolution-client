@@ -4,11 +4,15 @@ import { Switch, Route } from 'react-router-dom';
 import { ProjectPage, ProjectDetail, OrgDetail } from './containers';
 import { NotFound } from './components';
 import ComponentsList from './styled-components/ComponentsList';
+import Navbar from './components/Navbar';
 import './App.css';
 
 function App() {
   return (
     <div className='App'>
+      <div>
+        <Navbar />
+      </div>
       <Switch>
         <Route exact path='/projects' component={ProjectPage} />
         <Route exact path='/projects/:projectId' component={ProjectDetail} />

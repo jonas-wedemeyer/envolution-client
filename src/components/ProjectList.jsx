@@ -11,7 +11,7 @@ const ProjectList = ({ projects }) => {
               name={project.name}
               id={project.projectId}
               date={project.date}
-              organization={project.organization}
+              organizationName={project.organizationName}
               shortTerm={project.shortTerm}
               category={project.category}
             />

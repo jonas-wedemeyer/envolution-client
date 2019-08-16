@@ -12,18 +12,25 @@ import Forest from '../assets/Forest.jpg';
 import Wildlife from '../assets/Wildlife.jpg';
 
 const ProjectById = (props) => {
-  console.log('props', props); // eslint-disable-line no-console
   const {
     category,
     name,
     shortTerm,
-    organization,
+    organizationName,
+    organizationId,
     date,
+    role,
+    time,
+    description,
+    tasks,
+    qualifications,
+    participants,
+    spacesAvailable,
+    picture,
   } = props.selectedProject; // eslint-disable-line
 
   // render category pics --placeholders-- refactoring to do:
-  const renderImage = () => {
-    // const { category } = props;
+  const renderCategoryImage = () => {
     if (category === 'Ocean') {
       return <img src={Ocean} alt='category' height='100px' />;
     }
@@ -42,24 +49,75 @@ const ProjectById = (props) => {
     return <p>no picture for this category</p>;
   };
 
+  // map participants:
+  function showParticipants() {
+    if (participants) {
+      const showPax = participants.map((user) => (
+        <li key={user.userId}>
+          <img src={user.picture} alt='category' height='40px' />
+        </li>
+      ));
+      return <ul>{showPax}</ul>;
+    }
+    return null;
+  }
+
   return (
     <div>
-      <div>{shortTerm ? <h3>Short Term</h3> : <h3>Long Term</h3>}</div>
-      <h1>{name}</h1>
-      <h2>{organization}</h2>
-      <h2>{category}</h2>
-      <Moment format='MMM Do'>{date}</Moment>
-      <p>at</p>
-      <Moment format='h:mm'>{date}</Moment>
-      <div>{renderImage()}</div>
+      <div>
+        <img src={picture} alt='category' height='100px' />
+      </div>
+      <div>
+        <h1>{name}</h1>
+        <Moment format='MMM Do'>{date}</Moment>
+        <p>at</p>
+        <Moment format='h:mm'>{date}</Moment>
+        <div>{shortTerm ? <h3>Short Term</h3> : <h3>Long Term</h3>}</div>
+        <h3>{time}</h3>
+      </div>
+      <div>{renderCategoryImage()}</div>
+      <div>
+        <h2>{role}</h2>
+        <h2>{organizationName}</h2>
+      </div>
+      <div>
+        <h3>Participants</h3>
+        <div>{showParticipants()}</div>
+        <h4>{spacesAvailable}</h4>
+        <h4>Spaces available:</h4>
+      </div>
       <div>
         <ul>
+          <p>I AM IN button below:</p>
           <li>
             <Link to='/projects'>
               <Button />
             </Link>
           </li>
+          <p>BACK button below:</p>
+          <li>
+            <Link to='/projects'>
+              <Button />
+            </Link>
+          </li>
+          <p>SEE MORE ON NGO button below:</p>
+          <li>
+            <Link to={`/orgs/${organizationId}`}>
+              <Button />
+            </Link>
+          </li>
         </ul>
+      </div>
+      <div>
+        <h3>Project description:</h3>
+        <p>{description}</p>
+        <h3>Qualification level:</h3>
+        <p>{qualifications}</p>
+        <h3>Main tasks:</h3>
+        <p>{tasks}</p>
+      </div>
+      <div>
+        <h3>Address: to update</h3>
       </div>
     </div>
   );
