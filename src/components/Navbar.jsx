@@ -1,9 +1,22 @@
 import React from 'react';
+import Sidebar from './Sidebar';
 
-export default function Navbar() {
+const Navbar = () => {
+  function handleClick(e) {
+    e.preventDefault();
+    // change classname toggle conditionally // or just change the width conditionnally
+  }
+
   return (
-    <div>
-      <p>Navbar</p>
-    </div>
+    <nav>
+      <div>
+        <button type='button' onClick={handleClick}>
+          Picto Navbar
+        </button>
+        <Sidebar />
+      </div>
+    </nav>
   );
-}
+};
+
+export default Navbar;

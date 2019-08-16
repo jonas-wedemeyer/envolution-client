@@ -1,8 +1,17 @@
+// // Get all projects
+// export const getProjects = (projectLat, projectLong) => ({
+//   type: 'GET_PROJECTS',
+//   api: {
+//     path: `/projects?lat=${projectLat}&long=${projectLong}`,
+//     method: 'GET',
+//   },
+// });
+
 // Get all projects
-export const getProjects = (projectLat, projectLong) => ({
+export const getProjects = (city) => ({
   type: 'GET_PROJECTS',
   api: {
-    path: `/projects?lat=${projectLat}&long=${projectLong}`,
+    path: `/projects?city=${city}`,
     method: 'GET',
   },
 });
