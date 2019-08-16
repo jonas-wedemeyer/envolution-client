@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import { ProjectPage, ProjectDetail, OrgDetail } from './containers';
 import { NotFound } from './components';
+import ComponentsList from './styled-components/ComponentsList';
 import './App.css';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Route exact path='/projects' component={ProjectPage} />
         <Route exact path='/projects/:projectId' component={ProjectDetail} />
         <Route exact path='/orgs/:orgId' component={OrgDetail} />
+        <Route exact path='/styled-comps' component={ComponentsList} />
         <Route component={NotFound} />
       </Switch>
     </div>

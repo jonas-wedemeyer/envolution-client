@@ -1,13 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Button from './Button';
-import FlexWrapper from './FlexWrapper';
-import Input from './Input';
-import Icon from './Icon';
-import ListImage from './ListImage';
-import ListFlag from './ListFlag';
-import LoadingSpinner from './LoadingSpinner';
+import {
+  Button,
+  FlexWrapper,
+  Input,
+  Icon,
+  ListImage,
+  ListFlag,
+  LoadingSpinner,
+} from '.';
 
 const FlexWrapperCol = styled(FlexWrapper)`
   flex-direction: column;
