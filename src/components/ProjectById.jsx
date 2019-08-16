@@ -12,7 +12,6 @@ import Forest from '../assets/Forest.jpg';
 import Wildlife from '../assets/Wildlife.jpg';
 
 const ProjectById = (props) => {
-  console.log('props', props); // eslint-disable-line no-console
   const {
     category,
     name,

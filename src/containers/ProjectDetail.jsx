@@ -8,6 +8,7 @@ import ProjectById from '../components/ProjectById';
 export default function ProjectDetail(props) {
   const selectedProject = useSelector(getProject);
   const dispatch = useDispatch();
+  console.log('selected proj', selectedProject); // eslint-disable-line
 
   useEffect(() => {
     // destructuring to do: const { projectId } = props.match.params;
