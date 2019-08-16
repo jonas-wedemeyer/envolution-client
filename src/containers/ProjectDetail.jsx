@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getOneProject } from '../redux/reducers/projects/actions';
 import { getProject } from '../redux/reducers/projects/selector';
 import ProjectById from '../components/ProjectById';
-import Navbar from '../components/Navbar';
 
 export default function ProjectDetail(props) {
   const selectedProject = useSelector(getProject);
@@ -17,7 +16,6 @@ export default function ProjectDetail(props) {
 
   return (
     <div>
-      <Navbar />
       <ProjectById selectedProject={selectedProject} />
     </div>
   );

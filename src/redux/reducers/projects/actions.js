@@ -1,8 +1,8 @@
 // Get all projects
-export const getProjects = (city) => ({
+export const getProjects = (projectLat, projectLong) => ({
   type: 'GET_PROJECTS',
   api: {
-    path: `/projects/${city}`,
+    path: `/projects?lat=${projectLat}&long=${projectLong}`,
     method: 'GET',
   },
 });
