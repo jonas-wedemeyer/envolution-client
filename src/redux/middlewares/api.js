@@ -20,6 +20,7 @@ const apiMiddleware = (store) => (next) => (action) => {
   next({
     type: `${action.type}_REQUEST`,
   });
+
   fetch(url + api.path, {
     method,
     headers,
