@@ -16,6 +16,7 @@ function App() {
       <Switch>
         <Route exact path='/' component={AuthPage} />
         <Route exact path='/projects' component={ProjectPage} />
+        <Route exact path='/projects/city/:cityName' component={ProjectPage} />
         <Route exact path='/projects/:projectId' component={ProjectDetail} />
         <Route exact path='/orgs/:orgId' component={OrgDetail} />
         <Route exact path='/styled-comps' component={ComponentsList} />

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import getOneOrg from '../redux/reducers/orgs/actions';
 import getOrg from '../redux/reducers/orgs/selector';
-import Navbar from '../components/Navbar';
 import OrgById from '../components/OrgById';
 
 export default function OrgDetail(props) {
@@ -18,7 +17,6 @@ export default function OrgDetail(props) {
 
   return (
     <div>
-      <Navbar />
       <OrgById selectedOrg={selectedOrg} />
     </div>
   );
