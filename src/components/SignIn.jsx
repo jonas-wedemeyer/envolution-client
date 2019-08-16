@@ -1,5 +1,13 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import styled from 'styled-components';
+import { FlexWrapper, Input, Button } from '../styled-components';
+
+const FlexColWrap = styled(FlexWrapper)`
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+`;
 
 function SignIn({ history }) {
   const handleSubmit = (e) => {
@@ -8,30 +16,20 @@ function SignIn({ history }) {
   };
 
   return (
-    <div>
+    <FlexWrapper style={{ justifyContent: 'center' }}>
       <form onSubmit={handleSubmit}>
-        <label htmlFor='email'>
-          Email
-          <input
-            required
-            type='email'
-            name='email'
-            placeholder='john.snow@winterfell.com'
-          />
-        </label>
-        <label htmlFor='password'>
-          Password
-          <input
+        <FlexColWrap>
+          <Input required type='email' name='email' placeholder='Email' />
+          <Input
             required
             type='password'
             name='password'
-            placeholder='**********'
+            placeholder='Password'
           />
-        </label>
-        <button type='submit'>Sign in</button>
+          <Button type='submit'>Sign in</Button>
+        </FlexColWrap>
       </form>
-      <p>Don&#39;t have an account yet?</p>
-    </div>
+    </FlexWrapper>
   );
 }
 
