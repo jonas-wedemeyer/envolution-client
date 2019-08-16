@@ -1,6 +1,5 @@
 import NotFound from './NotFound';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
 
-// TODO: Remove eslint disable comment once more components are added
-export {
-  NotFound, // eslint-disable-line
-};
+export { NotFound, SignIn, SignUp };
