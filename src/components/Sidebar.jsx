@@ -1,25 +1,37 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+  const { toggleSidebar } = props;
+
   return (
     <nav>
-      <div className='toggle'>
+      <div>
         <ul>
           <li>
-            <Link to='/projects'>Home</Link>
+            <NavLink to='/projects' onClick={toggleSidebar}>
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to='/projects'>My Profile</Link>
+            <NavLink to='/projects' onClick={toggleSidebar}>
+              My Profile
+            </NavLink>
           </li>
           <li>
-            <Link to='/projects'>My Projects</Link>
+            <NavLink to='/projects' onClick={toggleSidebar}>
+              My Projects
+            </NavLink>
           </li>
           <li>
-            <Link to='/projects'>Settings</Link>
+            <NavLink to='/projects' onClick={toggleSidebar}>
+              Settings
+            </NavLink>
           </li>
           <li>
-            <NavLink to='/projects'>Log out</NavLink>
+            <NavLink to='/' onClick={toggleSidebar}>
+              Log out
+            </NavLink>
           </li>
         </ul>
       </div>
