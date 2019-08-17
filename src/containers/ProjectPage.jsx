@@ -6,6 +6,7 @@ import Geocode from 'react-geocode';
 import { getProjects } from '../redux/reducers/projects/actions';
 import ProjectList from '../components/ProjectList';
 import { getAllProjects } from '../redux/reducers/projects/selector';
+import FilterForm from '../components/FilterForm';
 
 const googleKey = process.env.REACT_APP_GOOGLE_API_KEY;
 Geocode.setApiKey(googleKey);
@@ -15,7 +16,7 @@ export default function ProjectPage(props) {
   const projects = useSelector(getAllProjects);
   const dispatch = useDispatch();
 
-  // On componentDidMount (useEffect), dispatch action to get the list
+  // On componentDidMount (useEffect), get the list:
   useEffect(() => {
     // user geolocation
     if (!props.match.params.cityName) {
@@ -29,7 +30,7 @@ export default function ProjectPage(props) {
           (res) => {
             const newCity = res.results[0].address_components.filter(
               (ac) => ~ac.types.indexOf('locality'), // eslint-disable-line
-              )[0].long_name; // eslint-disable-line
+            )[0].long_name; // eslint-disable-line
             console.log('newCity', newCity); // eslint-disable-line no-console
             dispatch(getProjects(newCity));
           },
@@ -45,6 +46,7 @@ export default function ProjectPage(props) {
 
   return (
     <div>
+      <FilterForm />
       <ProjectList projects={projects} />
     </div>
   );
