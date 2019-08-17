@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 
 const Navbar = () => {
-  function handleClick(e) {
-    e.preventDefault();
-    // change classname toggle conditionally // or just change the width conditionnally
-  }
+  const [isHidden, setVisibility] = useState(true);
+
+  const toggleSidebar = () => {
+    setVisibility(!isHidden);
+  };
 
   return (
     <nav>
       <div>
-        <button type='button' onClick={handleClick}>
+        <button type='button' onClick={toggleSidebar}>
           Picto Navbar
         </button>
-        <Sidebar />
+        {!isHidden && (
+          <Sidebar isHidden={!isHidden} toggleSidebar={toggleSidebar} />
+        )}
       </div>
     </nav>
   );
