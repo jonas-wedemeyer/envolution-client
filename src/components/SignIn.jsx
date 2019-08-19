@@ -12,7 +12,7 @@ const FlexColWrap = styled(FlexWrapper)`
   align-items: center;
 `;
 
-function SignIn() {
+function SignIn({ history }) {
   const dispatch = useDispatch();
   const [values, setValues] = useState({
     email: '',
@@ -28,8 +28,8 @@ function SignIn() {
     e.preventDefault();
     const { email, password } = values;
     dispatch(signIn(email, password));
-    // act upon store update for authorization
-    // OR fetch from local storage
+    // TODO: Update to render on parent when authorisation is populated
+    history.push('/projects');
   };
 
   return (
