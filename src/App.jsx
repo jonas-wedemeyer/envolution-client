@@ -20,7 +20,7 @@ function App() {
       />
       <PrivateRoute
         exact
-        path='/projects/:projectId'
+        path='/projects/:id'
         component={ProjectDetail}
       />
       <PrivateRoute exact path='/orgs/:orgId' component={OrgDetail} />
