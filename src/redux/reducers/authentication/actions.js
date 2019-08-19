@@ -10,13 +10,13 @@ export const signUp = (email, password) => ({
   },
 });
 
-export const signIn = (userHash) => ({
+export const signIn = (email, password) => ({
   type: 'SIGN_IN',
   api: {
     path: '/sign-in',
     method: 'GET',
     headers: {
-      Authorization: `Basic: ${userHash}`,
+      Authorization: `Basic: ${btoa(`${email}:${password}`)}`,
     },
   },
 });

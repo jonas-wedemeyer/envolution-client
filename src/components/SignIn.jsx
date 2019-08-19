@@ -27,8 +27,7 @@ function SignIn() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { email, password } = values;
-    const hash = btoa(`${email}:${password}`);
-    dispatch(signIn(hash));
+    dispatch(signIn(email, password));
     // act upon store update for authorization
     // OR fetch from local storage
   };
