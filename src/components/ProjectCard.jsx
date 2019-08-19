@@ -5,11 +5,12 @@ import Moment from 'react-moment';
 import Button from './Button';
 
 // Images exports, refactoring to do:
-import Ocean from '../assets/Ocean.jpg';
-import Land from '../assets/Land.jpg';
-import Air from '../assets/Air.jpg';
-import Forest from '../assets/Forest.jpg';
-import Wildlife from '../assets/Wildlife.jpg';
+import Ocean from '../assets/Categories/Ocean.jpg';
+import Land from '../assets/Categories/Land.jpg';
+import Air from '../assets/Categories/Air.jpg';
+import Forest from '../assets/Categories/Forest.jpg';
+import Wildlife from '../assets/Categories/Wildlife.jpg';
+
 
 const ProjectCard = ({
   name,

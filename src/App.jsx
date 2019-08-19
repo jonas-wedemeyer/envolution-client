@@ -1,7 +1,14 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import { ProjectPage, ProjectDetail, OrgDetail, AuthPage } from './containers';
+import {
+  ProjectPage,
+  ProjectDetail,
+  OrgDetail,
+  AuthPage,
+  UserProfile,
+  UserProjects,
+} from './containers';
 // import { NotFound } from './components';
 import ComponentsList from './styled-components/ComponentsList';
 import Navbar from './components/Navbar';
