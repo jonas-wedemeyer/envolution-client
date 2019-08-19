@@ -3,14 +3,26 @@ const initialState = {
   allProjects: [],
   fetch: false, // later focus : have 1 special reducers to handle fetch and errors
   error: null,
+  filters: {
+    category: {},
+    availability: null,
+  },
 };
 
 const projects = (state = initialState, action) => {
   switch (action.type) {
+    case 'SET_FILTERS':
+      return {
+        ...state,
+        filters: {
+          availability: action.availability,
+          category: action.category,
+        },
+      };
     case 'GET_ONE_PROJECT_REQUEST':
     case 'GET_PROJECTS_REQUEST':
       return {
-        ...state, // grab previous state
+        ...state,
         fetch: true,
       };
     case 'GET_ONE_PROJECT_SUCCESS': {

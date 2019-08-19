@@ -1,12 +1,18 @@
+import { fetchState } from '../persistState';
+
 const apiMiddleware = (store) => (next) => (action) => {
   if (!action.api) return next(action);
   const { api } = action;
   const url = process.env.REACT_APP_SERVER_BASE_URL;
+  const jwtToken = fetchState();
   const method = api.method || 'GET';
 
   const headers = {
     ...api.headers,
   };
+
+  if (jwtToken)
+    headers.Authorization = `Bearer ${jwtToken.authentication.token}`;
 
   if (method === 'POST' || method === 'PUT') {
     headers['Content-Type'] = 'application/json';

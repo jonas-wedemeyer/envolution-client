@@ -11,7 +11,15 @@ import Air from '../assets/Categories/Air.jpg';
 import Forest from '../assets/Categories/Forest.jpg';
 import Wildlife from '../assets/Categories/Wildlife.jpg';
 
-const ProjectCard = ({ id, organization, date, shortTerm, category }) => {
+
+const ProjectCard = ({
+  name,
+  id,
+  organization,
+  date,
+  availability,
+  category,
+}) => {
   // render category pics --placeholders-- refactoring to do:
   const renderImage = () => {
     if (category === 'Ocean') {
@@ -34,8 +42,8 @@ const ProjectCard = ({ id, organization, date, shortTerm, category }) => {
 
   return (
     <div>
-      <div>{shortTerm ? <h3>Short Term</h3> : <h3>Long Term</h3>}</div>
-      {/* <h1>{console.log(name)}</h1> */}
+      <div>{availability}</div>
+      <h1>{name}</h1>
       <h2>{organization}</h2>
       <h2>{category}</h2>
       <Moment format='MMM Do'>{date}</Moment>

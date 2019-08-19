@@ -12,19 +12,26 @@ import {
 // import { NotFound } from './components';
 import ComponentsList from './styled-components/ComponentsList';
 import Navbar from './components/Navbar';
+import PrivateRoute from './hoc/PrivateRoute';
 import './App.css';
 
 function App() {
   const DefaultContainer = () => (
     <div>
       <Navbar />
-      <Route exact path='/projects' component={ProjectPage} />
-      <Route exact path='/myprofile' component={UserProfile} />
-      <Route exact path='/myprojects' component={UserProjects} />
-      <Route exact path='/projects/city/:cityName' component={ProjectPage} />
-      <Route exact path='/projects/:projectId' component={ProjectDetail} />
-      <Route exact path='/orgs/:orgId' component={OrgDetail} />
-      <Route exact path='/styled-comps' component={ComponentsList} />
+      <PrivateRoute exact path='/projects' component={ProjectPage} />
+      <PrivateRoute
+        exact
+        path='/projects/city/:cityName'
+        component={ProjectPage}
+      />
+      <PrivateRoute
+        exact
+        path='/projects/:id'
+        component={ProjectDetail}
+      />
+      <PrivateRoute exact path='/orgs/:orgId' component={OrgDetail} />
+      <PrivateRoute exact path='/styled-comps' component={ComponentsList} />
       {/* <Route component={NotFound} /> */}
     </div>
   );
