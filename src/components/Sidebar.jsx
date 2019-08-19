@@ -14,12 +14,12 @@ const Sidebar = (props) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to='/projects' onClick={toggleSidebar}>
+            <NavLink to='/myprofile' onClick={toggleSidebar}>
               My Profile
             </NavLink>
           </li>
           <li>
-            <NavLink to='/projects' onClick={toggleSidebar}>
+            <NavLink to='/myprojects' onClick={toggleSidebar}>
               My Projects
             </NavLink>
           </li>

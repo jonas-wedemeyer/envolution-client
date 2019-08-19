@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { SignIn, SignUp } from '../components';
-import ForestImg from '../assets/Forest.jpg';
+import ForestImg from '../assets/Categories/Forest.jpg';
 
 // TODO: Outsource styled components to centralised folder
 const LinkDiv = styled.div`
