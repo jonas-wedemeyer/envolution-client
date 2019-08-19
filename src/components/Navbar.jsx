@@ -4,18 +4,18 @@ import Sidebar from './Sidebar';
 const Navbar = () => {
   const [isHidden, setVisibility] = useState(true);
 
-  const toggleSidebar = () => {
+  const toggleComponent = () => {
     setVisibility(!isHidden);
   };
 
   return (
     <nav>
       <div>
-        <button type='button' onClick={toggleSidebar}>
+        <button type='button' onClick={toggleComponent}>
           Picto Navbar
         </button>
         {!isHidden && (
-          <Sidebar isHidden={!isHidden} toggleSidebar={toggleSidebar} />
+          <Sidebar isHidden={!isHidden} toggleComponent={toggleComponent} />
         )}
       </div>
     </nav>

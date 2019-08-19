@@ -2,22 +2,22 @@ import React from 'react';
 import ProjectCard from './ProjectCard';
 
 const ProjectList = ({ projects }) => {
+  const renderProjects = projects.map((project) => (
+    <li key={project.id}>
+      <ProjectCard
+        name={project.name}
+        id={project.id}
+        date={project.date}
+        organizationName={project.organizationName}
+        availability={project.availability}
+        category={project.category}
+      />
+    </li>
+  ));
+
   return (
     <div>
-      <ul>
-        {projects.map((project) => (
-          <li key={project.projectId}>
-            <ProjectCard
-              name={project.name}
-              id={project.projectId}
-              date={project.date}
-              organizationName={project.organizationName}
-              shortTerm={project.shortTerm}
-              category={project.category}
-            />
-          </li>
-        ))}
-      </ul>
+      <ul>{renderProjects}</ul>
     </div>
   );
 };

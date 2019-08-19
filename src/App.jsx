@@ -13,7 +13,7 @@ function App() {
       <Navbar />
       <Route exact path='/projects' component={ProjectPage} />
       <Route exact path='/projects/city/:cityName' component={ProjectPage} />
-      <Route exact path='/projects/:projectId' component={ProjectDetail} />
+      <Route exact path='/projects/:id' component={ProjectDetail} />
       <Route exact path='/orgs/:orgId' component={OrgDetail} />
       <Route exact path='/styled-comps' component={ComponentsList} />
       {/* <Route component={NotFound} /> */}

@@ -15,7 +15,7 @@ const ProjectById = (props) => {
   const {
     category,
     name,
-    shortTerm,
+    availability,
     organizationName,
     organizationId,
     date,
@@ -72,7 +72,7 @@ const ProjectById = (props) => {
         <Moment format='MMM Do'>{date}</Moment>
         <p>at</p>
         <Moment format='h:mm'>{date}</Moment>
-        <div>{shortTerm ? <h3>Short Term</h3> : <h3>Long Term</h3>}</div>
+        <div>{availability}</div>
         <h3>{time}</h3>
       </div>
       <div>{renderCategoryImage()}</div>

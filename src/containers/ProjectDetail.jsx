@@ -11,9 +11,9 @@ export default function ProjectDetail(props) {
   console.log('selected proj', selectedProject); // eslint-disable-line
 
   useEffect(() => {
-    // destructuring to do: const { projectId } = props.match.params;
-    dispatch(getOneProject(props.match.params.projectId));
-  }, [dispatch, props.match.params.projectId]); // eslint-disable-line
+    // destructuring to do: const { id } = props.match.params;
+    dispatch(getOneProject(props.match.params.id));
+  }, [dispatch, props.match.params.id]); // eslint-disable-line
 
   return (
     <div>
