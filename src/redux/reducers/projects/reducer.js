@@ -36,7 +36,7 @@ const projects = (state = initialState, action) => {
       console.log('Here is the list: ', action.data); // eslint-disable-line no-console
       return {
         ...state,
-        allProjects: action.data,
+        allProjects: action.data.data,
         fetch: false,
       };
     }

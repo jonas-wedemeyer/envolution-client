@@ -2,7 +2,7 @@
 export const getProjects = (city) => ({
   type: 'GET_PROJECTS',
   api: {
-    path: `/projects?city=${city}`,
+    path: `/projects/city/${city}`,
     method: 'GET',
   },
 });
