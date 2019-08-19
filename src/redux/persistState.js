@@ -1,6 +1,6 @@
 export const fetchState = () => {
   try {
-    const savedState = localStorage.getItem('ZW52b2x1dGlvbg==');
+    const savedState = localStorage.getItem('state');
     if (savedState === null) {
       return undefined;
     }
@@ -13,7 +13,7 @@ export const fetchState = () => {
 export const storeState = (state) => {
   try {
     const stateToSave = JSON.stringify(state);
-    localStorage.setItem('ZW52b2x1dGlvbg==', stateToSave);
+    localStorage.setItem('state', stateToSave);
     return stateToSave;
   } catch (err) {
     return undefined;
