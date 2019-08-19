@@ -4,11 +4,18 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import createReduxStore from './redux/index';
+import { storeState } from './redux/persistState';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const store = createReduxStore();
+
+store.subscribe(() => {
+  storeState({
+    authentication: store.getState().authentication,
+  });
+});
 
 ReactDOM.render(
   <Provider store={store}>
