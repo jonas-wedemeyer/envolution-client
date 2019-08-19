@@ -14,7 +14,7 @@ import Wildlife from '../assets/Wildlife.jpg';
 const ProjectCard = ({
   name,
   id,
-  organization,
+  organizationName,
   date,
   availability,
   category,
@@ -43,7 +43,7 @@ const ProjectCard = ({
     <div>
       <h3>{availability}</h3>
       <h1>{name}</h1>
-      <h2>{organization}</h2>
+      <h2>{organizationName}</h2>
       <h2>{category}</h2>
       <Moment format='MMM Do'>{date}</Moment>
       <p>at</p>

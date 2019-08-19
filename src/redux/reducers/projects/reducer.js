@@ -28,7 +28,7 @@ const projects = (state = initialState, action) => {
     case 'GET_ONE_PROJECT_SUCCESS': {
       return {
         ...state,
-        selectedProject: action.data,
+        selectedProject: action.data.data,
         fetch: false,
       };
     }

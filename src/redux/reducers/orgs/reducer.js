@@ -14,7 +14,7 @@ const organizations = (state = initialState, action) => {
     case 'GET_ONE_ORG_SUCCESS': {
       return {
         ...state,
-        selectedOrg: action.data,
+        selectedOrg: action.data.data,
         fetch: false,
       };
     }
