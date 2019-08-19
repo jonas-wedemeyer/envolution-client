@@ -27,6 +27,7 @@ const ProjectById = (props) => {
     participants,
     spacesAvailable,
     picture,
+    address,
   } = props.selectedProject; // eslint-disable-line
 
   // render category pics --placeholders-- refactoring to do:
@@ -117,7 +118,8 @@ const ProjectById = (props) => {
         <p>{tasks}</p>
       </div>
       <div>
-        <h3>Address: to update</h3>
+        <h3>Address:</h3>
+        <p>{address}</p>
       </div>
     </div>
   );
