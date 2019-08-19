@@ -12,7 +12,6 @@ function App() {
   const DefaultContainer = () => (
     <div>
       <Navbar />
-      <PrivateRoute exact path='' component={ProjectPage} />
       <PrivateRoute exact path='/projects' component={ProjectPage} />
       <PrivateRoute
         exact
