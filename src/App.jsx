@@ -1,7 +1,14 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import { ProjectPage, ProjectDetail, OrgDetail, AuthPage } from './containers';
+import {
+  ProjectPage,
+  ProjectDetail,
+  OrgDetail,
+  AuthPage,
+  UserProfile,
+  UserProjects,
+} from './containers';
 // import { NotFound } from './components';
 import ComponentsList from './styled-components/ComponentsList';
 import Navbar from './components/Navbar';
@@ -12,6 +19,8 @@ function App() {
     <div>
       <Navbar />
       <Route exact path='/projects' component={ProjectPage} />
+      <Route exact path='/myprofile' component={UserProfile} />
+      <Route exact path='/myprojects' component={UserProjects} />
       <Route exact path='/projects/city/:cityName' component={ProjectPage} />
       <Route exact path='/projects/:projectId' component={ProjectDetail} />
       <Route exact path='/orgs/:orgId' component={OrgDetail} />
