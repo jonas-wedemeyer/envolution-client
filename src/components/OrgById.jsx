@@ -39,7 +39,7 @@ export default function OrgById(props) {
         <p>{mission}</p>
       </div>
       <div>
-        <h2>Oncoming projects:</h2>
+        <h2>Upcoming projects:</h2>
         {showOrgProjects()}
       </div>
       <div>

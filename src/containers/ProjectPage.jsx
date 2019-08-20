@@ -18,6 +18,7 @@ export default function ProjectPage(props) {
   const dispatch = useDispatch();
 
   function filteredProjects() {
+    console.log(projects);
     const categories = Object.keys(filters.category).filter(
       (cat) => filters.category[cat],
     );
