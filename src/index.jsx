@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
+import { Theme } from './styled-components';
 
 import createReduxStore from './redux/index';
 import { storeState } from './redux/persistState';
@@ -20,7 +22,9 @@ store.subscribe(() => {
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <ThemeProvider theme={Theme}>
+        <App />
+      </ThemeProvider>
     </BrowserRouter>
   </Provider>,
   document.getElementById('root'),
