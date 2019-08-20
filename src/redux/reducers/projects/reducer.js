@@ -33,7 +33,7 @@ const projects = (state = initialState, action) => {
       };
     }
     case 'GET_PROJECTS_SUCCESS': {
-      console.log('Here is the list: ', action.data); // eslint-disable-line no-console
+      console.log('Here is the list: ', action.data.data); // eslint-disable-line no-console
       return {
         ...state,
         allProjects: action.data.data,

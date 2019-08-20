@@ -16,6 +16,15 @@ export const getOneProject = (id) => ({
   },
 });
 
+// Get participants for one project
+export const getParticipants = (id) => ({
+  type: 'GET_PAX_PER_PROJECT',
+  api: {
+    path: `/projects/${id}/participants`,
+    method: 'GET',
+  },
+});
+
 // not necessary if we just apply a filter on the front end
 // Get filtered projects (on category)
 export const setFilters = (availability, category) => ({

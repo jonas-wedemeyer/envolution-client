@@ -14,14 +14,14 @@ Geocode.setApiKey(googleKey);
 export default function ProjectPage(props) {
   // Use the state and pass down the list
   const filters = useSelector((state) => state.projects.filters);
-  const projects = useSelector(getAllProjects); // getFilteredProjects
+  const projects = useSelector(getAllProjects);
   const dispatch = useDispatch();
 
   function filteredProjects() {
-    console.log(projects);
     const categories = Object.keys(filters.category).filter(
       (cat) => filters.category[cat],
     );
+
     return projects.filter((project) => {
       let categoryCheck = true;
       if (categories.length)

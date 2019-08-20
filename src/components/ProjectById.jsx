@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 
-import Button from './Button';
+import styled from 'styled-components';
+import { Button } from '../styled-components';
 
 // Images exports, refactoring to do:
 import Ocean from '../assets/Categories/Ocean.jpg';
@@ -10,6 +11,19 @@ import Land from '../assets/Categories/Land.jpg';
 import Air from '../assets/Categories/Air.jpg';
 import Forest from '../assets/Categories/Forest.jpg';
 import Wildlife from '../assets/Categories/Wildlife.jpg';
+
+// Styling
+const InButton = styled(Button)`
+  background: ${(props) => (props.isSelected ? '#fff' : '#47b881')};
+  color: ${(props) => (props.isSelected ? '#000' : '#fff')};
+  border: ${(props) =>
+    props.isSelected ? '2px solid #000' : '2px solid #47b881'};
+  :hover {
+    color: ${(props) => (props.isSelected ? '#47b881' : 'white')};
+    border: ${(props) =>
+      props.isSelected ? '2px solid #47b881' : '2px solid #47b881'};
+  }
+`;
 
 const ProjectById = (props) => {
   const {
@@ -29,6 +43,9 @@ const ProjectById = (props) => {
     picture,
     address,
   } = props.selectedProject; // eslint-disable-line
+
+  // local state
+  const [isSelected, setSelection] = useState(true);
 
   // render category pics --placeholders-- refactoring to do:
   const renderCategoryImage = () => {
@@ -63,8 +80,21 @@ const ProjectById = (props) => {
     return null;
   }
 
+  const btnClick = () => {
+    setSelection(!isSelected);
+  };
+
+  const renderBtnText = () => {
+    return isSelected ? 'YOU ARE IN!' : 'I AM IN!';
+  };
+
   return (
     <div>
+      <Link to='/projects'>
+        <p>
+          <img src='/assets/icons/icon_back.svg' alt='back' height='24px' />
+        </p>
+      </Link>
       <div>
         <img src={picture} alt='category' height='100px' />
       </div>
@@ -88,26 +118,12 @@ const ProjectById = (props) => {
         <h4>Spaces available:</h4>
       </div>
       <div>
-        <ul>
-          <p>I AM IN button below:</p>
-          <li>
-            <Link to='/projects'>
-              <Button />
-            </Link>
-          </li>
-          <p>BACK button below:</p>
-          <li>
-            <Link to='/projects'>
-              <Button />
-            </Link>
-          </li>
-          <p>SEE MORE ON NGO button below:</p>
-          <li>
-            <Link to={`/orgs/${organizationId}`}>
-              <Button />
-            </Link>
-          </li>
-        </ul>
+        <InButton type='submit' onClick={btnClick} isSelected={!isSelected}>
+          {renderBtnText()}
+        </InButton>
+        <Link to={`/orgs/${organizationId}`}>
+          <Button type='button'>SEE MORE ON NGO</Button>
+        </Link>
       </div>
       <div>
         <h3>Project description:</h3>
