@@ -3,31 +3,131 @@ import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 
 import styled from 'styled-components';
-import { Button } from '../styled-components';
+import { Button, Icon } from '../styled-components';
 
 // Images exports, refactoring to do:
-import Ocean from '../assets/Categories/Ocean.jpg';
-import Land from '../assets/Categories/Land.jpg';
-import Air from '../assets/Categories/Air.jpg';
-import Forest from '../assets/Categories/Forest.jpg';
-import Wildlife from '../assets/Categories/Wildlife.jpg';
+// import Ocean from '../assets/Categories/Ocean.jpg';
+// import Land from '../assets/Categories/Land.jpg';
+// import Air from '../assets/Categories/Air.jpg';
+// import Forest from '../assets/Categories/Forest.jpg';
+// import Wildlife from '../assets/Categories/Wildlife.jpg';
 
-// Styling
+// Styling Buttons:
 const InButton = styled(Button)`
-  background: ${(props) => (props.isSelected ? '#fff' : '#47b881')};
+  margin: 1% auto;
+  width: 60vw;
+  background: ${(props) => (props.isSelected ? '#fff' : '#a5d6a7')};
   color: ${(props) => (props.isSelected ? '#000' : '#fff')};
   border: ${(props) =>
-    props.isSelected ? '2px solid #000' : '2px solid #47b881'};
-  :hover {
-    color: ${(props) => (props.isSelected ? '#47b881' : 'white')};
-    border: ${(props) =>
-      props.isSelected ? '2px solid #47b881' : '2px solid #47b881'};
-  }
+    props.isSelected ? '2px solid #000' : '2px solid #a5d6a7'};
+`;
+
+const NGOButton = styled(Button)`
+  width: 60vw;
+  background: ${(props) => (props.ngo ? '#fff' : '#fff')};
+  color: ${(props) => (props.ngo ? '#000' : '#000')};
+  border: ${(props) => (props.ngo ? '2px solid #000' : '2px solid #000')};
+`;
+
+// Styling other:
+const ColumnWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const CenterWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 1% auto;
+`;
+
+const BgTopImage = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.1) 10%,
+      rgba(0, 0, 0, 0.3) 50%
+    ),
+    url(${(props) => props.image});
+  height: 80vh;
+  width: 100%;
+  background-size: cover;
+`;
+
+const Tag = styled.div`
+  height: 6%;
+  align-self: flex-start;
+  color: #fff;
+  margin-bottom: 35vh;
+  background: rgba(255, 255, 255, 0.4);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 0.5vh 1vh;
+`;
+
+const CategoryIcon = styled(Icon)`
+  margin-left: ${(props) => (props.category ? '1vh' : '1vh')};
+`;
+
+const Title = styled.h1`
+  display: flex;
+  padding: 2vh 1vh 2vh 2vh;
+  color: #fff;
+  font-size: 26px;
+  font-weight: bold;
+`;
+
+const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid blue;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  z-index: 3;
+`;
+
+const Info = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 1vh 1vh 1vh 1vh;
+  font-size: 16px;
+  justify-content: space-between;
+  align-content: center;
+  margin-bottom: 1vh;
+`;
+
+const SubInfo = styled.div`
+  display: flex;
+  width: 70vw;
+  flex-direction: column;
+  font-size: 16px;
+`;
+
+const Date = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  color: #fff;
+  padding: 0 1vh 10vh 2vh;
+  font-size: 16px;
+  font-weight: bolder;
+`;
+
+const Details = styled.div`
+  display: flex;
+  height: 50vh;
+  flex-flow: column wrap;
+  padding: 2vh 2vh 2vh 1vh;
+  font-size: 14px;
+  justify-content: space-between;
 `;
 
 const ProjectById = (props) => {
   const {
-    category,
+    // category,
     name,
     availability,
     organizationName,
@@ -38,7 +138,7 @@ const ProjectById = (props) => {
     description,
     tasks,
     qualifications,
-    participants,
+    // participants,
     spacesAvailable,
     picture,
     address,
@@ -48,37 +148,50 @@ const ProjectById = (props) => {
   const [isSelected, setSelection] = useState(true);
 
   // render category pics --placeholders-- refactoring to do:
-  const renderCategoryImage = () => {
-    if (category === 'Ocean') {
-      return <img src={Ocean} alt='category' height='100px' />;
-    }
-    if (category === 'Land') {
-      return <img src={Land} alt='category' height='100px' />;
-    }
-    if (category === 'Air') {
-      return <img src={Air} alt='category' height='100px' />;
-    }
-    if (category === 'Forest') {
-      return <img src={Forest} alt='category' height='100px' />;
-    }
-    if (category === 'Wildlife') {
-      return <img src={Wildlife} alt='category' height='100px' />;
-    }
-    return <p>no picture for this category</p>;
-  };
+  // const renderCategoryImage = () => {
+  //   if (category === 'Ocean') {
+  //     return <img src={Ocean} alt='category' height='100px' />;
+  //   }
+  //   if (category === 'Land') {
+  //     return <img src={Land} alt='category' height='100px' />;
+  //   }
+  //   if (category === 'Air') {
+  //     return <img src={Air} alt='category' height='100px' />;
+  //   }
+  //   if (category === 'Forest') {
+  //     return <img src={Forest} alt='category' height='100px' />;
+  //   }
+  //   if (category === 'Wildlife') {
+  //     return <img src={Wildlife} alt='category' height='100px' />;
+  //   }
+  //   return <p>no picture for this category</p>;
+  // };
 
   // map participants:
-  function showParticipants() {
-    if (participants) {
-      const showPax = participants.map((user) => (
-        <li key={user.userId}>
-          <img src={user.picture} alt='category' height='40px' />
+  // function showParticipants() {
+  //   if (participants) {
+  //     const showPax = participants.map((user) => (
+  //       <li key={user.userId}>
+  //         <img src={user.picture} alt='category' height='40px' />
+  //       </li>
+  //     ));
+  //     return <ul>{showPax}</ul>;
+  //   }
+  //   return null;
+  // }
+
+  // map tasks:
+  const renderTasks = () => {
+    if (tasks) {
+      const showTasks = tasks.map((task) => (
+        <li style={{ listStyleType: 'none' }} key={task}>
+          {task}
         </li>
       ));
-      return <ul>{showPax}</ul>;
+      return <ul>{showTasks}</ul>;
     }
     return null;
-  }
+  };
 
   const btnClick = () => {
     setSelection(!isSelected);
@@ -89,55 +202,62 @@ const ProjectById = (props) => {
   };
 
   return (
-    <div>
+    <ColumnWrapper>
       <Link to='/projects'>
-        <p>
-          <img src='/assets/icons/icon_back.svg' alt='back' height='24px' />
-        </p>
+        <Icon src='/assets/icons/icon_back.svg' alt='back' />
       </Link>
-      <div>
-        <img src={picture} alt='category' height='100px' />
-      </div>
-      <div>
-        <h1>{name}</h1>
-        <Moment format='MMM Do'>{date}</Moment>
-        <p>at</p>
-        <Moment format='h:mm'>{date}</Moment>
-        <div>{availability}</div>
-        <h3>{time}</h3>
-      </div>
-      <div>{renderCategoryImage()}</div>
-      <div>
-        <h2>{role}</h2>
-        <h2>{organizationName}</h2>
-      </div>
-      <div>
-        <h3>Participants</h3>
-        <div>{showParticipants()}</div>
-        <h4>{spacesAvailable}</h4>
-        <h4>Spaces available:</h4>
-      </div>
-      <div>
+      <BgTopImage image={picture}>
+        <Tag>
+          {availability}
+          <span>-term project&nbsp;&nbsp;</span>
+        </Tag>
+        <CategoryIcon src='/assets/icons/tree.png' alt='tree' category />
+        <Title>{name}</Title>
+        <Date>
+          <Moment format='MMM Do'>{date}</Moment>
+          <span>&nbsp;at&nbsp;</span>
+          <Moment format='h:mm'>{date}</Moment>
+          <span>&nbsp;-&nbsp;</span>
+          {time}
+        </Date>
+      </BgTopImage>
+      <InfoContainer>
+        <Info>
+          <SubInfo>
+            <h2>{role}</h2>
+            <h3>{organizationName}</h3>
+            <h3>
+              {spacesAvailable}
+              &nbsp;spots left
+            </h3>
+          </SubInfo>
+        </Info>
+        {/* <h3>Participants</h3>
+          <div>{showParticipants()}</div> */}
+        {/* <div>{renderCategoryImage()}</div> */}
         <InButton type='submit' onClick={btnClick} isSelected={!isSelected}>
           {renderBtnText()}
         </InButton>
-        <Link to={`/orgs/${organizationId}`}>
-          <Button type='button'>SEE MORE ON NGO</Button>
-        </Link>
-      </div>
-      <div>
-        <h3>Project description:</h3>
-        <p>{description}</p>
-        <h3>Qualification level:</h3>
-        <p>{qualifications}</p>
-        <h3>Main tasks:</h3>
-        <p>{tasks}</p>
-      </div>
-      <div>
-        <h3>Address:</h3>
-        <p>{address}</p>
-      </div>
-    </div>
+        <Details>
+          <h3>Project description:</h3>
+          <p>{description}</p>
+          <h3>Qualification level:</h3>
+          <p>{qualifications}</p>
+          <h3>Main tasks:</h3>
+          <div>{renderTasks()}</div>
+          <h3>Address:</h3>
+          <p>{address}</p>
+        </Details>
+        <CenterWrapper>
+          <Link to={`/orgs/${organizationId}`} ngo>
+            <NGOButton type='button' ngo>
+              DISCOVER&nbsp;
+              {organizationName}
+            </NGOButton>
+          </Link>
+        </CenterWrapper>
+      </InfoContainer>
+    </ColumnWrapper>
   );
 };
 

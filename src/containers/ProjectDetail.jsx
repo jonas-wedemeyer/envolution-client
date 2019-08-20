@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { FlexWrapper } from '../styled-components';
 
 import { getOneProject } from '../redux/reducers/projects/actions';
 import { getProject } from '../redux/reducers/projects/selector';
@@ -16,8 +17,8 @@ export default function ProjectDetail(props) {
   }, [dispatch, props.match.params.id]); // eslint-disable-line
 
   return (
-    <div>
+    <FlexWrapper>
       <ProjectById selectedProject={selectedProject} />
-    </div>
+    </FlexWrapper>
   );
 }

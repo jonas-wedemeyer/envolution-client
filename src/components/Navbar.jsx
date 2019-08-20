@@ -12,7 +12,7 @@ const Navbar = () => {
     <nav>
       <div>
         <button type='button' onClick={toggleComponent}>
-          Picto Navbar
+          <img src='/assets/icons/menu_black.svg' alt='back' />
         </button>
         {!isHidden && (
           <Sidebar isHidden={!isHidden} toggleComponent={toggleComponent} />

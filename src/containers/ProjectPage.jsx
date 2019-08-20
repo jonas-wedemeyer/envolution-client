@@ -76,7 +76,7 @@ export default function ProjectPage(props) {
   return (
     <div>
       <button type='button' onClick={toggleComponent}>
-        Picto Filter
+        <img src='/assets/icons/icon_filter.png' alt='back' height='34px' />
       </button>
       {!isHidden && (
         <FilterForm isHidden={!isHidden} toggleComponent={toggleComponent} />

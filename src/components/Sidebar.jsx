@@ -6,7 +6,7 @@ const Sidebar = (props) => {
 
   return (
     <nav>
-      <div>
+      <div className='sidenav'>
         <ul>
           <li>
             <NavLink to='/projects' onClick={toggleComponent}>

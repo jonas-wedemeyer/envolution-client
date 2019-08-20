@@ -15,7 +15,7 @@ const BgImage = styled.div`
   flex-direction: column;
   justify-content: center;
   background-image: url(${(props) => props.image});
-  height: 94vh;
+  height: 100vh;
   background-size: cover;
 `;
 

@@ -4,9 +4,9 @@ const Button = styled.button.attrs((props) => ({
   type: props.type || 'button',
 }))`
   color: #fff;
-  background: #000a12;
+  background: #212121;
   outline: none;
-  border: 2px solid #000a12;
+  border: 2px solid #212121;
   border-radius: 10px;
   height: 45px;
   max-width: 200px;
@@ -16,7 +16,7 @@ const Button = styled.button.attrs((props) => ({
 
   &:active {
     background: #fff;
-    color: #000a12;
+    color: #212121;
   }
 `;
 

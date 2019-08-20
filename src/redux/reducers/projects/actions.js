@@ -25,7 +25,6 @@ export const getParticipants = (id) => ({
   },
 });
 
-// not necessary if we just apply a filter on the front end
 // Get filtered projects (on category)
 export const setFilters = (availability, category) => ({
   type: 'SET_FILTERS',
