@@ -4,6 +4,7 @@ import OrgDetail from './OrgDetail';
 import AuthPage from './AuthPage';
 import UserProfile from './UserProfile';
 import UserProjects from './UserProjects';
+import Onboarding from './Onboarding';
 
 export {
   ProjectPage,
@@ -12,4 +13,5 @@ export {
   AuthPage,
   UserProfile,
   UserProjects,
+  Onboarding,
 };

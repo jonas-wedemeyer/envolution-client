@@ -8,6 +8,7 @@ import {
   AuthPage,
   UserProfile,
   UserProjects,
+  Onboarding,
 } from './containers';
 // import { NotFound } from './components';
 import ComponentsList from './styled-components/ComponentsList';
@@ -25,11 +26,7 @@ function App() {
         path='/projects/city/:cityName'
         component={ProjectPage}
       />
-      <PrivateRoute
-        exact
-        path='/projects/:id'
-        component={ProjectDetail}
-      />
+      <PrivateRoute exact path='/projects/:id' component={ProjectDetail} />
       <PrivateRoute exact path='/orgs/:orgId' component={OrgDetail} />
       <PrivateRoute exact path='/styled-comps' component={ComponentsList} />
       {/* <Route component={NotFound} /> */}
@@ -40,6 +37,7 @@ function App() {
     <div className='App'>
       <Switch>
         <Route exact path='/' component={AuthPage} />
+        <PrivateRoute exact path='/onboarding' component={Onboarding} />
         <Route component={DefaultContainer} />
       </Switch>
     </div>
