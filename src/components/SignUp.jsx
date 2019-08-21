@@ -29,7 +29,7 @@ function SignUp({ history }) {
     const { email, password } = values;
     dispatch(signUp(email, password));
     // TODO: Update to render on parent when authorisation is populated
-    history.push('/projects');
+    history.push('/onboarding');
   };
 
   return (

@@ -32,3 +32,12 @@ export const getOneUser = () => ({
     method: 'GET',
   },
 });
+
+export const updateUser = (userFields) => ({
+  type: 'UPDATE_USR',
+  api: {
+    path: '/myprofile',
+    method: 'PUT',
+    body: userFields,
+  },
+});
