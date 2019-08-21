@@ -1,5 +1,7 @@
 const initialState = {
-  currentUser: null,
+  loggedUser: {
+    interests: [],
+  },
   token: null,
   fetch: false,
   error: null,
@@ -7,37 +9,49 @@ const initialState = {
 
 const authentication = (state = initialState, action) => {
   switch (action.type) {
+    // case 'SIGN_UP_REQUEST':
+    //   return {
+    //     ...state,
+    //     fetch: true,
+    //   };
+    // case 'SIGN_UP_SUCCESS':
+    //   return {
+    //     ...state,
+    //     loggedUser: atob(action.data.token.split('.')[1]),
+    //     token: action.data.token,
+    //     fetch: false,
+    //   };
     case 'SIGN_UP_REQUEST':
+    case 'SIGN_IN_REQUEST':
+    case 'GET_ONE_USR_REQUEST':
       return {
         ...state,
         fetch: true,
       };
     case 'SIGN_UP_SUCCESS':
-      return {
-        ...state,
-        currentUser: atob(action.data.token.split('.')[1]),
-        token: action.data.token,
-        fetch: false,
-      };
-    case 'SIGN_UP_FAILURE':
-      return {
-        ...state,
-        error: action.error,
-        fetch: false,
-      };
-    case 'SIGN_IN_REQUEST':
-      return {
-        ...state,
-        fetch: true,
-      };
     case 'SIGN_IN_SUCCESS':
       return {
         ...state,
-        currentUser: JSON.parse(atob(action.data.token.split('.')[1])),
+        loggedUser: {
+          ...state.loggedUser,
+          ...JSON.parse(atob(action.data.token.split('.')[1])),
+        },
         token: action.data.token,
         fetch: false,
       };
+    case 'GET_ONE_USR_SUCCESS': {
+      return {
+        ...state,
+        loggedUser: {
+          ...state.loggedUser,
+          ...action.data.data,
+        },
+        fetch: false,
+      };
+    }
+    case 'SIGN_UP_FAILURE':
     case 'SIGN_IN_FAILURE':
+    case 'GET_ONE_USR_FAILURE':
       return {
         ...state,
         error: action.error,
