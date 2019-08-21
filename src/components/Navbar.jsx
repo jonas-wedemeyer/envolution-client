@@ -2,17 +2,15 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import styled from 'styled-components';
-import { Icon } from '../styled-components';
 
 import './Navbar.css';
 
-const TestIcon = styled(Icon)`
+const MenuIcon = styled.div`
   position: relative;
   top: 0;
   left: 0;
   z-index: 999;
-  border: solid 1px black;
-  margin: 1vh 0 0 1vh;
+  width: 80%;
 `;
 
 const StyledLink = styled(NavLink)`
@@ -29,13 +27,9 @@ const Navbar = () => {
 
   return (
     <>
-      <TestIcon
-        src='/assets/icons/menu_black.svg'
-        alt='back'
-        className='nav__icon'
-        type='menu-fold'
-        onClick={handleClick}
-      />
+      <MenuIcon className='nav__icon' type='menu-fold' onClick={handleClick}>
+        <img src='/assets/icons/menu-white.png' alt='menu' height='30px' />
+      </MenuIcon>
       <div id='wrapper' className='wrapper'>
         <div className='nav'>
           <div className='nav__body'>

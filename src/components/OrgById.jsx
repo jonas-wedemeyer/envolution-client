@@ -44,7 +44,6 @@ export default function OrgById(props) {
       </div>
       <div>
         <ul>
-          <p>BACK to all projects button below:</p>
           <li>
             <Link to='/projects'>
               <Button />
