@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import { Theme } from './styled-components';
+import { AppWrapper, Theme } from './styled-components';
 
 import createReduxStore from './redux/index';
 import { storeState } from './redux/persistState';
@@ -23,7 +23,9 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <ThemeProvider theme={Theme}>
-        <App />
+        <AppWrapper>
+          <App />
+        </AppWrapper>
       </ThemeProvider>
     </BrowserRouter>
   </Provider>,
