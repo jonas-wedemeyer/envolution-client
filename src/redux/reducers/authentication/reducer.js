@@ -24,6 +24,7 @@ const authentication = (state = initialState, action) => {
     case 'SIGN_UP_REQUEST':
     case 'SIGN_IN_REQUEST':
     case 'GET_ONE_USR_REQUEST':
+    case 'UPDATE_USR_REQUEST':
       return {
         ...state,
         fetch: true,
@@ -39,6 +40,7 @@ const authentication = (state = initialState, action) => {
         token: action.data.token,
         fetch: false,
       };
+    case 'UPDATE_USR_SUCCESS':
     case 'GET_ONE_USR_SUCCESS': {
       return {
         ...state,
