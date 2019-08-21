@@ -14,12 +14,12 @@ function FilterForm() {
     setVisibility(!isHidden);
   };
 
-  const handleChangeb = (e) => {
+  const handleChangeAvailability = (e) => {
     // update local state
     setAvailability(e.target.value);
   };
 
-  const handleChangec = (e) => {
+  const handleChangeCategory = (e) => {
     // update local state
     setCategory({
       ...category,
@@ -44,7 +44,7 @@ function FilterForm() {
               name='short'
               checked={availability === 'short'}
               value='short'
-              onChange={handleChangeb}
+              onChange={handleChangeAvailability}
             />
             Short Term
           </label>
@@ -54,7 +54,7 @@ function FilterForm() {
               name='long'
               checked={availability === 'long'}
               value='long'
-              onChange={handleChangeb}
+              onChange={handleChangeAvailability}
             />
             Long Term
           </label>
@@ -62,12 +62,40 @@ function FilterForm() {
         <fieldset id='category'>
           <h3>Categories</h3>
           <label htmlFor='ocean'>
-            <input type='checkbox' name='Ocean' onChange={handleChangec} />
+            <input
+              type='checkbox'
+              name='Ocean'
+              onChange={handleChangeCategory}
+            />
             Ocean Preservation
           </label>
           <label htmlFor='land'>
-            <input type='checkbox' name='Land' onChange={handleChangec} />
+            <input
+              type='checkbox'
+              name='Land'
+              onChange={handleChangeCategory}
+            />
             Land Preservation
+          </label>
+          <label htmlFor='air'>
+            <input type='checkbox' name='Air' onChange={handleChangeCategory} />
+            Air Preservation
+          </label>
+          <label htmlFor='wildlife'>
+            <input
+              type='checkbox'
+              name='Wildlife'
+              onChange={handleChangeCategory}
+            />
+            Wildlife Preservation
+          </label>
+          <label htmlFor='forest'>
+            <input
+              type='checkbox'
+              name='Forest'
+              onChange={handleChangeCategory}
+            />
+            Forest Preservation
           </label>
         </fieldset>
         <Button isHidden={!isHidden} onClick={toggleComponent} />
