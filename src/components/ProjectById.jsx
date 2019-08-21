@@ -19,7 +19,7 @@ const InButton = styled(Button)`
   background: ${(props) => (props.isSelected ? '#fff' : '#a5d6a7')};
   color: ${(props) => (props.isSelected ? '#000' : '#fff')};
   border: ${(props) =>
-    props.isSelected ? '2px solid #000' : '2px solid #a5d6a7'};
+    props.isSelected ? '2px solid #000' : '2px solid #fff'};
 `;
 
 const NGOButton = styled(Button)`
@@ -50,6 +50,7 @@ const TopPage = styled.div`
   align-self: flex-end;
   width: 8%;
   position: fixed;
+
   top: 0;
   z-index: 3;
   margin: 2.5vh 1.5vw 0 0;
@@ -155,6 +156,7 @@ const ProjectById = (props) => {
     description,
     tasks,
     qualifications,
+    city,
     // participants,
     spacesAvailable,
     picture,
@@ -221,8 +223,8 @@ const ProjectById = (props) => {
   return (
     <ColumnWrapper>
       <TopPage>
-        <Link to='/projects'>
-          <img src='/assets/icons/back-white.png' alt='back' height='30px' />
+        <Link to={`/projects/city/${city}`}>
+          <img src='/assets/icons/icon_back.svg' alt='back' height='30px' />
         </Link>
       </TopPage>
       <BgTopImage image={picture}>

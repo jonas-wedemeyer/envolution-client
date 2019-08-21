@@ -28,14 +28,14 @@ const Navbar = () => {
   return (
     <>
       <MenuIcon className='nav__icon' type='menu-fold' onClick={handleClick}>
-        <img src='/assets/icons/menu-white.png' alt='menu' height='30px' />
+        <img src='/assets/icons/menu_black.svg' alt='menu' height='30px' />
       </MenuIcon>
       <div id='wrapper' className='wrapper'>
         <div className='nav'>
           <div className='nav__body'>
             <ul>
               <li>
-                <StyledLink to='/projects' onClick={handleClick}>
+                <StyledLink to='/projects/city/Barcelona' onClick={handleClick}>
                   Home
                 </StyledLink>
               </li>

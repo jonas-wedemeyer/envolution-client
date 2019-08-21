@@ -11,12 +11,23 @@ import FilterForm from '../components/FilterForm';
 const googleKey = process.env.REACT_APP_GOOGLE_API_KEY;
 Geocode.setApiKey(googleKey);
 
-// Styling Buttons:
+// Styled-components:
 const PageTitle = styled.h1`
   display: flex;
   padding: 4vh 1vw 1vh 7vw;
   font-size: 26px;
   font-weight: 700;
+`;
+
+const FilterIcon = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  /* top: 0;
+  left: 0; */
+  /* z-index: 999; */
+  width: 96%;
+  padding-top: 2vh;
 `;
 
 const Background = styled.div`
@@ -87,9 +98,9 @@ export default function ProjectPage(props) {
 
   return (
     <Background>
-      <button type='button' onClick={toggleComponent}>
-        <img src='/assets/icons/icon_filter.png' alt='back' height='34px' />
-      </button>
+      <FilterIcon type='button' onClick={toggleComponent}>
+        <img src='/assets/icons/icon_filter.png' alt='filter' height='50px' />
+      </FilterIcon>
       {!isHidden && (
         <FilterForm isHidden={!isHidden} toggleComponent={toggleComponent} />
       )}
