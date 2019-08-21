@@ -9,6 +9,10 @@ import {
   ListImage,
   ListFlag,
   LoadingSpinner,
+  Title,
+  Subtitle,
+  Text,
+  TextTitle,
 } from '.';
 
 const FlexWrapperCol = styled(FlexWrapper)`
@@ -26,11 +30,18 @@ export default function ComponentsList() {
           type='email'
           name='email'
           placeholder='I am the placeholder text'
+          autoComplete='off'
         />
-        <Icon src='/assets/icons/tree.png' alt='tree' />
+        <Icon src='/assets/icons/tree.svg' alt='tree' />
         <ListImage image='https://images.unsplash.com/photo-1456693906521-44e96e49e85f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'>
-          <ListFlag>Long Term</ListFlag>
+          <FlexWrapperCol>
+            <ListFlag>Long Term</ListFlag>
+            <Title>I am a title</Title>
+            <Subtitle>I am a subtitle</Subtitle>
+          </FlexWrapperCol>
         </ListImage>
+        <TextTitle>I am a TextTitle</TextTitle>
+        <Text>I am text</Text>
         <LoadingSpinner />
       </FlexWrapperCol>
     </div>

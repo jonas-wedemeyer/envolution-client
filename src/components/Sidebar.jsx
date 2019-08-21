@@ -35,6 +35,11 @@ const Sidebar = (props) => {
             </NavLink>
           </li>
           <li>
+            <NavLink to='/newproject' onClick={toggleComponent}>
+              Post a Project
+            </NavLink>
+          </li>
+          <li>
             <NavLink to='/myprojects' onClick={toggleComponent}>
               My Projects
             </NavLink>

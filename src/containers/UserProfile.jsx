@@ -1,16 +1,20 @@
 import React, { useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { getOneUser } from '../redux/reducers/authentication/actions';
+import getUser from '../redux/reducers/authentication/selector';
 import UserInfo from '../components/UserInfo';
-// import action/ selector after pull from Jonas' merge
-// const selectedUser = useSelector(getUser);
 
 export default function UserProfile() {
-  useEffect(() => {});
+  const loggedUser = useSelector(getUser);
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(getOneUser());
+  }, [dispatch]);
   return (
     <div>
-      <UserInfo />
+      <UserInfo loggedUser={loggedUser} />
     </div>
   );
 }

@@ -1,24 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// import { Barcelona, Belize, Birmingham, Monterrey, Quintero, Valencia } from '../assets/Cities/';
-import Barcelona from '../assets/Cities/Barcelona.jpg';
+import { Barcelona } from '../assets/Cities/Barcelona.jpg';
+import { Belize } from '../assets/Cities/Belize.jpg';
+import { Birmingham } from '../assets/Cities/Birmingham.jpg';
+import { Monterrey } from '../assets/Cities/Monterrey.jpg';
+import { Quintero } from '../assets/Cities/Quintero.jpg';
+import { Valencia } from '../assets/Cities/Valencia.jpg';
 
+// import { Forest } from '/assets/icons/tree.png';
+
+import { Icon } from '../styled-components';
+
+// import styled component button instead of below:
 import Button from './Button';
 
 const cities = {
   Barcelona,
-  //   'Belize': Belize,
-  //   'Birmingham': Birmingham,
-  //   'Monterrey': Monterrey,
-  //   'Quintero': Quintero,
-  //   'Valencia': Valencia,
-  // }
+  Belize,
+  Birmingham,
+  Monterrey,
+  Quintero,
+  Valencia,
 };
 
-// TODO create array of icons of city images to loop through
+// const icons = {
+//   Forest
+// }
 
-function UserInfo(props) {
+function UserInfo({ loggedUser }) {
   const {
     firstName,
     lastName,
@@ -26,41 +36,29 @@ function UserInfo(props) {
     aboutMe,
     interests,
     city,
-  } = props.selectedUser; // eslint-disable-line
-
-  // function showUserPicture() {
-  //   picture
-  //   ? <img src={picture} alt='user profile' height='100px' />
-  //   : <img src='../assets/placeholders/user.png' alt='generic user icon' height='100px' />
-  // }
-
-  // function showLocationPicture() {
-  //   city
-  //   ? <img src={cities[city]} alt='location of user' height='100px' />
-  //   : <img src='../assets/placeholders/city.png' alt='generic location icon' height='100px' />
-  // }
+    email,
+  } = loggedUser;
 
   // fix below when icons have been added to assets folder
   function showUserInterests() {
-    const userInterests = interests.map((icon) => (
-      <li key={icon}>
-        <img
-          href={`../assets/${icon}`}
+    const userInterests =
+      interests &&
+      interests.map((interest) => (
+        <Icon
+          src={`/assets/icons/${interest}.png`}
           alt='icon of user environmental focus'
         />
-      </li>
-    ));
+      ));
     return <ul>{userInterests}</ul>;
   }
 
-  // TODO: add current location to be displayed (maybe associate a picture from assets folder with it)
   // TODO: add information about # of orgs served and projects completed
 
   return (
     <div>
       <div>
         {city ? (
-          <img src={cities[city]} alt='location of user' height='100px' />
+          <img src={cities.city} alt='location of user' height='100px' />
         ) : (
           <img
             src='../assets/placeholders/city.png'
@@ -86,18 +84,17 @@ function UserInfo(props) {
           {lastName}
         </p>
         <p>{aboutMe}</p>
+        <p>{email}</p>
       </div>
       <div>
         <p>Environmental focus:</p>
         <div>{showUserInterests()}</div>
       </div>
-      <div>
-        <div>Organizations served:</div>
-        <div>Projects completed:</div>
-      </div>
+      <div>Projects completed:</div>
+      <div>Organizations served:</div>
       <div>
         <ul>
-          <p>See all projects</p>
+          <p>See all of your projects</p>
           <li>
             <Link to='/projects'>
               <Button />

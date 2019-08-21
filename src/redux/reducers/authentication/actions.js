@@ -24,3 +24,11 @@ export const signIn = (email, password) => ({
 export const signOut = () => ({
   type: 'SIGN_OUT',
 });
+
+export const getOneUser = () => ({
+  type: 'GET_ONE_USR',
+  api: {
+    path: '/myprofile',
+    method: 'GET',
+  },
+});

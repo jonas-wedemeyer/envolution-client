@@ -7,24 +7,17 @@
   box-sizing: border-box;
 }
 
-/* reset button style  */
+@font-face {
+  font-family: 'OpenSans';
+  src: url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i&display=swap');
+}
+
 button {
   padding: 0;
   border: none;
+  outline: none;
   font: inherit;
   color: inherit;
   background-color: transparent;
   cursor: pointer;
-}
-
-body {
-  margin: 0;
-  font-family: 'Open Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
