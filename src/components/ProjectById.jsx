@@ -39,13 +39,8 @@ const ColumnWrapper = styled.div`
   flex-direction: column;
   padding: 0px;
   width: 100%;
+  position: relative;
 `;
-
-// const CenterWrapper = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   margin: 1% auto;
-// `;
 
 const TopPage = styled.div`
   display: flex;
@@ -54,7 +49,7 @@ const TopPage = styled.div`
   width: 8%;
   position: fixed;
   top: 0;
-  z-index: 2;
+  z-index: 3;
   margin: 2vh 0;
 `;
 
@@ -71,7 +66,6 @@ const BgTopImage = styled.div`
   height: 80vh;
   width: 110%;
   background-size: cover;
-  position: relative;
 `;
 
 const Tag = styled.div`
@@ -106,8 +100,8 @@ const InfoContainer = styled.div`
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background: white;
-  position: absolute;
-  top: 80vh;
+  position: relative;
+  top: -5vh;
   width: 100%;
 `;
 
@@ -118,7 +112,6 @@ const Info = styled.div`
   font-size: 16px;
   justify-content: space-between;
   align-content: center;
-  margin-bottom: 1vh;
 `;
 
 const SubInfo = styled.div`
@@ -244,7 +237,7 @@ const ProjectById = (props) => {
           <span>&nbsp;-&nbsp;</span>
           {time}
         </Date>
-        <Link to={`/orgs/${organizationId}`} ngo>
+        <Link to={`/orgs/${organizationId}`}>
           <NGOButton type='button' ngo>
             DISCOVER&nbsp;
             {organizationName}

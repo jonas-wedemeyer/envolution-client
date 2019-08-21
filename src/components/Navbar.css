@@ -1,0 +1,51 @@
+.wrapper {
+  position: fixed;
+  display: flex;
+  width: 70%;
+  height: 100vh;
+  transition: left 0.5s;
+  top: 0px;
+  left: -70%;
+}
+
+.wrapper.is-nav-open {
+  left: 0px;
+  z-index: 1000;
+}
+
+.nav {
+  position: relative;
+  width: 250px;
+  height: 100%;
+  padding: 20px;
+  background: rgba(37, 37, 37, 1);
+  /* background: #a5d6a7; */
+  /* background: #fff; */
+  cursor: pointer;
+}
+
+.nav__icon {
+  position: absolute;
+  top: 0;
+  right: -60px;
+  padding: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+/* .nav__icon.is-nav-open {
+  left: 250px;
+} */
+
+.nav__icon:hover {
+  color: #a5d6a7;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  margin: 3vh 0;
+}

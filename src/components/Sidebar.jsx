@@ -4,10 +4,17 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 const Bar = styled.div`
-  display: flex;
-  flex-direction: column;
-  border: 1px solid blue;
-  background: white;
+  /* display: flex;
+  flex-direction: column; */
+  border: 1px blue solid;
+  /* background: rgba(0, 0, 0, 0.9); */
+  /* top: 8%; */
+  /* width: 50vw;
+  height: 100vh; */
+  /* width: 200px;
+  height: 200px;
+  position: relative;
+  overflow: hidden; */
 `;
 
 const Sidebar = (props) => {
