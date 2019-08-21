@@ -18,11 +18,11 @@ const Image = styled.div`
 const H1 = styled.h1`
   text-transform: uppercase;
   text-shadow: 1px 1px #00000080;
-  position: fixed;
 `;
 
 const Text = styled.p`
   font-size: 18px;
+  margin-bottom: 10px;
 `;
 
 // TODO: Refactor for using height with flexEnd
@@ -31,10 +31,10 @@ const Background = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  margin-top: 100%;
+  margin-top: 50px;
   border-radius: 10px;
   width: 90%;
-  padding: 8px;
+  padding: 10px;
 `;
 
 export default function CardImage({ image, category, name }) {
@@ -46,22 +46,24 @@ export default function CardImage({ image, category, name }) {
           <Background direction='column' justify='flex-end'>
             <>
               <Text>
-                Hi, 
-                {name}
+                Hi,&nbsp;
+                <strong>{name}</strong>
                 !
               </Text>
               <Text>Tell us your environmental goals by swiping</Text>
-              <Text>
-                <FlexWrapper justify='center' align='center'>
-                  <span role='img' aria-label='left'>
-                    👈
-                  </span>
-                  or
-                  <span role='img' aria-label='right'>
-                    👉
-                  </span>
-                </FlexWrapper>
-              </Text>
+              <FlexWrapper justify='center' align='center'>
+                <img
+                  src='/assets/icons/arrow-left.png'
+                  alt='arrow'
+                  style={{ height: '24px', paddingRight: '15px' }}
+                />
+                or
+                <img
+                  src='/assets/icons/arrow-right.png'
+                  alt='arrow'
+                  style={{ height: '24px', paddingLeft: '15px' }}
+                />
+              </FlexWrapper>
             </>
           </Background>
         )}
