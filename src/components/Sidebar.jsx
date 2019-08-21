@@ -1,11 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
+
 import { NavLink } from 'react-router-dom';
+
+const Bar = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid blue;
+  background: white;
+`;
 
 const Sidebar = (props) => {
   const { toggleComponent } = props;
 
   return (
-    <nav>
+    <Bar>
       <div className='sidenav'>
         <ul>
           <li>
@@ -35,7 +44,7 @@ const Sidebar = (props) => {
           </li>
         </ul>
       </div>
-    </nav>
+    </Bar>
   );
 };
 

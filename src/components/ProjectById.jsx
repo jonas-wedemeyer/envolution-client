@@ -14,7 +14,7 @@ import { Button, Icon } from '../styled-components';
 
 // Styling Buttons:
 const InButton = styled(Button)`
-  margin: 1% auto;
+  margin: 2% auto;
   width: 60vw;
   background: ${(props) => (props.isSelected ? '#fff' : '#a5d6a7')};
   color: ${(props) => (props.isSelected ? '#000' : '#fff')};
@@ -23,22 +23,39 @@ const InButton = styled(Button)`
 `;
 
 const NGOButton = styled(Button)`
-  width: 60vw;
-  background: ${(props) => (props.ngo ? '#fff' : '#fff')};
-  color: ${(props) => (props.ngo ? '#000' : '#000')};
-  border: ${(props) => (props.ngo ? '2px solid #000' : '2px solid #000')};
+  background: ${(props) =>
+    props.ngo ? 'rgba(255, 255, 255, 0.35)' : 'rgba(255, 255, 255, 0.35)'};
+  color: ${(props) => (props.ngo ? '#fff' : '#fff')};
+  border: ${(props) => (props.ngo ? '0px' : '0px')};
+  margin: 0 1vh 10vh 2vh;
+  font-size: 12px;
+  padding: 0vh 2vw;
+  height: 30px;
 `;
 
-// Styling other:
+// Styling other: NEED TO REMOVE FLEXWRAPPER PADDING
 const ColumnWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 0px;
+  width: 100%;
 `;
 
-const CenterWrapper = styled.div`
+// const CenterWrapper = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   margin: 1% auto;
+// `;
+
+const TopPage = styled.div`
   display: flex;
-  flex-direction: column;
-  margin: 1% auto;
+  flex-direction: row;
+  align-self: flex-end;
+  width: 8%;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  margin: 2vh 0;
 `;
 
 const BgTopImage = styled.div`
@@ -52,16 +69,17 @@ const BgTopImage = styled.div`
     ),
     url(${(props) => props.image});
   height: 80vh;
-  width: 100%;
+  width: 110%;
   background-size: cover;
+  position: relative;
 `;
 
 const Tag = styled.div`
-  height: 6%;
+  height: 32px;
   align-self: flex-start;
   color: #fff;
-  margin-bottom: 35vh;
-  background: rgba(255, 255, 255, 0.4);
+  margin-bottom: 26vh;
+  background: rgba(255, 255, 255, 0.35);
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   font-weight: bold;
@@ -79,15 +97,18 @@ const Title = styled.h1`
   color: #fff;
   font-size: 26px;
   font-weight: bold;
+  width: 90%;
 `;
 
 const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid blue;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  z-index: 3;
+  background: white;
+  position: absolute;
+  top: 80vh;
+  width: 100%;
 `;
 
 const Info = styled.div`
@@ -104,16 +125,17 @@ const SubInfo = styled.div`
   display: flex;
   width: 70vw;
   flex-direction: column;
-  font-size: 16px;
+  font-size: 14px;
 `;
 
 const Date = styled.div`
   display: flex;
   flex-flow: row wrap;
   color: #fff;
-  padding: 0 1vh 10vh 2vh;
+  padding: 0 1vh 3vh 2vh;
   font-size: 16px;
   font-weight: bolder;
+  width: 90%;
 `;
 
 const Details = styled.div`
@@ -203,9 +225,11 @@ const ProjectById = (props) => {
 
   return (
     <ColumnWrapper>
-      <Link to='/projects'>
-        <Icon src='/assets/icons/icon_back.svg' alt='back' />
-      </Link>
+      <TopPage>
+        <Link to='/projects'>
+          <img src='/assets/icons/icon_back.svg' alt='back' height='30px' />
+        </Link>
+      </TopPage>
       <BgTopImage image={picture}>
         <Tag>
           {availability}
@@ -220,6 +244,12 @@ const ProjectById = (props) => {
           <span>&nbsp;-&nbsp;</span>
           {time}
         </Date>
+        <Link to={`/orgs/${organizationId}`} ngo>
+          <NGOButton type='button' ngo>
+            DISCOVER&nbsp;
+            {organizationName}
+          </NGOButton>
+        </Link>
       </BgTopImage>
       <InfoContainer>
         <Info>
@@ -248,14 +278,6 @@ const ProjectById = (props) => {
           <h3>Address:</h3>
           <p>{address}</p>
         </Details>
-        <CenterWrapper>
-          <Link to={`/orgs/${organizationId}`} ngo>
-            <NGOButton type='button' ngo>
-              DISCOVER&nbsp;
-              {organizationName}
-            </NGOButton>
-          </Link>
-        </CenterWrapper>
       </InfoContainer>
     </ColumnWrapper>
   );
