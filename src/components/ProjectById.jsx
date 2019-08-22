@@ -19,7 +19,7 @@ const InButton = styled(Button)`
   background: ${(props) => (props.isSelected ? '#fff' : '#a5d6a7')};
   color: ${(props) => (props.isSelected ? '#000' : '#fff')};
   border: ${(props) =>
-    props.isSelected ? '2px solid #000' : '2px solid #a5d6a7'};
+    props.isSelected ? '2px solid #000' : '2px solid #fff'};
 `;
 
 const NGOButton = styled(Button)`
@@ -29,8 +29,10 @@ const NGOButton = styled(Button)`
   border: ${(props) => (props.ngo ? '0px' : '0px')};
   margin: 0 1vh 10vh 2vh;
   font-size: 12px;
-  padding: 0vh 2vw;
+  padding-left: 2vw;
   height: 30px;
+  text-align: left;
+  font-weight: 600;
 `;
 
 // Styling other: NEED TO REMOVE FLEXWRAPPER PADDING
@@ -48,9 +50,10 @@ const TopPage = styled.div`
   align-self: flex-end;
   width: 8%;
   position: fixed;
+
   top: 0;
   z-index: 3;
-  margin: 2vh 0;
+  margin: 2.5vh 1.5vw 0 0;
 `;
 
 const BgTopImage = styled.div`
@@ -76,7 +79,7 @@ const Tag = styled.div`
   background: rgba(255, 255, 255, 0.35);
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 18px;
   padding: 0.5vh 1vh;
 `;
@@ -90,7 +93,7 @@ const Title = styled.h1`
   padding: 2vh 1vh 2vh 2vh;
   color: #fff;
   font-size: 26px;
-  font-weight: bold;
+  font-weight: 700;
   width: 90%;
 `;
 
@@ -127,7 +130,7 @@ const Date = styled.div`
   color: #fff;
   padding: 0 1vh 3vh 2vh;
   font-size: 16px;
-  font-weight: bolder;
+  font-weight: 600;
   width: 90%;
 `;
 
@@ -153,6 +156,7 @@ const ProjectById = (props) => {
     description,
     tasks,
     qualifications,
+    city,
     // participants,
     spacesAvailable,
     picture,
@@ -219,7 +223,7 @@ const ProjectById = (props) => {
   return (
     <ColumnWrapper>
       <TopPage>
-        <Link to='/projects'>
+        <Link to={`/projects/city/${city}`}>
           <img src='/assets/icons/icon_back.svg' alt='back' height='30px' />
         </Link>
       </TopPage>
