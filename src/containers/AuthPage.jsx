@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { SignIn, SignUp } from '../components';
-import ForestImg from '../assets/Categories/Forest.jpg';
+import ForestImg from '../assets/Categories/home.jpeg';
 
 // TODO: Outsource styled components to centralised folder
 const LinkDiv = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   text-decoration: underline;
   cursor: pointer;
 `;
@@ -13,22 +16,31 @@ const LinkDiv = styled.div`
 const BgImage = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   background-image: url(${(props) => props.image});
   height: 100vh;
   background-size: cover;
+  color: ${(props) => props.theme.color.secondary};
 `;
 
 const TransparentBg = styled.div`
-  background: #ffffff60;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* background: #ffffff60; */
   margin-left: 5vw;
   margin-right: 5vw;
   border-radius: 10px;
   padding: 10px;
 `;
 
+const Logo = styled.img`
+  height: 200px;
+  width: 200px;
+`;
+
 export default function AuthPage() {
-  const [signIn, setSignIn] = useState(true);
+  const [signIn, setSignIn] = useState(false);
 
   const handleClick = () => {
     setSignIn((prev) => !prev);
@@ -57,7 +69,9 @@ export default function AuthPage() {
   return (
     <BgImage image={ForestImg}>
       <TransparentBg>
-        <h2>Envolution</h2>
+        <Logo src='/assets/Logo/logo.png' alt='logo' />
+      </TransparentBg>
+      <TransparentBg>
         {form}
         {subLine}
       </TransparentBg>
