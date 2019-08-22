@@ -9,6 +9,18 @@ const initialState = {
 
 const authentication = (state = initialState, action) => {
   switch (action.type) {
+    // case 'SIGN_UP_REQUEST':
+    //   return {
+    //     ...state,
+    //     fetch: true,
+    //   };
+    // case 'SIGN_UP_SUCCESS':
+    //   return {
+    //     ...state,
+    //     loggedUser: atob(action.data.token.split('.')[1]),
+    //     token: action.data.token,
+    //     fetch: false,
+    //   };
     case 'SIGN_UP_REQUEST':
     case 'SIGN_IN_REQUEST':
     case 'GET_ONE_USR_REQUEST':

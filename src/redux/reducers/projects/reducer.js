@@ -1,7 +1,6 @@
 const initialState = {
   selectedProject: {},
   allProjects: [],
-  newProject: {},
   fetch: false, // later focus : have 1 special reducers to handle fetch and errors
   error: null,
   filters: {
@@ -39,14 +38,6 @@ const projects = (state = initialState, action) => {
         ...state,
         allProjects: action.data.data,
         fetch: false,
-      };
-    }
-    case 'POST_PROJECT': {
-      return {
-        ...state,
-        newProject: {
-          ...state.newProject,
-        },
       };
     }
     case 'GET_ONE_PROJECT_FAILURE':

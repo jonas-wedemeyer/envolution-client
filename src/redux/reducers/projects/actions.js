@@ -31,12 +31,3 @@ export const setFilters = (availability, category) => ({
   availability,
   category,
 });
-
-// Post one project
-export const postProject = () => ({
-  type: 'POST_PROJECT',
-  api: {
-    path: `/projects`,
-    method: 'POST',
-  },
-});
