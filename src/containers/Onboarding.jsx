@@ -21,14 +21,17 @@ export default function Onboarding({ history }) {
   // TODO: Refactor to generate state dynamically based on categories
   const [cardDeck, setCardDeck] = useState([
     <CardImage
-      image='../assets/Categories/Forest.jpg'
+      image='../assets/Categories/forest.jpeg'
       category='forest'
       name={firstName}
     />,
-    <CardImage image='../assets/Categories/Air.jpg' category='air' />,
-    <CardImage image='../assets/Categories/Land.jpg' category='land' />,
-    <CardImage image='../assets/Categories/ocean.jpg' category='ocean' />,
-    <CardImage image='../assets/Categories/Wildlife.jpg' category='wildlife' />,
+    <CardImage image='../assets/Categories/air.jpeg' category='air' />,
+    <CardImage image='../assets/Categories/land.jpeg' category='land' />,
+    <CardImage image='../assets/Categories/ocean.jpeg' category='ocean' />,
+    <CardImage
+      image='../assets/Categories/wildlife.jpeg'
+      category='wildlife'
+    />,
   ]);
 
   let index = 0;
@@ -66,7 +69,6 @@ export default function Onboarding({ history }) {
       {cardDeck.length > 1 && (
         <InterestCard zIndex={-1}>{cardDeck[1]}</InterestCard>
       )}
-      )
     </Wrapper>
   );
 }
