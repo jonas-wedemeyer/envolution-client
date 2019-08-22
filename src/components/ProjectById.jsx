@@ -49,8 +49,7 @@ const TopPage = styled.div`
   flex-direction: row;
   align-self: flex-end;
   width: 8%;
-  position: fixed;
-
+  position: absolute;
   top: 0;
   z-index: 3;
   margin: 2.5vh 1.5vw 0 0;

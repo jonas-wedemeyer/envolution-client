@@ -10,17 +10,14 @@ import Monterrey from '../assets/Cities/Monterrey.jpg';
 import Quintero from '../assets/Cities/Quintero.jpg';
 import Valencia from '../assets/Cities/Valencia.jpg';
 
-import userIcon from '../assets/Placeholder/user.png';
-
 import {
-  FlexWrapper,
   Icon,
   SecondaryButton,
   TextTitle,
   Text,
   ListFlag,
+  Subtitle,
 } from '../styled-components';
-// import { Forest } from '/assets/icons/tree.png';
 
 const cities = {
   Barcelona,
@@ -31,23 +28,73 @@ const cities = {
   Valencia,
 };
 
-const LargeIcon = styled(Icon)`
-  width: 100px;
-  height: 100px;
-  z-index: 2;
+const EnvironmentalFlag = styled(ListFlag)`
+  width: 52vw;
+  margin: 10px 0 4px 20px;
 `;
 
-const EnvironmentalIcon = styled(Icon)`
-  z-index: 2;
-  padding: 1vw;
+const IconBox = styled.div`
+  margin-left: 20px;
+  margin-top: 10px 0 0 20px;
+`;
+
+const ColumnWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  width: 100%;
+  position: relative;
+`;
+
+const TopPage = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+  width: 8%;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  margin: 4vh 1.5vw 0 2vw;
+`;
+
+const BgTopImage = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.1) 10%,
+      rgba(0, 0, 0, 0.3) 50%
+    ),
+    url(${(props) => props.image});
+  height: 80vh;
+  width: 100%;
+  background-size: cover;
+`;
+
+const CategoryIcon = styled(Icon)`
+  margin-left: ${(props) => (props.category ? '1vh' : '1vh')};
+  margin: 16px 10px;
+`;
+
+const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background: #f9f9f9;
+  position: relative;
+  top: -5vh;
+  width: 100%;
 `;
 
 const ProfilePicture = styled.img`
   border-radius: 50%;
+  border: 5px solid #d3d3d3;
   height: 24vh;
   width: 24vh;
-
-  z-index: 1;
+  background: cover;
+  margin: 60px 18px;
 `;
 
 const TextFirstName = styled(TextTitle)`
@@ -56,95 +103,112 @@ const TextFirstName = styled(TextTitle)`
   font-size: 30px;
 `;
 
+const LocationTitle = styled(Subtitle)`
+  align-items: flex-end;
+  color: #d3d3d3;
+`;
+
 const TextLastName = styled(TextTitle)`
   padding: 10px;
   margin-top: 14px;
   font-size: 22px;
 `;
 
-const TextAboutMe = styled(Text)`
-  padding: 12px;
-  font-size: 12px;
+const Location = styled.div`
+  margin-bottom: 80px;
+  display: flex;
+  align-items: flex-end;
+  margin-left: 10px;
 `;
 
-// const CardStatistics = styled(Card)`
-//   padding: 12px;
-//   font-size: 12px;
-//   align-items: flex-end;
-// `;
+const TextAboutMe = styled(Text)`
+  margin: 0 26px;
+  padding-bottom: 12px;
+  font-size: 12px;
+  text-align: center;
+`;
+
+const Statistics = styled(Text)`
+  white-space: pre;
+  font-size: 11px;
+  font-weight: 700;
+`;
 
 const EnvironmentalBox = styled.text`
+  display: flex;
   padding: 12px;
   font-size: 12px;
+  justify-content: space-around;
+`;
+
+const Number = styled.div`
+  font-size: 38px;
+`;
+
+const NumberOne = styled.div`
+  font-size: 38px;
+  border-right: 1px solid grey;
+  padding-right: 50px;
+`;
+
+const Pin = styled(Icon)`
+  align-items: center;
+  width: 34px;
+  height: 30px;
+  margin-bottom: 10px;
 `;
 
 function UserInfo({ loggedUser }) {
   const { firstName, lastName, picture, aboutMe, interests, city } = loggedUser;
 
-  // fix below when icons have been added to assets folder
   function showUserInterests() {
     const userInterests =
       interests &&
       interests.map((interest) => (
-        <EnvironmentalIcon
-          src='/assets/icons/tree.png'
+        <CategoryIcon
+          src={`/assets/icons/${interest}.png`}
           alt={`icon of ${interest} focus`}
         />
       ));
     return <ul>{userInterests}</ul>;
   }
 
-  // TODO: add information about # of orgs served and projects completed
-
   return (
-    <FlexWrapper>
-      <div>
+    <ColumnWrapper>
+      <TopPage>
+        <Link to='/projects'>
+          <img src='/assets/icons/back-thick.svg' alt='back' height='30px' />
+        </Link>
+      </TopPage>
+      <BgTopImage image={cities[city]}>
         <div>
-          {city ? (
-            <LargeIcon
-              src={cities[city]}
-              alt='location of user'
-              height='100px'
-            />
-          ) : (
-            <Icon
-              src='../assets/Placeholder/city.png'
-              alt='generic location icon'
-              height='100px'
-            />
-          )}
+          <ProfilePicture src={picture} alt='location of user' height='100px' />
         </div>
-        <div>
-          {picture ? (
-            <ProfilePicture src={picture} alt='user profile' />
-          ) : (
-            <img src={userIcon} alt='generic user icon' height='160px' />
-          )}
-        </div>
-        <ListFlag>
+        <Location>
+          <Pin src='/assets/icons/pin.png' alt='pin' />
+          <LocationTitle>BARCELONA</LocationTitle>
+        </Location>
+      </BgTopImage>
+      <InfoContainer>
+        <EnvironmentalFlag>
           <TextFirstName>{firstName}</TextFirstName>
           <TextLastName>{lastName}</TextLastName>
-        </ListFlag>
+        </EnvironmentalFlag>
+        <IconBox>{showUserInterests()}</IconBox>
         <TextAboutMe>{aboutMe}</TextAboutMe>
-        <div>
-          <ListFlag>Environmental focus</ListFlag>
-          <div>{showUserInterests()}</div>
-        </div>
         <EnvironmentalBox>
-          <div>
-            <div>Projects completed:</div>
-            <div>Organizations served:</div>
-          </div>
+          <NumberOne>22</NumberOne>
+          <NumberOne>10</NumberOne>
+          <Number>86</Number>
         </EnvironmentalBox>
-        <ul>
-          <li>
-            <Link to='/projects'>
-              <SecondaryButton>see all my projects</SecondaryButton>
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </FlexWrapper>
+        <EnvironmentalBox>
+          <Statistics>My Projects</Statistics>
+          <Statistics> My Organizations</Statistics>
+          <Statistics> Hours Spent</Statistics>
+        </EnvironmentalBox>
+        <SecondaryButton type='submit'>See your projects</SecondaryButton>
+      </InfoContainer>
+    </ColumnWrapper>
   );
 }
 
