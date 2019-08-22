@@ -3,18 +3,17 @@ import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 
 import styled from 'styled-components';
-import { Button, Icon } from '../styled-components';
+import { Button } from '../styled-components';
 
-// Images exports, refactoring to do:
-// import Ocean from '../assets/Categories/Ocean.jpg';
-// import Land from '../assets/Categories/Land.jpg';
-// import Air from '../assets/Categories/Air.jpg';
-// import Forest from '../assets/Categories/Forest.jpg';
-// import Wildlife from '../assets/Categories/Wildlife.jpg';
+import Ocean from '../assets/pictoGrey/ocean-picto-grey.png';
+import Land from '../assets/pictoGrey/mountain-picto-grey.png';
+import Air from '../assets/pictoGrey/air-picto-grey.png';
+import Forest from '../assets/pictoGrey/forest-picto-grey.png';
+import Wildlife from '../assets/pictoGrey/wildlife-picto-grey.png';
 
 // Styling Buttons:
 const InButton = styled(Button)`
-  margin: 2% auto;
+  margin: 3.5% auto;
   width: 60vw;
   background: ${(props) => (props.isSelected ? '#fff' : '#a5d6a7')};
   color: ${(props) => (props.isSelected ? '#000' : '#fff')};
@@ -24,15 +23,17 @@ const InButton = styled(Button)`
 
 const NGOButton = styled(Button)`
   background: ${(props) =>
-    props.ngo ? 'rgba(255, 255, 255, 0.35)' : 'rgba(255, 255, 255, 0.35)'};
+    props.ngo ? 'rgba(255, 255, 255, 0.45)' : 'rgba(255, 255, 255, 0.45)'};
   color: ${(props) => (props.ngo ? '#fff' : '#fff')};
   border: ${(props) => (props.ngo ? '0px' : '0px')};
   margin: 0 1vh 10vh 2vh;
   font-size: 12px;
-  padding-left: 2vw;
+  padding-left: 4vw;
+  padding-bottom: 4vh;
   height: 30px;
   text-align: left;
-  font-weight: 600;
+  font-weight: 700;
+  text-shadow: 1px 1px #a9a9a9;
 `;
 
 // Styling other: NEED TO REMOVE FLEXWRAPPER PADDING
@@ -47,12 +48,13 @@ const ColumnWrapper = styled.div`
 const TopPage = styled.div`
   display: flex;
   flex-direction: row;
-  align-self: flex-end;
+  align-self: flex-start;
   width: 8%;
   position: absolute;
   top: 0;
+  left: 0;
   z-index: 3;
-  margin: 2.5vh 1.5vw 0 0;
+  margin: 4vh 1.5vw 0 2vw;
 `;
 
 const BgTopImage = styled.div`
@@ -74,7 +76,7 @@ const Tag = styled.div`
   height: 32px;
   align-self: flex-start;
   color: #fff;
-  margin-bottom: 26vh;
+  margin-bottom: 20vh;
   background: rgba(255, 255, 255, 0.35);
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -83,8 +85,8 @@ const Tag = styled.div`
   padding: 0.5vh 1vh;
 `;
 
-const CategoryIcon = styled(Icon)`
-  margin-left: ${(props) => (props.category ? '1vh' : '1vh')};
+const CategoryIcon = styled.div`
+  margin-left: ${(props) => (props.category ? '2vh' : '2vh')};
 `;
 
 const Title = styled.h1`
@@ -116,11 +118,18 @@ const Info = styled.div`
   align-content: center;
 `;
 
+const SubText = styled.h3`
+  font-size: 16px;
+  font-weight: 400;
+`;
+
 const SubInfo = styled.div`
   display: flex;
   width: 70vw;
   flex-direction: column;
   font-size: 14px;
+  margin-top: 1vh;
+  padding-top: 2vh;
 `;
 
 const Date = styled.div`
@@ -144,7 +153,7 @@ const Details = styled.div`
 
 const ProjectById = (props) => {
   const {
-    // category,
+    category,
     name,
     availability,
     organizationName,
@@ -163,27 +172,27 @@ const ProjectById = (props) => {
   } = props.selectedProject; // eslint-disable-line
 
   // local state
-  const [isSelected, setSelection] = useState(true);
+  const [isSelected, setSelection] = useState(false);
 
   // render category pics --placeholders-- refactoring to do:
-  // const renderCategoryImage = () => {
-  //   if (category === 'Ocean') {
-  //     return <img src={Ocean} alt='category' height='100px' />;
-  //   }
-  //   if (category === 'Land') {
-  //     return <img src={Land} alt='category' height='100px' />;
-  //   }
-  //   if (category === 'Air') {
-  //     return <img src={Air} alt='category' height='100px' />;
-  //   }
-  //   if (category === 'Forest') {
-  //     return <img src={Forest} alt='category' height='100px' />;
-  //   }
-  //   if (category === 'Wildlife') {
-  //     return <img src={Wildlife} alt='category' height='100px' />;
-  //   }
-  //   return <p>no picture for this category</p>;
-  // };
+  const renderCategoryImage = () => {
+    if (category === 'Ocean') {
+      return <img src={Ocean} alt='category' height='70px' />;
+    }
+    if (category === 'Land') {
+      return <img src={Land} alt='category' height='70px' />;
+    }
+    if (category === 'Air') {
+      return <img src={Air} alt='category' height='70px' />;
+    }
+    if (category === 'Forest') {
+      return <img src={Forest} alt='category' height='70px' />;
+    }
+    if (category === 'Wildlife') {
+      return <img src={Wildlife} alt='category' height='70px' />;
+    }
+    return <p>no picture for this category</p>;
+  };
 
   // map participants:
   // function showParticipants() {
@@ -216,14 +225,14 @@ const ProjectById = (props) => {
   };
 
   const renderBtnText = () => {
-    return isSelected ? 'YOU ARE IN!' : 'I AM IN!';
+    return isSelected ? 'YOU ARE IN!' : 'COUNT ME IN!';
   };
 
   return (
     <ColumnWrapper>
       <TopPage>
         <Link to={`/projects/city/${city}`}>
-          <img src='/assets/icons/icon_back.svg' alt='back' height='30px' />
+          <img src='/assets/icons/back-thick.svg' alt='back' height='30px' />
         </Link>
       </TopPage>
       <BgTopImage image={picture}>
@@ -231,7 +240,7 @@ const ProjectById = (props) => {
           {availability}
           <span>-term project&nbsp;&nbsp;</span>
         </Tag>
-        <CategoryIcon src='/assets/icons/tree.png' alt='tree' category />
+        <CategoryIcon>{renderCategoryImage()}</CategoryIcon>
         <Title>{name}</Title>
         <Date>
           <Moment format='MMM Do'>{date}</Moment>
@@ -242,7 +251,7 @@ const ProjectById = (props) => {
         </Date>
         <Link to={`/orgs/${organizationId}`}>
           <NGOButton type='button' ngo>
-            DISCOVER&nbsp;
+            DISCOVER MORE ABOUT&nbsp;
             {organizationName}
           </NGOButton>
         </Link>
@@ -252,15 +261,14 @@ const ProjectById = (props) => {
           <SubInfo>
             <h2>{role}</h2>
             <h3>{organizationName}</h3>
-            <h3>
+            <SubText>
               {spacesAvailable}
               &nbsp;spots left
-            </h3>
+            </SubText>
           </SubInfo>
         </Info>
         {/* <h3>Participants</h3>
           <div>{showParticipants()}</div> */}
-        {/* <div>{renderCategoryImage()}</div> */}
         <InButton type='submit' onClick={btnClick} isSelected={!isSelected}>
           {renderBtnText()}
         </InButton>

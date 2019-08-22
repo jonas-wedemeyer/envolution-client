@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import Moment from 'react-moment';
 import styled from 'styled-components';
+
+import Ocean from '../assets/pictoGrey/ocean-picto-grey.png';
+import Land from '../assets/pictoGrey/mountain-picto-grey.png';
+import Air from '../assets/pictoGrey/air-picto-grey.png';
+import Forest from '../assets/pictoGrey/forest-picto-grey.png';
+import Wildlife from '../assets/pictoGrey/wildlife-picto-grey.png';
+import UpcomingProjects from '../assets/mockup/mockup-org-projects.PNG';
 
 // styled-components:
 const ColumnWrapper = styled.div`
@@ -15,12 +21,13 @@ const ColumnWrapper = styled.div`
 const TopPage = styled.div`
   display: flex;
   flex-direction: row;
-  align-self: flex-end;
+  align-self: flex-start;
   width: 8%;
-  position: fixed;
+  position: absolute;
   top: 0;
+  left: 0;
   z-index: 3;
-  margin: 2.5vh 1.5vw 0 0;
+  margin: 4vh 1.5vw 0 2vw;
 `;
 
 const BgTopImage = styled.div`
@@ -53,7 +60,7 @@ const InfoContainer = styled.div`
   flex-direction: column;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  background: white;
+  background: #f9f9f9;
   position: relative;
   top: -5vh;
   width: 100%;
@@ -61,23 +68,33 @@ const InfoContainer = styled.div`
 
 const Details = styled.div`
   display: flex;
-  height: 50vh;
+  height: 60%;
   flex-flow: column wrap;
-  padding: 2vh 2vh 2vh 2vh;
-  font-size: 14px;
+  padding: 2vh 2vh 0vh 2vh;
+  font-size: 16px;
   justify-content: space-between;
   justify-content: flex-start;
 `;
 
+const CategoryIcon = styled.div`
+  margin-left: ${(props) => (props.category ? '2vh' : '2vh')};
+`;
+
 const DescriptionTitle = styled.h3`
   display: flex;
-  padding: 2vh 1vw 1vh 2vw;
+  padding: 2vh 1vw 1vh 0vw;
   font-size: 24px;
   font-weight: 700;
 `;
 
+const ProjectImage = styled.img`
+  display: flex;
+  justify-self: flex-start;
+  margin: auto;
+`;
+
 export default function OrgById(props) {
-  const { picture, name, mission, projects } = props.selectedOrg; // eslint-disable-line
+  const { picture, name, mission, category, website } = props.selectedOrg; // eslint-disable-line
 
   // map projects:
   // function showOrgProjects() {
@@ -94,24 +111,50 @@ export default function OrgById(props) {
   //   return null;
   // }
 
+  // render category pictos - refactoring to do:
+  const renderCategoryImage = () => {
+    if (category === 'Ocean') {
+      return <img src={Ocean} alt='category' height='70px' />;
+    }
+    if (category === 'Land') {
+      return <img src={Land} alt='category' height='70px' />;
+    }
+    if (category === 'Air') {
+      return <img src={Air} alt='category' height='70px' />;
+    }
+    if (category === 'Forest') {
+      return <img src={Forest} alt='category' height='70px' />;
+    }
+    if (category === 'Wildlife') {
+      return <img src={Wildlife} alt='category' height='70px' />;
+    }
+    return <p>no picture for this category</p>;
+  };
+
   return (
     <ColumnWrapper>
       <TopPage>
-        <Link to='/projects/d4ad1c26-453f-416b-a0c0-2640be6d29c2'>
-          <img src='/assets/icons/icon_back.svg' alt='back' height='30px' />
+        <Link to='/projects/fd4a2355-1635-4cc1-86a1-2cf2d88ccecd'>
+          <img src='/assets/icons/back-thick.svg' alt='back' height='30px' />
         </Link>
       </TopPage>
       <BgTopImage image={picture}>
+        <CategoryIcon>{renderCategoryImage()}</CategoryIcon>
         <Title>{name}</Title>
       </BgTopImage>
       <InfoContainer>
         <Details>
-          <DescriptionTitle>About us:</DescriptionTitle>
+          <DescriptionTitle>About us</DescriptionTitle>
           <p>{mission}</p>
-          {/* <div>
-          <h2>Upcoming projects:</h2>
-          {showOrgProjects()}
-        </div> */}
+          <DescriptionTitle>Our website</DescriptionTitle>
+          <p>{website}</p>
+          <DescriptionTitle>Upcoming projects</DescriptionTitle>
+          <ProjectImage
+            src={UpcomingProjects}
+            alt='upcoming'
+            height='365px'
+            width='280px'
+          />
         </Details>
       </InfoContainer>
     </ColumnWrapper>
