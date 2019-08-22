@@ -5,7 +5,7 @@ import AuthPage from './AuthPage';
 import UserProfile from './UserProfile';
 import UserProjects from './UserProjects';
 import Onboarding from './Onboarding';
-import AddProject from './AddProject';
+import NewProject from './NewProject';
 
 export {
   ProjectPage,
@@ -15,5 +15,5 @@ export {
   UserProfile,
   UserProjects,
   Onboarding,
-  AddProject,
+  NewProject,
 };

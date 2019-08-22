@@ -8,7 +8,7 @@ import {
   AuthPage,
   UserProfile,
   Onboarding,
-  AddProject,
+  NewProject,
 } from './containers';
 // import { NotFound } from './components';
 import ComponentsList from './styled-components/ComponentsList';
@@ -30,7 +30,7 @@ function App() {
       <PrivateRoute exact path='/orgs/:orgId' component={OrgDetail} />
       <PrivateRoute exact path='/styled-comps' component={ComponentsList} />
       <PrivateRoute exact path='/myprofile' component={UserProfile} />
-      <PrivateRoute exact path='/newproject' component={AddProject} />
+      <PrivateRoute exact path='/newproject' component={NewProject} />
       {/* <Route component={NotFound} /> */}
     </div>
   );
