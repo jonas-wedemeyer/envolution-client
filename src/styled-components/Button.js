@@ -6,6 +6,7 @@ const Button = styled.button`
   border: 2px solid ${(props) => props.theme.color.primary};
   font-size: ${(props) => props.theme.fontSize.medium};
   font-weight: ${(props) => props.theme.fontWeight.bold};
+  padding: 10px;
   text-transform: uppercase;
   border-radius: 10px;
   height: 45px;

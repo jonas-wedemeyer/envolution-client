@@ -11,6 +11,7 @@ const ProjectList = ({ projects }) => {
         organizationName={project.organizationName}
         availability={project.availability}
         category={project.category}
+        picture={project.picture}
       />
     </li>
   ));

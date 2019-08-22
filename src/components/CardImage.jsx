@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { FlexWrapper } from '../styled-components';
+import { FlexWrapper, Text, Title } from '../styled-components';
 
 const Image = styled.div`
   background-image: url(${(props) => props.image});
@@ -15,14 +15,16 @@ const Image = styled.div`
   align-items: center;
 `;
 
-const H1 = styled.h1`
+const TitleUpCase = styled(Title)`
   text-transform: uppercase;
-  text-shadow: 1px 1px #00000080;
-  position: fixed;
+  font-size: 36px;
+  text-shadow: 1px 1px #21212180;
 `;
 
-const Text = styled.p`
+const TextRevert = styled(Text)`
   font-size: 18px;
+  color: #fafafa;
+  margin-bottom: 10px;
 `;
 
 // TODO: Refactor for using height with flexEnd
@@ -31,37 +33,41 @@ const Background = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  margin-top: 100%;
+  margin-top: 50px;
   border-radius: 10px;
   width: 90%;
-  padding: 8px;
+  padding: 10px;
 `;
 
 export default function CardImage({ image, category, name }) {
   return (
     <>
       <Image image={image} category={category}>
-        <H1>{category}</H1>
+        <TitleUpCase>{category}</TitleUpCase>
         {name && (
           <Background direction='column' justify='flex-end'>
             <>
-              <Text>
-                Hi, 
-                {name}
+              <TextRevert>
+                Hi,&nbsp;
+                <strong>{name}</strong>
                 !
-              </Text>
-              <Text>Tell us your environmental goals by swiping</Text>
-              <Text>
-                <FlexWrapper justify='center' align='center'>
-                  <span role='img' aria-label='left'>
-                    👈
-                  </span>
-                  or
-                  <span role='img' aria-label='right'>
-                    👉
-                  </span>
-                </FlexWrapper>
-              </Text>
+              </TextRevert>
+              <TextRevert>Tell us your environmental goals by swiping</TextRevert>
+              <FlexWrapper justify='center' align='center'>
+                <img
+                  src='/assets/icons/arrow-left.png'
+                  alt='arrow'
+                  style={{ height: '24px', paddingRight: '15px' }}
+                />
+                <TextRevert>
+                or
+                </TextRevert>
+                <img
+                  src='/assets/icons/arrow-right.png'
+                  alt='arrow'
+                  style={{ height: '24px', paddingLeft: '15px' }}
+                />
+              </FlexWrapper>
             </>
           </Background>
         )}
