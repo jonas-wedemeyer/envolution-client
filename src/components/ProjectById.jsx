@@ -103,7 +103,7 @@ const InfoContainer = styled.div`
   flex-direction: column;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  background: white;
+  background: #f9f9f9;
   position: relative;
   top: -5vh;
   width: 100%;
