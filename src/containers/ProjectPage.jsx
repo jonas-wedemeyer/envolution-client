@@ -21,13 +21,10 @@ const PageTitle = styled.h1`
 
 const FilterIcon = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   position: relative;
-  /* top: 0;
-  left: 0; */
-  /* z-index: 999; */
   width: 96%;
-  padding-top: 2vh;
+  padding: 3vh 0 0 3vw;
 `;
 
 const Background = styled.div`
@@ -99,7 +96,11 @@ export default function ProjectPage(props) {
   return (
     <Background>
       <FilterIcon type='button' onClick={toggleComponent}>
-        <img src='/assets/icons/icon_filter.png' alt='filter' height='50px' />
+        <img
+          src='/assets/icons/filter-thick-black.png'
+          alt='filter'
+          height='40px'
+        />
       </FilterIcon>
       {!isHidden && (
         <FilterForm isHidden={!isHidden} toggleComponent={toggleComponent} />

@@ -8,9 +8,9 @@ import './Navbar.css';
 const MenuIcon = styled.div`
   position: relative;
   top: 0;
-  left: 0;
+  right: 0;
   z-index: 999;
-  width: 80%;
+  width: 35%;
 `;
 
 const StyledLink = styled(NavLink)`
@@ -28,7 +28,11 @@ const Navbar = () => {
   return (
     <>
       <MenuIcon className='nav__icon' type='menu-fold' onClick={handleClick}>
-        <img src='/assets/icons/menu_black.svg' alt='menu' height='30px' />
+        <img
+          src='/assets/icons/menu-thick-black.png'
+          alt='menu'
+          height='42px'
+        />
       </MenuIcon>
       <div id='wrapper' className='wrapper'>
         <div className='nav'>
