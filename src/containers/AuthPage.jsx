@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { SignIn, SignUp } from '../components';
-import ForestImg from '../assets/Categories/Forest.jpg';
+import ForestImg from '../assets/Categories/home.jpeg';
 
 // TODO: Outsource styled components to centralised folder
 const LinkDiv = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   text-decoration: underline;
   cursor: pointer;
 `;
@@ -20,6 +23,9 @@ const BgImage = styled.div`
 `;
 
 const TransparentBg = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   background: #ffffff60;
   margin-left: 5vw;
   margin-right: 5vw;
