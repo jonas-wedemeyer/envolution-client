@@ -4,15 +4,15 @@ import styled from 'styled-components';
 import {
   Button,
   FlexWrapper,
-  Input,
   Icon,
-  ListImage,
+  Input,
   ListFlag,
+  ListImage,
   LoadingSpinner,
-  Title,
   Subtitle,
   Text,
   TextTitle,
+  Title,
 } from '.';
 
 const FlexWrapperCol = styled(FlexWrapper)`
