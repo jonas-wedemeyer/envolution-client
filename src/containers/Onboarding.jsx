@@ -6,7 +6,8 @@ import styled from 'styled-components';
 import getUser from '../redux/reducers/authentication/selector';
 import { updateUser } from '../redux/reducers/authentication/actions';
 import { InterestCard, CardImage } from '../components';
-import { Button, FlexWrapper } from '../styled-components';
+import { Button, Text } from '../styled-components';
+import HomeImg from '../assets/Categories/home.jpeg';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -50,6 +51,37 @@ export default function Onboarding({ history }) {
     history.push('/projects');
   };
 
+  const BgImage = styled.div`
+    display: flex;
+    height: inherit;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(${(props) => props.image});
+    height: 100vh;
+    background-size: cover;
+    color: ${(props) => props.theme.color.secondary};
+  `;
+
+  // TODO: Refactor for using height with flexEnd
+  const Background = styled.div`
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 50px;
+    border-radius: 10px;
+    width: 90%;
+    padding: 10px;
+  `;
+
+  const TextRevert = styled(Text)`
+    font-size: 18px;
+    color: #fafafa;
+    margin-bottom: 10px;
+    text-align: center;
+  `;
+
   return (
     <Wrapper>
       {cardDeck.length > 0 ? (
@@ -57,14 +89,19 @@ export default function Onboarding({ history }) {
           <InterestCard>{cardDeck[0]}</InterestCard>
         </Swipeable>
       ) : (
-        <FlexWrapper
-          justify='center'
-          align='center'
-          direction='column'
-          height='inherit'
-        >
-          <Button onClick={onClick}>Take me to the Projects</Button>
-        </FlexWrapper>
+        <BgImage image={HomeImg}>
+          <Background direction='column' justify='center' align='center'>
+            <TextRevert>
+              Awesome &nbsp;
+              <strong>Jonas</strong>
+              you completed Envolution&apos;s onboarding
+            </TextRevert>
+            <TextRevert>
+              You are on your way to becoming an environmental hero!
+            </TextRevert>
+          </Background>
+          <Button onClick={onClick}>See projects in your area</Button>
+        </BgImage>
       )}
       {cardDeck.length > 1 && (
         <InterestCard zIndex={-1}>{cardDeck[1]}</InterestCard>

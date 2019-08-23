@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { FlexWrapper, Text, Title } from '../styled-components';
+import { Text, Title } from '../styled-components';
 
 const Image = styled.div`
   background-image: url(${(props) => props.image});
@@ -25,11 +25,12 @@ const TextRevert = styled(Text)`
   font-size: 18px;
   color: #fafafa;
   margin-bottom: 10px;
+  text-align: center;
 `;
 
 // TODO: Refactor for using height with flexEnd
 const Background = styled.div`
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -45,30 +46,20 @@ export default function CardImage({ image, category, name }) {
       <Image image={image} category={category}>
         <TitleUpCase>{category}</TitleUpCase>
         {name && (
-          <Background direction='column' justify='flex-end'>
-            <>
-              <TextRevert>
-                Hi,&nbsp;
-                <strong>{name}</strong>
-                !
-              </TextRevert>
-              <TextRevert>Tell us your environmental goals by swiping</TextRevert>
-              <FlexWrapper justify='center' align='center'>
-                <img
-                  src='/assets/icons/arrow-left.png'
-                  alt='arrow'
-                  style={{ height: '24px', paddingRight: '15px' }}
-                />
-                <TextRevert>
-                or
-                </TextRevert>
-                <img
-                  src='/assets/icons/arrow-right.png'
-                  alt='arrow'
-                  style={{ height: '24px', paddingLeft: '15px' }}
-                />
-              </FlexWrapper>
-            </>
+          <Background direction='column' justify='center' align='center'>
+            <TextRevert>
+              Hi, &nbsp;
+              <strong>{name}</strong>
+              !
+            </TextRevert>
+            <TextRevert>Tell us your environmental goals.</TextRevert>
+            <TextRevert>
+              Swipe
+              <strong>RIGHT</strong>
+              to add a goal and 
+              <strong>LEFT</strong>
+              to drop it.
+            </TextRevert>
           </Background>
         )}
       </Image>
