@@ -105,7 +105,7 @@ export default function ProjectPage(props) {
       {!isHidden && (
         <FilterForm isHidden={!isHidden} toggleComponent={toggleComponent} />
       )}
-      <PageTitle>Projects near you</PageTitle>
+      <PageTitle>What&apos;s up in Barcelona</PageTitle>
       <ProjectList projects={filteredProjects()} />
       <div>{renderEmptyList()}</div>
     </Background>

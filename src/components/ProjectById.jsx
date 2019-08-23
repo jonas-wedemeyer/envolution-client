@@ -15,8 +15,8 @@ import Wildlife from '../assets/pictoGrey/wildlife-picto-grey.png';
 const InButton = styled(Button)`
   margin: 3.5% auto;
   width: 60vw;
-  background: ${(props) => (props.isSelected ? '#fff' : '#a5d6a7')};
-  color: ${(props) => (props.isSelected ? '#000' : '#fff')};
+  background: ${(props) => (props.isSelected ? '#212121' : '#a5d6a7')};
+  color: ${(props) => (props.isSelected ? '#fafafa' : '#fff')};
   border: ${(props) =>
     props.isSelected ? '2px solid #000' : '2px solid #fff'};
 `;
@@ -29,11 +29,11 @@ const NGOButton = styled(Button)`
   margin: 0 1vh 10vh 2vh;
   font-size: 12px;
   padding-left: 4vw;
-  padding-bottom: 4vh;
+  padding-bottom: 3.5vh;
   height: 30px;
   text-align: left;
   font-weight: 700;
-  text-shadow: 1px 1px #a9a9a9;
+  /* text-shadow: 1px 1px #a9a9a9; */
 `;
 
 // Styling other: NEED TO REMOVE FLEXWRAPPER PADDING
@@ -43,6 +43,7 @@ const ColumnWrapper = styled.div`
   padding: 0px;
   width: 100%;
   position: relative;
+  background: #fafafa;
 `;
 
 const TopPage = styled.div`
