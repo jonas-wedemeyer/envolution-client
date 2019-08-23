@@ -33,10 +33,8 @@ const NGOButton = styled(Button)`
   height: 30px;
   text-align: left;
   font-weight: 700;
-  /* text-shadow: 1px 1px #a9a9a9; */
 `;
 
-// Styling other: NEED TO REMOVE FLEXWRAPPER PADDING
 const ColumnWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -172,7 +170,6 @@ const ProjectById = (props) => {
     address,
   } = props.selectedProject; // eslint-disable-line
 
-  // local state
   const [isSelected, setSelection] = useState(false);
 
   // render category pics --placeholders-- refactoring to do:

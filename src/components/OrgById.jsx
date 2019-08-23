@@ -7,7 +7,6 @@ import Land from '../assets/pictoGrey/mountain-picto-grey.png';
 import Air from '../assets/pictoGrey/air-picto-grey.png';
 import Forest from '../assets/pictoGrey/forest-picto-grey.png';
 import Wildlife from '../assets/pictoGrey/wildlife-picto-grey.png';
-import UpcomingProjects from '../assets/mockup/mockup-org-projects.PNG';
 
 // styled-components:
 const ColumnWrapper = styled.div`
@@ -88,12 +87,6 @@ const DescriptionTitle = styled.h3`
   font-weight: 700;
 `;
 
-const ProjectImage = styled.img`
-  display: flex;
-  justify-self: flex-start;
-  margin: auto;
-`;
-
 export default function OrgById(props) {
   const { picture, name, mission, category, website } = props.selectedOrg; // eslint-disable-line
 
@@ -150,12 +143,6 @@ export default function OrgById(props) {
           <DescriptionTitle>Our website</DescriptionTitle>
           <p>{website}</p>
           <DescriptionTitle>Upcoming projects</DescriptionTitle>
-          <ProjectImage
-            src={UpcomingProjects}
-            alt='upcoming'
-            height='365px'
-            width='280px'
-          />
         </Details>
       </InfoContainer>
     </ColumnWrapper>
