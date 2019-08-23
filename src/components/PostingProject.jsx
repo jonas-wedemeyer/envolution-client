@@ -13,7 +13,7 @@ import {
 } from '../styled-components';
 
 const Page = styled(FlexWrapper)`
-  background-color: #f9f9f9;
+  background-color: #fafafa;
 `;
 
 const FlexColWrap = styled(FlexWrapper)`
@@ -47,7 +47,7 @@ const FormInput = styled(Input)`
   height: 48px;
   font-size: 16px;
   font-weight: 500;
-  border-bottom: 2px solid #c8ccd4;
+  border-bottom: 2px solid ${(props) => props.theme.color.primary};
   background: none;
   border-radius: 0;
   color: #223254;
@@ -63,8 +63,8 @@ const FormText = styled(Text)`
 
 const BtmGreenBtn = styled(Button)`
   margin: 40px 0;
-  background: ${(props) => (props.isSelected ? '#fff' : '#a5d6a7')};
-  color: ${(props) => (props.isSelected ? '#000' : '#fff')};
+  background: ${(props) => (props.isSelected ? '#212121' : '#a5d6a7')};
+  color: ${(props) => (props.isSelected ? '#fafafa' : '#fff')};
   border: ${(props) =>
     props.isSelected ? '2px solid #000' : '2px solid #a5d6a7'};
 `;
@@ -86,8 +86,9 @@ const TopPage = styled.div`
   flex-direction: row;
   align-self: flex-start;
   width: 8%;
-  position: fixed;
+  position: absolute;
   top: 0;
+  left: 0;
   z-index: 3;
   margin: 4vh 1.5vw 0 2vw;
 `;
@@ -182,7 +183,7 @@ function PostingProject() {
           <IconBox>
             <Icons>
               <IndivIcon src='/assets/icons/Forest.png' height='4px' />
-              <IndivIcon src='/assets/icons/Water.png' height='4px' />
+              <IndivIcon src='/assets/icons/Ocean.png' height='4px' />
               <IndivIcon src='/assets/icons/Land.png' height='4px' />
               <IndivIcon src='/assets/icons/Wildlife.png' height='4px' />
               <IndivIcon src='/assets/icons/Air.png' height='4px' />
@@ -196,9 +197,13 @@ function PostingProject() {
             max='100'
             onChange={handleChange}
           />
-          {/* <BtmGreenBtn type='submit' onClick={btnClick} isSelected={!isSelected}> 
+          <BtmGreenBtn
+            type='submit'
+            onClick={btnClick}
+            isSelected={!isSelected}
+          >
             {renderBtnText()}
-          </BtmGreenBtn> */}
+          </BtmGreenBtn>
         </FlexColWrap>
       </FormBox>
     </Page>

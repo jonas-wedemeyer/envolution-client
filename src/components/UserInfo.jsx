@@ -44,6 +44,7 @@ const ColumnWrapper = styled.div`
   padding: 0px;
   width: 100%;
   position: relative;
+  background: #fafafa;
 `;
 
 const TopPage = styled.div`
@@ -117,7 +118,8 @@ const TextLastName = styled(TextTitle)`
 const Location = styled.div`
   margin-bottom: 80px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
   margin-left: 10px;
 `;
 
@@ -197,9 +199,9 @@ function UserInfo({ loggedUser }) {
         <IconBox>{showUserInterests()}</IconBox>
         <TextAboutMe>{aboutMe}</TextAboutMe>
         <EnvironmentalBox>
-          <NumberOne>22</NumberOne>
-          <NumberOne>10</NumberOne>
-          <Number>86</Number>
+          <NumberOne>1</NumberOne>
+          <NumberOne>1</NumberOne>
+          <Number>0</Number>
         </EnvironmentalBox>
         <EnvironmentalBox>
           <Statistics>My Projects</Statistics>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { SignIn, SignUp } from '../components';
-import ForestImg from '../assets/Categories/home.jpeg';
+import HomeImg from '../assets/Categories/home.jpeg';
 
 // TODO: Outsource styled components to centralised folder
 const LinkDiv = styled.div`
@@ -67,7 +67,7 @@ export default function AuthPage() {
   }
 
   return (
-    <BgImage image={ForestImg}>
+    <BgImage image={HomeImg}>
       <TransparentBg>
         <Logo src='/assets/Logo/logo.png' alt='logo' />
       </TransparentBg>

@@ -16,6 +16,7 @@ const ColumnWrapper = styled.div`
   padding: 0px;
   width: 100%;
   position: relative;
+  background: #fafafa;
 `;
 
 const TopPage = styled.div`
