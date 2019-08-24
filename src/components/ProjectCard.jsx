@@ -3,12 +3,8 @@ import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import styled from 'styled-components';
 
-// Images exports, refactoring to do:
-// import Ocean from '../assets/Categories/Ocean.jpg';
-// import Land from '../assets/Categories/Land.jpg';
-// import Air from '../assets/Categories/Air.jpg';
-// import Forest from '../assets/Categories/Forest.jpg';
-// import Wildlife from '../assets/Categories/Wildlife.jpg';
+import clock from '../assets/icons/clock.png';
+import plus from '../assets/icons/green-plus.png';
 
 // Styled-components:
 const ColumnWrapper = styled.div`
@@ -95,35 +91,7 @@ const SelectButton = styled.div`
 `;
 
 const ProjectCard = (props) => {
-  const {
-    name,
-    id,
-    organizationName,
-    date,
-    availability,
-    // category,
-    picture,
-  } = props;
-
-  // render category pics --placeholders-- refactoring to do:
-  // const renderImage = () => {
-  //   if (category === 'Ocean') {
-  //     return <img src={Ocean} alt='category' height='100px' />;
-  //   }
-  //   if (category === 'Land') {
-  //     return <img src={Land} alt='category' height='100px' />;
-  //   }
-  //   if (category === 'Air') {
-  //     return <img src={Air} alt='category' height='100px' />;
-  //   }
-  //   if (category === 'Forest') {
-  //     return <img src={Forest} alt='category' height='100px' />;
-  //   }
-  //   if (category === 'Wildlife') {
-  //     return <img src={Wildlife} alt='category' height='100px' />;
-  //   }
-  //   return <p>no picture for this category</p>;
-  // };
+  const { name, id, organizationName, date, availability, picture } = props;
 
   return (
     <ColumnWrapper>
@@ -137,19 +105,14 @@ const ProjectCard = (props) => {
           <SubTitle>{organizationName}</SubTitle>
           <Line>
             <Date>
-              <img src='/assets/icons/clock.png' alt='back' height='20px' />
+              <img src={clock} alt='back' height='20px' />
               <span>&nbsp;&nbsp;</span>
               <Moment format='MMM Do'>{date}</Moment>
               <span>&nbsp;at&nbsp;</span>
               <Moment format='h:mm'>{date}</Moment>
             </Date>
-            {/* <div>{renderImage()}</div> */}
             <SelectButton select>
-              <img
-                src='/assets/icons/green-plus.png'
-                alt='back'
-                height='20px'
-              />
+              <img src={plus} alt='back' height='20px' />
             </SelectButton>
           </Line>
         </MiniatureImage>

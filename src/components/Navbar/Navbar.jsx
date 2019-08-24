@@ -1,6 +1,8 @@
-import React from './node_modules/react';
-import { NavLink } from './node_modules/react-router-dom';
-import styled from './node_modules/styled-components';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+
+import menu from '../../assets/icons/menu-thick-black.png';
 
 import './Navbar.css';
 
@@ -27,11 +29,7 @@ const Navbar = () => {
   return (
     <>
       <MenuIcon className='nav__icon' type='menu-fold' onClick={handleClick}>
-        <img
-          src='/assets/icons/menu-thick-black.png'
-          alt='menu'
-          height='42px'
-        />
+        <img src={menu} alt='menu' height='42px' />
       </MenuIcon>
       <div id='wrapper' className='wrapper'>
         <div className='nav'>

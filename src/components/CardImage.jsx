@@ -50,15 +50,15 @@ export default function CardImage({ image, category, name }) {
             <TextRevert>
               Hi, &nbsp;
               <strong>{name}</strong>
-              !
+              !&nbsp;
             </TextRevert>
             <TextRevert>Tell us your environmental goals.</TextRevert>
             <TextRevert>
-              Swipe
+              Swipe&nbsp;
               <strong>RIGHT</strong>
-              to add a goal and 
+              &nbsp;to add a goal and&nbsp;
               <strong>LEFT</strong>
-              to drop it.
+              &nbsp;to drop it.
             </TextRevert>
           </Background>
         )}

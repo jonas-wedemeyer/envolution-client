@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { getProjects } from '../redux/reducers/projects/actions';
 import { getAllProjects } from '../redux/reducers/projects/selector';
 import { FilterForm, ProjectList } from '../components';
+import filter from '../assets/icons/filter-thick-black.png';
 
 const googleKey = process.env.REACT_APP_GOOGLE_API_KEY;
 Geocode.setApiKey(googleKey);
@@ -77,6 +78,18 @@ export default function ProjectPage(props) {
     }
   }, [dispatch, props.match.params.cityName]); // eslint-disable-line
 
+  // If empty list of projects :
+  const renderEmptyList = () => {
+    if (projects.length === 0) {
+      return (
+        <h4 style={{ textAlign: 'center' }}>
+          There are no projects in your area yet.
+        </h4>
+      );
+    }
+    return null;
+  };
+
   // Search Toggle :
   const [isHidden, setVisibility] = useState(true);
 
@@ -84,29 +97,17 @@ export default function ProjectPage(props) {
     setVisibility(!isHidden);
   };
 
-  // If empty list :
-  const renderEmptyList = () => {
-    if (!projects) {
-      return <h3>No projects in your area</h3>;
-    }
-    return null;
-  };
-
   return (
     <Background>
       <FilterIcon type='button' onClick={toggleComponent}>
-        <img
-          src='/assets/icons/filter-thick-black.png'
-          alt='filter'
-          height='40px'
-        />
+        <img src={filter} alt='filter' height='40px' />
       </FilterIcon>
       {!isHidden && (
         <FilterForm isHidden={!isHidden} toggleComponent={toggleComponent} />
       )}
-      <PageTitle>What&apos;s up in Barcelona</PageTitle>
+      <PageTitle>What&apos;s up around you</PageTitle>
       <ProjectList projects={filteredProjects()} />
-      <div>{renderEmptyList()}</div>
+      {renderEmptyList()}
     </Background>
   );
 }

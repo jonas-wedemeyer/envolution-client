@@ -8,6 +8,7 @@ import { OrgById } from '../components';
 export default function OrgDetail(props) {
   const selectedOrg = useSelector(getOrg);
   const dispatch = useDispatch();
+  const { history } = props;
 
   useEffect(() => {
     const { orgId } = props.match.params;
@@ -16,7 +17,7 @@ export default function OrgDetail(props) {
 
   return (
     <div>
-      <OrgById selectedOrg={selectedOrg} />
+      <OrgById selectedOrg={selectedOrg} history={history} />
     </div>
   );
 }

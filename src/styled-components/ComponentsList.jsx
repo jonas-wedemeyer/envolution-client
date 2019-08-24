@@ -32,7 +32,7 @@ export default function ComponentsList() {
           placeholder='I am the placeholder text'
           autoComplete='off'
         />
-        <Icon src='/assets/icons/tree.svg' alt='tree' />
+        <Icon src='/assets/icons/forest.png' alt='tree' />
         <ListImage image='https://images.unsplash.com/photo-1456693906521-44e96e49e85f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'>
           <FlexWrapperCol>
             <ListFlag>Long Term</ListFlag>
