@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { getProjects } from '../redux/reducers/projects/actions';
 import { getAllProjects } from '../redux/reducers/projects/selector';
 import { FilterForm, ProjectList } from '../components';
+import filter from '../assets/icons/filter-thick-black.png';
 
 const googleKey = process.env.REACT_APP_GOOGLE_API_KEY;
 Geocode.setApiKey(googleKey);
@@ -95,11 +96,7 @@ export default function ProjectPage(props) {
   return (
     <Background>
       <FilterIcon type='button' onClick={toggleComponent}>
-        <img
-          src='/assets/icons/filter-thick-black.png'
-          alt='filter'
-          height='40px'
-        />
+        <img src={filter} alt='filter' height='40px' />
       </FilterIcon>
       {!isHidden && (
         <FilterForm isHidden={!isHidden} toggleComponent={toggleComponent} />

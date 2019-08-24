@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+import back from '../assets/icons/back-thick.svg';
+
 import {
   Button,
   FlexWrapper,
@@ -148,7 +150,7 @@ function PostingProject() {
     <Page style={{ justifyContent: 'center' }}>
       <TopPage>
         <Link to='/projects'>
-          <img src='/assets/icons/back-thick.svg' alt='back' height='30px' />
+          <img src={back} alt='back' height='30px' />
         </Link>
       </TopPage>
       <FormBox>
@@ -200,8 +202,7 @@ function PostingProject() {
           <BtmGreenBtn
             type='submit'
             onClick={btnClick}
-            isSelected={!isSelected}
-          >
+            isSelected={!isSelected}>
             {renderBtnText()}
           </BtmGreenBtn>
         </FlexColWrap>

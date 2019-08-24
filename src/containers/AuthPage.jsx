@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { SignIn, SignUp } from '../components';
 import HomeImg from '../assets/Categories/home.jpeg';
+import logo from '../assets/Logo/logo-final.png';
 
 // TODO: Outsource styled components to centralised folder
 const LinkDiv = styled.div`
@@ -69,7 +70,7 @@ export default function AuthPage() {
   return (
     <BgImage image={HomeImg}>
       <TransparentBg>
-        <Logo src='/assets/Logo/logo.png' alt='logo' />
+        <Logo src={logo} alt='logo' />
       </TransparentBg>
       <TransparentBg>
         {form}

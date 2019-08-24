@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+import back from '../assets/icons/back-thick.svg';
+import pin from '../assets/icons/pin.png';
 import Barcelona from '../assets/Cities/Barcelona.jpg';
 import Belize from '../assets/Cities/Belize.jpg';
 import Birmingham from '../assets/Cities/Birmingham.jpg';
@@ -135,7 +137,7 @@ const Statistics = styled(Text)`
   font-weight: 700;
 `;
 
-const EnvironmentalBox = styled.text`
+const EnvironmentalBox = styled.div`
   display: flex;
   padding: 12px;
   font-size: 12px;
@@ -167,6 +169,7 @@ function UserInfo({ loggedUser }) {
       interests &&
       interests.map((interest) => (
         <CategoryIcon
+          key={interest}
           src={`/assets/icons/${interest}.png`}
           alt={`icon of ${interest} focus`}
         />
@@ -178,7 +181,7 @@ function UserInfo({ loggedUser }) {
     <ColumnWrapper>
       <TopPage>
         <Link to='/projects'>
-          <img src='/assets/icons/back-thick.svg' alt='back' height='30px' />
+          <img src={back} alt='back' height='30px' />
         </Link>
       </TopPage>
       <BgTopImage image={cities[city]}>
@@ -186,7 +189,7 @@ function UserInfo({ loggedUser }) {
           <ProfilePicture src={picture} alt='location of user' height='100px' />
         </div>
         <Location>
-          <Pin src='/assets/icons/pin.png' alt='pin' />
+          <Pin src={pin} alt='pin' />
           <LocationTitle>BARCELONA</LocationTitle>
         </Location>
       </BgTopImage>

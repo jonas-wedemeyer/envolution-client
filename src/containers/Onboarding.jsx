@@ -8,6 +8,11 @@ import getUser from '../redux/reducers/authentication/selector';
 import { CardImage, InterestCard } from '../components';
 import { Button, Text } from '../styled-components';
 import HomeImg from '../assets/Categories/home.jpeg';
+import air from '../assets/Categories/air.jpeg';
+import forest from '../assets/Categories/forest.jpeg';
+import land from '../assets/Categories/land.jpeg';
+import ocean from '../assets/Categories/ocean.jpeg';
+import wildlife from '../assets/Categories/wildlife.jpeg';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -21,18 +26,11 @@ export default function Onboarding({ history }) {
   const [interest, setInterest] = useState([]);
   // TODO: Refactor to generate state dynamically based on categories
   const [cardDeck, setCardDeck] = useState([
-    <CardImage
-      image='../assets/Categories/forest.jpeg'
-      category='forest'
-      name={firstName}
-    />,
-    <CardImage image='../assets/Categories/air.jpeg' category='air' />,
-    <CardImage image='../assets/Categories/land.jpeg' category='land' />,
-    <CardImage image='../assets/Categories/ocean.jpeg' category='ocean' />,
-    <CardImage
-      image='../assets/Categories/wildlife.jpeg'
-      category='wildlife'
-    />,
+    <CardImage image={forest} category='forest' name={firstName} />,
+    <CardImage image={air} category='air' />,
+    <CardImage image={land} category='land' />,
+    <CardImage image={ocean} category='ocean' />,
+    <CardImage image={wildlife} category='wildlife' />,
   ]);
 
   let index = 0;
@@ -93,7 +91,7 @@ export default function Onboarding({ history }) {
           <Background direction='column' justify='center' align='center'>
             <TextRevert>
               Awesome &nbsp;
-              <strong>Jonas</strong>
+              <strong>Jonas </strong>
               you completed Envolution&apos;s onboarding
             </TextRevert>
             <TextRevert>

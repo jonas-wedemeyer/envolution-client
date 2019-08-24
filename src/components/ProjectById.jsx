@@ -5,6 +5,8 @@ import styled from 'styled-components';
 
 import { Button } from '../styled-components';
 
+import back from '../assets/icons/back-thick.svg';
+
 const InButton = styled(Button)`
   margin: 3.5% auto;
   width: 60vw;
@@ -178,7 +180,6 @@ const ProjectById = (props) => {
   //   return null;
   // }
 
-  // map tasks:
   const renderTasks = () => {
     if (tasks) {
       const showTasks = tasks.map((task) => (
@@ -203,7 +204,7 @@ const ProjectById = (props) => {
     <ColumnWrapper>
       <TopPage>
         <Link to={`/projects/city/${city}`}>
-          <img src='/assets/icons/back-thick.svg' alt='back' height='30px' />
+          <img src={back} alt='back' height='30px' />
         </Link>
       </TopPage>
       <BgTopImage image={picture}>
@@ -213,7 +214,7 @@ const ProjectById = (props) => {
         </Tag>
         <CategoryIcon>
           <img
-            src={`/assets/pictoGrey/${category}-picto-grey.png`}
+            src={`/assets/iconsWhite/${category}-picto-grey.png`}
             alt='categoryIcon'
             height='70px'
           />
