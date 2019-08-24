@@ -1,5 +1,6 @@
 import React from 'react';
-import ProjectCard from './ProjectCard';
+
+import ProjectCard  from './ProjectCard';
 
 const ProjectList = ({ projects }) => {
   const renderProjects = projects.map((project) => (

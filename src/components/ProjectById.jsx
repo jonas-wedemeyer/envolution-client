@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
-
 import styled from 'styled-components';
-import { Button } from '../styled-components';
 
+import { Button } from '../styled-components';
 import Ocean from '../assets/pictoGrey/ocean-picto-grey.png';
 import Land from '../assets/pictoGrey/mountain-picto-grey.png';
 import Air from '../assets/pictoGrey/air-picto-grey.png';

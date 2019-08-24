@@ -1,7 +1,6 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-
-import styled from 'styled-components';
+import React from './node_modules/react';
+import { NavLink } from './node_modules/react-router-dom';
+import styled from './node_modules/styled-components';
 
 import './Navbar.css';
 

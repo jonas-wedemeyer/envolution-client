@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 import {
-  FlexWrapper,
-  Input,
   Button,
+  FlexWrapper,
+  Icon,
+  Input,
   Text,
   TextTitle,
-  Icon,
 } from '../styled-components';
 
 const Page = styled(FlexWrapper)`
