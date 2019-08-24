@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import back from '../assets/icons/back-thick.svg';
@@ -102,10 +101,8 @@ export default function OrgById(props) {
 
   return (
     <ColumnWrapper>
-      <TopPage>
-        <Link to='/projects/fd4a2355-1635-4cc1-86a1-2cf2d88ccecd'>
-          <img src={back} alt='back' height='30px' />
-        </Link>
+      <TopPage onClick={() => props.history.goBack()}>
+        <img src={back} alt='back' height='30px' />
       </TopPage>
       <BgTopImage image={picture}>
         <CategoryIcon>

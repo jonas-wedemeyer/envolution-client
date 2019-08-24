@@ -78,7 +78,7 @@ export default function ProjectPage(props) {
     }
   }, [dispatch, props.match.params.cityName]); // eslint-disable-line
 
-  // If empty list :
+  // If empty list of projects :
   const renderEmptyList = () => {
     if (projects.length === 0) {
       return (
@@ -105,7 +105,7 @@ export default function ProjectPage(props) {
       {!isHidden && (
         <FilterForm isHidden={!isHidden} toggleComponent={toggleComponent} />
       )}
-      <PageTitle>What&apos;s up in Barcelona</PageTitle>
+      <PageTitle>What&apos;s up around you</PageTitle>
       <ProjectList projects={filteredProjects()} />
       {renderEmptyList()}
     </Background>
