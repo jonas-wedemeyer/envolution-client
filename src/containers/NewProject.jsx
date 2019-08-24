@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { postProject } from '../redux/reducers/projects/actions';
 import { postNewProject } from '../redux/reducers/projects/selector';
-import PostingProject from '../components/PostingProject';
+import { PostingProject } from '../components';
 
 export default function NewProject() {
   const newProject = useSelector(postNewProject);

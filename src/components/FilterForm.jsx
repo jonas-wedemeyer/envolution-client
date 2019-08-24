@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { SecondaryButton } from '../styled-components';
 
 import { setFilters } from '../redux/reducers/projects/actions';
+import { SecondaryButton } from '../styled-components';
 
 // styled-components
 const ColumnWrapper = styled.div`

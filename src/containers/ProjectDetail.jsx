@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getOneProject } from '../redux/reducers/projects/actions';
 import { getProject } from '../redux/reducers/projects/selector';
-import ProjectById from '../components/ProjectById';
+import { ProjectById } from '../components';
 
 export default function ProjectDetail(props) {
   const selectedProject = useSelector(getProject);
