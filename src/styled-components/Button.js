@@ -41,4 +41,34 @@ const GreenButton = styled(Button)`
   }
 `;
 
-export { Button, SecondaryButton, GreenButton };
+const InButton = styled(Button)`
+  margin: 3.5% auto;
+  width: 60vw;
+  background: ${(props) =>
+    props.isSelected ? props.theme.color.primary : props.theme.color.green};
+  color: ${(props) =>
+    props.isSelected ? props.theme.color.secondary : '#fff'};
+  border: ${(props) =>
+    props.isSelected ? '2px solid #000' : '2px solid #fff'};
+
+  &:active {
+    background: ${(props) => props.theme.color.primary};
+    color: ${(props) => props.theme.color.secondary};
+  }
+`;
+
+const TransparentButton = styled(Button)`
+  background: ${(props) =>
+    props.ngo ? 'rgba(255, 255, 255, 0.45)' : 'rgba(255, 255, 255, 0.45)'};
+  color: ${(props) => (props.ngo ? '#fff' : '#fff')};
+  border: ${(props) => (props.ngo ? '0px' : '0px')};
+  margin: 0 1vh 10vh 2vh;
+  font-size: 12px;
+  padding-left: 4vw;
+  padding-bottom: 3.5vh;
+  height: 30px;
+  text-align: left;
+  font-weight: 700;
+`;
+
+export { Button, GreenButton, InButton, SecondaryButton, TransparentButton };

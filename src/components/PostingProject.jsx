@@ -12,6 +12,7 @@ import {
   Input,
   Text,
   TextTitle,
+  TopPage,
 } from '../styled-components';
 
 const Page = styled(FlexWrapper)`
@@ -81,18 +82,6 @@ const Border = styled.div`
 const FormTextTitle = styled(TextTitle)`
   margin: 30px 0;
   font-size: 24px;
-`;
-
-const TopPage = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-self: flex-start;
-  width: 8%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 3;
-  margin: 4vh 1.5vw 0 2vw;
 `;
 
 function PostingProject() {

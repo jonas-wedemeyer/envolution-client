@@ -12,11 +12,15 @@ import Quintero from '../assets/Cities/Quintero.jpg';
 import Valencia from '../assets/Cities/Valencia.jpg';
 
 import {
+  BackgroundImage,
+  ColumnWrapper,
   Icon,
+  InfoContainer,
   SecondaryButton,
   TextTitle,
   Text,
   ListFlag,
+  TopPage,
   Subtitle,
 } from '../styled-components';
 
@@ -39,55 +43,9 @@ const IconBox = styled.div`
   margin-top: 10px 0 0 20px;
 `;
 
-const ColumnWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 0px;
-  width: 100%;
-  position: relative;
-  background: #fafafa;
-`;
-
-const TopPage = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-self: flex-start;
-  width: 8%;
-  position: absolute;
-  top: 0;
-  z-index: 3;
-  margin: 4vh 1.5vw 0 2vw;
-`;
-
-const BgTopImage = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  background-image: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.1) 10%,
-      rgba(0, 0, 0, 0.3) 50%
-    ),
-    url(${(props) => props.image});
-  height: 80vh;
-  width: 100%;
-  background-size: cover;
-`;
-
 const CategoryIcon = styled(Icon)`
   margin-left: ${(props) => (props.category ? '1vh' : '1vh')};
   margin: 16px 10px;
-`;
-
-const InfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  background: #f9f9f9;
-  position: relative;
-  top: -5vh;
-  width: 100%;
 `;
 
 const ProfilePicture = styled.img`
@@ -184,7 +142,7 @@ function UserInfo({ loggedUser }) {
           <img src={back} alt='back' height='30px' />
         </Link>
       </TopPage>
-      <BgTopImage image={cities[city]}>
+      <BackgroundImage image={cities[city]}>
         <div>
           <ProfilePicture src={picture} alt='location of user' height='100px' />
         </div>
@@ -192,7 +150,7 @@ function UserInfo({ loggedUser }) {
           <Pin src={pin} alt='pin' />
           <LocationTitle>BARCELONA</LocationTitle>
         </Location>
-      </BgTopImage>
+      </BackgroundImage>
       <InfoContainer>
         <EnvironmentalFlag>
           <TextFirstName>{firstName}</TextFirstName>

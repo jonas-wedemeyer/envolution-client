@@ -3,146 +3,26 @@ import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import styled from 'styled-components';
 
-import { Button } from '../styled-components';
+import {
+  BackgroundImage,
+  ColumnWrapper,
+  Date,
+  Details,
+  InButton,
+  Info,
+  InfoContainer,
+  SubText,
+  Tag,
+  TitleByID,
+  TopPage,
+  TransparentButton,
+  SubInfo,
+} from '../styled-components';
 
 import back from '../assets/icons/back-thick.svg';
 
-const InButton = styled(Button)`
-  margin: 3.5% auto;
-  width: 60vw;
-  background: ${(props) => (props.isSelected ? '#212121' : '#a5d6a7')};
-  color: ${(props) => (props.isSelected ? '#fafafa' : '#fff')};
-  border: ${(props) =>
-    props.isSelected ? '2px solid #000' : '2px solid #fff'};
-`;
-
-const NGOButton = styled(Button)`
-  background: ${(props) =>
-    props.ngo ? 'rgba(255, 255, 255, 0.45)' : 'rgba(255, 255, 255, 0.45)'};
-  color: ${(props) => (props.ngo ? '#fff' : '#fff')};
-  border: ${(props) => (props.ngo ? '0px' : '0px')};
-  margin: 0 1vh 10vh 2vh;
-  font-size: 12px;
-  padding-left: 4vw;
-  padding-bottom: 3.5vh;
-  height: 30px;
-  text-align: left;
-  font-weight: 700;
-`;
-
-const ColumnWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 0px;
-  width: 100%;
-  position: relative;
-  background: #fafafa;
-`;
-
-const TopPage = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-self: flex-start;
-  width: 8%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 3;
-  margin: 4vh 1.5vw 0 2vw;
-`;
-
-const BgTopImage = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  background-image: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.1) 10%,
-      rgba(0, 0, 0, 0.3) 50%
-    ),
-    url(${(props) => props.image});
-  height: 80vh;
-  width: 110%;
-  background-size: cover;
-`;
-
-const Tag = styled.div`
-  height: 32px;
-  align-self: flex-start;
-  color: #fff;
-  margin-bottom: 20vh;
-  background: rgba(255, 255, 255, 0.35);
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 0.5vh 1vh;
-`;
-
 const CategoryIcon = styled.div`
   margin-left: ${(props) => (props.category ? '2vh' : '2vh')};
-`;
-
-const Title = styled.h1`
-  display: flex;
-  padding: 2vh 1vh 2vh 2vh;
-  color: #fff;
-  font-size: 26px;
-  font-weight: 700;
-  width: 90%;
-`;
-
-const InfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  background: #f9f9f9;
-  position: relative;
-  top: -5vh;
-  width: 100%;
-`;
-
-const Info = styled.div`
-  display: flex;
-  flex-direction: row;
-  padding: 1vh 1vh 1vh 1vh;
-  font-size: 16px;
-  justify-content: space-between;
-  align-content: center;
-`;
-
-const SubText = styled.h3`
-  font-size: 16px;
-  font-weight: 400;
-`;
-
-const SubInfo = styled.div`
-  display: flex;
-  width: 70vw;
-  flex-direction: column;
-  font-size: 14px;
-  margin-top: 1vh;
-  padding-top: 2vh;
-`;
-
-const Date = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  color: #fff;
-  padding: 0 1vh 3vh 2vh;
-  font-size: 16px;
-  font-weight: 600;
-  width: 90%;
-`;
-
-const Details = styled.div`
-  display: flex;
-  height: 50vh;
-  flex-flow: column wrap;
-  padding: 2vh 2vh 2vh 1vh;
-  font-size: 14px;
-  justify-content: space-between;
 `;
 
 const ProjectById = (props) => {
@@ -207,7 +87,7 @@ const ProjectById = (props) => {
           <img src={back} alt='back' height='30px' />
         </Link>
       </TopPage>
-      <BgTopImage image={picture}>
+      <BackgroundImage image={picture}>
         <Tag>
           {availability}
           <span>-term project&nbsp;&nbsp;</span>
@@ -219,7 +99,7 @@ const ProjectById = (props) => {
             height='70px'
           />
         </CategoryIcon>
-        <Title>{name}</Title>
+        <TitleByID>{name}</TitleByID>
         <Date>
           <Moment format='MMM Do'>{date}</Moment>
           <span>&nbsp;at&nbsp;</span>
@@ -228,12 +108,12 @@ const ProjectById = (props) => {
           {time}
         </Date>
         <Link to={`/orgs/${organizationId}`}>
-          <NGOButton type='button' ngo>
+          <TransparentButton type='button' ngo>
             DISCOVER MORE ABOUT&nbsp;
             {organizationName}
-          </NGOButton>
+          </TransparentButton>
         </Link>
-      </BgTopImage>
+      </BackgroundImage>
       <InfoContainer>
         <Info>
           <SubInfo>

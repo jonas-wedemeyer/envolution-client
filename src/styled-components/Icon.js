@@ -9,4 +9,8 @@ const Icon = styled.img.attrs((props) => ({
   height: 50px;
 `;
 
-export default Icon;
+const OrgCategoryIcon = styled.div`
+  margin-left: ${(props) => (props.category ? '2vh' : '2vh')};
+`;
+
+export { Icon, OrgCategoryIcon };
