@@ -2,14 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import Ocean from '../assets/pictoGrey/ocean-picto-grey.png';
-import Land from '../assets/pictoGrey/mountain-picto-grey.png';
-import Air from '../assets/pictoGrey/air-picto-grey.png';
-import Forest from '../assets/pictoGrey/forest-picto-grey.png';
-import Wildlife from '../assets/pictoGrey/wildlife-picto-grey.png';
-import UpcomingProjects from '../assets/mockup/mockup-org-projects.PNG';
-
-// styled-components:
 const ColumnWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -88,12 +80,6 @@ const DescriptionTitle = styled.h3`
   font-weight: 700;
 `;
 
-const ProjectImage = styled.img`
-  display: flex;
-  justify-self: flex-start;
-  margin: auto;
-`;
-
 export default function OrgById(props) {
   const { picture, name, mission, category, website } = props.selectedOrg; // eslint-disable-line
 
@@ -112,26 +98,6 @@ export default function OrgById(props) {
   //   return null;
   // }
 
-  // render category pictos - refactoring to do:
-  const renderCategoryImage = () => {
-    if (category === 'Ocean') {
-      return <img src={Ocean} alt='category' height='70px' />;
-    }
-    if (category === 'Land') {
-      return <img src={Land} alt='category' height='70px' />;
-    }
-    if (category === 'Air') {
-      return <img src={Air} alt='category' height='70px' />;
-    }
-    if (category === 'Forest') {
-      return <img src={Forest} alt='category' height='70px' />;
-    }
-    if (category === 'Wildlife') {
-      return <img src={Wildlife} alt='category' height='70px' />;
-    }
-    return <p>no picture for this category</p>;
-  };
-
   return (
     <ColumnWrapper>
       <TopPage>
@@ -140,7 +106,13 @@ export default function OrgById(props) {
         </Link>
       </TopPage>
       <BgTopImage image={picture}>
-        <CategoryIcon>{renderCategoryImage()}</CategoryIcon>
+        <CategoryIcon>
+          <img
+            src={`/assets/pictoGrey/${category}-picto-grey.png`}
+            alt='categoryIcon'
+            height='70px'
+          />
+        </CategoryIcon>
         <Title>{name}</Title>
       </BgTopImage>
       <InfoContainer>
@@ -150,12 +122,6 @@ export default function OrgById(props) {
           <DescriptionTitle>Our website</DescriptionTitle>
           <p>{website}</p>
           <DescriptionTitle>Upcoming projects</DescriptionTitle>
-          <ProjectImage
-            src={UpcomingProjects}
-            alt='upcoming'
-            height='365px'
-            width='280px'
-          />
         </Details>
       </InfoContainer>
     </ColumnWrapper>

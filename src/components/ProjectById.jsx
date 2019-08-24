@@ -5,13 +5,6 @@ import Moment from 'react-moment';
 import styled from 'styled-components';
 import { Button } from '../styled-components';
 
-import Ocean from '../assets/pictoGrey/ocean-picto-grey.png';
-import Land from '../assets/pictoGrey/mountain-picto-grey.png';
-import Air from '../assets/pictoGrey/air-picto-grey.png';
-import Forest from '../assets/pictoGrey/forest-picto-grey.png';
-import Wildlife from '../assets/pictoGrey/wildlife-picto-grey.png';
-
-// Styling Buttons:
 const InButton = styled(Button)`
   margin: 3.5% auto;
   width: 60vw;
@@ -33,10 +26,8 @@ const NGOButton = styled(Button)`
   height: 30px;
   text-align: left;
   font-weight: 700;
-  /* text-shadow: 1px 1px #a9a9a9; */
 `;
 
-// Styling other: NEED TO REMOVE FLEXWRAPPER PADDING
 const ColumnWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -172,28 +163,7 @@ const ProjectById = (props) => {
     address,
   } = props.selectedProject; // eslint-disable-line
 
-  // local state
   const [isSelected, setSelection] = useState(false);
-
-  // render category pics --placeholders-- refactoring to do:
-  const renderCategoryImage = () => {
-    if (category === 'Ocean') {
-      return <img src={Ocean} alt='category' height='70px' />;
-    }
-    if (category === 'Land') {
-      return <img src={Land} alt='category' height='70px' />;
-    }
-    if (category === 'Air') {
-      return <img src={Air} alt='category' height='70px' />;
-    }
-    if (category === 'Forest') {
-      return <img src={Forest} alt='category' height='70px' />;
-    }
-    if (category === 'Wildlife') {
-      return <img src={Wildlife} alt='category' height='70px' />;
-    }
-    return <p>no picture for this category</p>;
-  };
 
   // map participants:
   // function showParticipants() {
@@ -241,7 +211,13 @@ const ProjectById = (props) => {
           {availability}
           <span>-term project&nbsp;&nbsp;</span>
         </Tag>
-        <CategoryIcon>{renderCategoryImage()}</CategoryIcon>
+        <CategoryIcon>
+          <img
+            src={`/assets/pictoGrey/${category}-picto-grey.png`}
+            alt='categoryIcon'
+            height='70px'
+          />
+        </CategoryIcon>
         <Title>{name}</Title>
         <Date>
           <Moment format='MMM Do'>{date}</Moment>
