@@ -8,11 +8,10 @@ import { OrgById } from '../components';
 export default function OrgDetail(props) {
   const selectedOrg = useSelector(getOrg);
   const dispatch = useDispatch();
-  console.log('selected org', selectedOrg); // eslint-disable-line
 
   useEffect(() => {
-    // destructuring to do: const { OrgId } = props.match.params;
-    dispatch(getOneOrg(props.match.params.orgId));
+    const { orgId } = props.match.params;
+    dispatch(getOneOrg(orgId));
   }, [dispatch, props.match.params.orgId]); // eslint-disable-line
 
   return (

@@ -34,7 +34,6 @@ const projects = (state = initialState, action) => {
       };
     }
     case 'GET_PROJECTS_SUCCESS': {
-      console.log('Here is the list: ', action.data.data); // eslint-disable-line no-console
       return {
         ...state,
         allProjects: action.data.data,
@@ -51,7 +50,7 @@ const projects = (state = initialState, action) => {
     }
     case 'GET_ONE_PROJECT_FAILURE':
     case 'GET_PROJECTS_FAILURE':
-      console.log('No projects, error is: ', action.error); // eslint-disable-line no-console
+      console.log('No projects, error: ', action.error); // eslint-disable-line no-console
       return {
         ...state,
         error: action.error,
