@@ -78,19 +78,23 @@ export default function ProjectPage(props) {
     }
   }, [dispatch, props.match.params.cityName]); // eslint-disable-line
 
+  // If empty list :
+  const renderEmptyList = () => {
+    if (projects.length === 0) {
+      return (
+        <h4 style={{ textAlign: 'center' }}>
+          There are no projects in your area yet.
+        </h4>
+      );
+    }
+    return null;
+  };
+
   // Search Toggle :
   const [isHidden, setVisibility] = useState(true);
 
   const toggleComponent = () => {
     setVisibility(!isHidden);
-  };
-
-  // If empty list :
-  const renderEmptyList = () => {
-    if (!projects) {
-      return <h3>No projects in your area</h3>;
-    }
-    return null;
   };
 
   return (
@@ -103,7 +107,7 @@ export default function ProjectPage(props) {
       )}
       <PageTitle>What&apos;s up in Barcelona</PageTitle>
       <ProjectList projects={filteredProjects()} />
-      <div>{renderEmptyList()}</div>
+      {renderEmptyList()}
     </Background>
   );
 }
