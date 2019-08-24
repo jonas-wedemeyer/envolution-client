@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import Swipeable from 'react-swipy';
 import styled from 'styled-components';
 
-import getUser from '../redux/reducers/authentication/selector';
 import { updateUser } from '../redux/reducers/authentication/actions';
-import { InterestCard, CardImage } from '../components';
+import getUser from '../redux/reducers/authentication/selector';
+import { CardImage, InterestCard } from '../components';
 import { Button, Text } from '../styled-components';
 import HomeImg from '../assets/Categories/home.jpeg';
 

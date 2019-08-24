@@ -2,18 +2,17 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import {
+  AuthPage,
+  NewProject,
+  Onboarding,
+  OrgDetail,
   ProjectPage,
   ProjectDetail,
-  OrgDetail,
-  AuthPage,
   UserProfile,
-  Onboarding,
-  NewProject,
 } from './containers';
-// import { NotFound } from './components';
-import ComponentsList from './styled-components/ComponentsList';
-import Navbar from './components/Navbar';
+import { Navbar } from './components';
 import PrivateRoute from './hoc/PrivateRoute';
+import ComponentsList from './styled-components/ComponentsList';
 import './App.css';
 
 function App() {
@@ -31,7 +30,6 @@ function App() {
       <PrivateRoute exact path='/styled-comps' component={ComponentsList} />
       <PrivateRoute exact path='/myprofile' component={UserProfile} />
       <PrivateRoute exact path='/newproject' component={NewProject} />
-      {/* <Route component={NotFound} /> */}
     </div>
   );
 

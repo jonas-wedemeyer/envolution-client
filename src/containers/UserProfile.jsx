@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getOneUser } from '../redux/reducers/authentication/actions';
 import getUser from '../redux/reducers/authentication/selector';
-import UserInfo from '../components/UserInfo';
+import { UserInfo } from '../components';
 
 export default function UserProfile() {
   const loggedUser = useSelector(getUser);

@@ -4,9 +4,8 @@ import Geocode from 'react-geocode';
 import styled from 'styled-components';
 
 import { getProjects } from '../redux/reducers/projects/actions';
-import ProjectList from '../components/ProjectList';
 import { getAllProjects } from '../redux/reducers/projects/selector';
-import FilterForm from '../components/FilterForm';
+import { FilterForm, ProjectList } from '../components';
 
 const googleKey = process.env.REACT_APP_GOOGLE_API_KEY;
 Geocode.setApiKey(googleKey);
