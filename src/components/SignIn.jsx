@@ -27,9 +27,9 @@ function SignIn({ history }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { email, password } = values;
-    dispatch(signIn(email, password));
-    // TODO: Update to render on parent when authorisation is populated
-    history.push('/projects');
+    dispatch(signIn(email, password))
+      .then(() => history.push('/projects'))
+      .catch((err) => console.log(err)); // eslint-disable-line no-console
   };
 
   return (
