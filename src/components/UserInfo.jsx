@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 
 import back from '../assets/icons/back-thick.svg';
 import pin from '../assets/icons/pin.png';
@@ -13,15 +12,22 @@ import Valencia from '../assets/Cities/Valencia.jpg';
 
 import {
   BackgroundImage,
+  CategoryIcon,
   ColumnWrapper,
-  Icon,
+  IconBox,
   InfoContainer,
+  MainTitleBlack,
+  ProfilePicture,
   SecondaryButton,
-  TextTitle,
-  Text,
-  ListFlag,
   TopPage,
-  Subtitle,
+  Pin,
+  Location,
+  LocationTitle,
+  Number,
+  NumberOne,
+  Statistics,
+  EnvironmentalBox,
+  TextAboutMe,
 } from '../styled-components';
 
 const cities = {
@@ -32,92 +38,6 @@ const cities = {
   Quintero,
   Valencia,
 };
-
-const EnvironmentalFlag = styled(ListFlag)`
-  width: 52vw;
-  margin: 10px 0 4px 20px;
-`;
-
-const IconBox = styled.div`
-  margin-left: 20px;
-  margin-top: 10px 0 0 20px;
-`;
-
-const CategoryIcon = styled(Icon)`
-  margin-left: ${(props) => (props.category ? '1vh' : '1vh')};
-  margin: 16px 10px;
-`;
-
-const ProfilePicture = styled.img`
-  border-radius: 50%;
-  border: 5px solid #d3d3d3;
-  height: 24vh;
-  width: 24vh;
-  background: cover;
-  margin: 60px 18px;
-`;
-
-const TextFirstName = styled(TextTitle)`
-  padding-top: 16px;
-  padding-bottom: 8px;
-  font-size: 30px;
-`;
-
-const LocationTitle = styled(Subtitle)`
-  align-items: flex-end;
-  color: #d3d3d3;
-`;
-
-const TextLastName = styled(TextTitle)`
-  padding: 10px;
-  margin-top: 14px;
-  font-size: 22px;
-`;
-
-const Location = styled.div`
-  margin-bottom: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 10px;
-`;
-
-const TextAboutMe = styled(Text)`
-  margin: 0 26px;
-  padding-bottom: 12px;
-  font-size: 12px;
-  text-align: center;
-`;
-
-const Statistics = styled(Text)`
-  white-space: pre;
-  font-size: 11px;
-  font-weight: 700;
-`;
-
-const EnvironmentalBox = styled.div`
-  display: flex;
-  padding: 12px;
-  font-size: 12px;
-  justify-content: space-around;
-`;
-
-const Number = styled.div`
-  font-size: 38px;
-`;
-
-const NumberOne = styled.div`
-  font-size: 38px;
-  border-right: 1px solid grey;
-  padding-right: 50px;
-`;
-
-const Pin = styled(Icon)`
-  align-items: center;
-  width: 34px;
-  height: 30px;
-  margin-bottom: 10px;
-`;
 
 function UserInfo({ loggedUser }) {
   const { firstName, lastName, picture, aboutMe, interests, city } = loggedUser;
@@ -143,21 +63,22 @@ function UserInfo({ loggedUser }) {
         </Link>
       </TopPage>
       <BackgroundImage image={cities[city]}>
-        <div>
-          <ProfilePicture src={picture} alt='location of user' height='100px' />
-        </div>
         <Location>
+          <ProfilePicture src={picture} alt='location of user' height='100px' />
           <Pin src={pin} alt='pin' />
           <LocationTitle>BARCELONA</LocationTitle>
         </Location>
       </BackgroundImage>
       <InfoContainer>
-        <EnvironmentalFlag>
-          <TextFirstName>{firstName}</TextFirstName>
-          <TextLastName>{lastName}</TextLastName>
-        </EnvironmentalFlag>
+        <MainTitleBlack>
+          {firstName}
+          &nbsp;
+          {lastName}
+        </MainTitleBlack>
         <IconBox>{showUserInterests()}</IconBox>
-        <TextAboutMe>{aboutMe}</TextAboutMe>
+        <TextAboutMe>
+          <p>{aboutMe}</p>
+        </TextAboutMe>
         <EnvironmentalBox>
           <NumberOne>1</NumberOne>
           <NumberOne>1</NumberOne>

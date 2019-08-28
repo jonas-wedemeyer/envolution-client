@@ -1,29 +1,25 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
-import styled from 'styled-components';
 
 import {
   BackgroundImage,
+  OrgCategoryIcon,
   ColumnWrapper,
   Date,
   Details,
   InButton,
   Info,
   InfoContainer,
+  MainTitleWhite,
   SubText,
   Tag,
-  TitleByID,
   TopPage,
   TransparentButton,
   SubInfo,
 } from '../styled-components';
 
 import back from '../assets/icons/back-thick.svg';
-
-const CategoryIcon = styled.div`
-  margin-left: ${(props) => (props.category ? '2vh' : '2vh')};
-`;
 
 const ProjectById = (props) => {
   const {
@@ -39,7 +35,6 @@ const ProjectById = (props) => {
     tasks,
     qualifications,
     city,
-    // participants,
     spacesAvailable,
     picture,
     address,
@@ -47,7 +42,7 @@ const ProjectById = (props) => {
 
   const [isSelected, setSelection] = useState(false);
 
-  // map participants:
+  // map participants - extra feature to add:
   // function showParticipants() {
   //   if (participants) {
   //     const showPax = participants.map((user) => (
@@ -92,14 +87,14 @@ const ProjectById = (props) => {
           {availability}
           <span>-term project&nbsp;&nbsp;</span>
         </Tag>
-        <CategoryIcon>
+        <OrgCategoryIcon>
           <img
             src={`/assets/iconsWhite/${category}-picto-grey.png`}
             alt='categoryIcon'
             height='70px'
           />
-        </CategoryIcon>
-        <TitleByID>{name}</TitleByID>
+        </OrgCategoryIcon>
+        <MainTitleWhite>{name}</MainTitleWhite>
         <Date>
           <Moment format='MMM Do'>{date}</Moment>
           <span>&nbsp;at&nbsp;</span>
@@ -125,8 +120,6 @@ const ProjectById = (props) => {
             </SubText>
           </SubInfo>
         </Info>
-        {/* <h3>Participants</h3>
-          <div>{showParticipants()}</div> */}
         <InButton type='submit' onClick={btnClick} isSelected={!isSelected}>
           {renderBtnText()}
         </InButton>

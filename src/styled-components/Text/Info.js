@@ -4,7 +4,7 @@ const Info = styled.div`
   align-content: center;
   display: flex;
   flex-direction: row;
-  font-size: 16px;
+  font-size: ${(props) => props.theme.fontSize.small};  
   justify-content: space-between;
   padding: 1vh 1vw;
 `;
@@ -12,7 +12,6 @@ const Info = styled.div`
 const SubInfo = styled.div`
   display: flex;
   flex-direction: column;
-  font-size: 14px;
   margin-top: 1vh;
   padding-top: 2vh;
   width: 70vw;
@@ -21,7 +20,7 @@ const SubInfo = styled.div`
 const Details = styled.div`
   display: flex;
   flex-flow: column wrap;
-  font-size: 14px;
+  font-size: ${(props) => props.theme.fontSize.extrasmall};
   height: 50vh;
   justify-content: space-between;
   padding: 2vh 2vh 2vh 1vh;

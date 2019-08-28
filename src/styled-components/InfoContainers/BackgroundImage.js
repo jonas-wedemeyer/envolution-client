@@ -21,4 +21,9 @@ const SmallBackgroundImage = styled(BackgroundImage)`
   width: 85%;
 `;
 
-export { BackgroundImage, SmallBackgroundImage };
+
+const Background = styled.div`
+  background: #f9f9f9;
+`;
+
+export { Background, BackgroundImage, SmallBackgroundImage };

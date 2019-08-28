@@ -71,4 +71,14 @@ const TransparentButton = styled(Button)`
   font-weight: 700;
 `;
 
-export { Button, GreenButton, InButton, SecondaryButton, TransparentButton };
+const CardButton = styled.div`
+  background: ${(props) => (props.select ? '#fff' : '#fff')};
+  margin-left: 36vw;
+  width: 40px;
+  border-radius: 25px;
+  display: flex;
+  padding-top: 1.4vh;
+  padding-left: 2.4vw;
+`;
+
+export { Button, CardButton, GreenButton, InButton, SecondaryButton, TransparentButton };

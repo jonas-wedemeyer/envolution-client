@@ -1,67 +1,110 @@
 import {
   Button,
+  CardButton,
   GreenButton,
   InButton,
   SecondaryButton,
   TransparentButton,
-} from './Button';
-import AppWrapper from './AppWrapper';
-import { BackgroundImage, SmallBackgroundImage } from './BackgroundImage';
-import Card from './Card';
-import { CardDate, Date } from './Date';
-import ColumnWrapper from './ColumnWrapper';
-import ContentWrapper from './ContentWrapper';
-import FlexWrapper from './FlexWrapper';
-import { Icon, OrgCategoryIcon } from './Icon';
-import { Info, SubInfo, Details } from './Info';
-import InfoContainer from './InfoContainer';
-import Input from './Input';
-import ListFlag from './ListFlag';
-import ListImage from './ListImage';
-import LoadingSpinner from './LoadingSpinner';
-import { CardSubtitle, SubText, Subtitle } from './Subtitle';
-import { SmallTag, Tag } from './Tag';
-import Text from './Text';
+} from './ButtonsAndTags/Button';
+import AppWrapper from './Wrappers/AppWrapper';
+import {
+  Background,
+  BackgroundImage,
+  SmallBackgroundImage,
+} from './InfoContainers/BackgroundImage';
+import { AllProjectCards, Card, Row } from './InfoContainers/Card';
+import { CardDate, Date } from './Text/Date';
+import ColumnWrapper from './Wrappers/ColumnWrapper';
+import FlexWrapper from './Wrappers/FlexWrapper';
+import {
+  CategoryIcon,
+  IconBox,
+  FilterIcon,
+  Icon,
+  OrgCategoryIcon,
+} from './Visuals/Icon';
+import { Info, SubInfo, Details } from './Text/Info';
+import InfoContainer from './InfoContainers/InfoContainer';
+import Input from './Text/Input';
+import ListFlag from './InfoContainers/ListFlag';
+import ListImage from './InfoContainers/ListImage';
+import LoadingSpinner from './Visuals/LoadingSpinner';
+import ProfilePicture from './Visuals/profilePicture';
+import Subtitle from './Text/Subtitle';
+import { SmallTag, Tag } from './ButtonsAndTags/Tag';
+import Text from './Text/Text';
 import Theme from './Theme';
-import { CardTitle, Title, TitleByID, TitleOrg } from './Title';
-import TextTitle from './TextTitle';
-import TopPage from './TopPage';
+import {
+  CardTitle,
+  CardSubtitle,
+  MainTitleBlack,
+  MainTitleWhite,
+  SubText,
+  TextAboutMe,
+  Title,
+  TitleOrg,
+} from './Text/Title';
+import TextTitle from './Text/TextTitle';
+import TopPage from './InfoContainers/TopPage';
+import { LocationTitle, Location, Pin } from './Text/location';
+import {
+  Statistics,
+  EnvironmentalBox,
+  Number,
+  NumberOne,
+} from './InfoContainers/NumberBox';
 
 export {
+  AllProjectCards,
   AppWrapper,
+  Background,
   BackgroundImage,
   Button,
   Card,
+  CardButton,
   CardDate,
   CardSubtitle,
   CardTitle,
+  CategoryIcon,
   ColumnWrapper,
-  ContentWrapper,
   Date,
   Details,
+  EnvironmentalBox,
+  FilterIcon,
   FlexWrapper,
   GreenButton,
   Icon,
+  IconBox,
   InButton,
   Info,
   InfoContainer,
   Input,
+  MainTitleBlack,
+  MainTitleWhite,
+  Number,
+  NumberOne,
   OrgCategoryIcon,
+  Pin,
   ListFlag,
   ListImage,
+  LocationTitle,
+  Location,
   LoadingSpinner,
+  ProfilePicture,
+  Row,
   SecondaryButton,
   SmallBackgroundImage,
   SmallTag,
+  Statistics,
   SubInfo,
   Subtitle,
   SubText,
   Tag,
   Text,
+  TextAboutMe,
   TextTitle,
   Theme,
   Title,
-  TitleByID,
   TitleOrg,
   TopPage,
   TransparentButton,
