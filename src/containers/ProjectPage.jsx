@@ -1,35 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Geocode from 'react-geocode';
-import styled from 'styled-components';
 
 import { getProjects } from '../redux/reducers/projects/actions';
 import { getAllProjects } from '../redux/reducers/projects/selector';
 import { FilterForm, ProjectList } from '../components';
+import { Background, FilterIcon, MainTitleBlack } from '../styled-components';
 import filter from '../assets/icons/filter-thick-black.png';
 
 const googleKey = process.env.REACT_APP_GOOGLE_API_KEY;
 Geocode.setApiKey(googleKey);
-
-// Styled-components:
-const PageTitle = styled.h1`
-  display: flex;
-  padding: 4vh 1vw 1vh 7vw;
-  font-size: 26px;
-  font-weight: 700;
-`;
-
-const FilterIcon = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  position: relative;
-  width: 96%;
-  padding: 3vh 0 0 3vw;
-`;
-
-const Background = styled.div`
-  background: #f9f9f9;
-`;
 
 export default function ProjectPage(props) {
   // Use the state and pass down the list
@@ -105,7 +85,7 @@ export default function ProjectPage(props) {
       {!isHidden && (
         <FilterForm isHidden={!isHidden} toggleComponent={toggleComponent} />
       )}
-      <PageTitle>What&apos;s up around you</PageTitle>
+      <MainTitleBlack>What&apos;s up around you</MainTitleBlack>
       <ProjectList projects={filteredProjects()} />
       {renderEmptyList()}
     </Background>

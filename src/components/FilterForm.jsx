@@ -3,18 +3,15 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
 import { setFilters } from '../redux/reducers/projects/actions';
-import { SecondaryButton } from '../styled-components';
+import { ColumnWrapper, SecondaryButton } from '../styled-components';
 
 // styled-components
-const ColumnWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 2vh;
-  width: 88%;
-  position: relative;
+const FilterWrapper = styled(ColumnWrapper)`
   border: solid 0.5px black;
   border-radius: 15px;
-  margin: auto;
+  margin-top: 2vh;
+  padding: 2vh;
+  width: 88%;
 `;
 
 const Fieldset = styled.div`
@@ -78,7 +75,7 @@ function FilterForm() {
   };
 
   return (
-    <ColumnWrapper>
+    <FilterWrapper>
       <form onSubmit={handleSubmit}>
         <Fieldset>
           <fieldset id='availability'>
@@ -156,7 +153,7 @@ function FilterForm() {
           Submit
         </SubmitButton>
       </form>
-    </ColumnWrapper>
+    </FilterWrapper>
   );
 }
 

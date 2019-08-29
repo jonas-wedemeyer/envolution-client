@@ -5,6 +5,7 @@ const theme = {
     green: '#a5d6a7',
   },
   fontSize: {
+    extrasmall: '14px',
     small: '16px',
     medium: '18px',
     big: '24px',
