@@ -10,7 +10,7 @@ const MenuIcon = styled.div`
   position: relative;
   top: 0;
   right: 0;
-  z-index: 999;
+  z-index: 4;
   width: 35%;
 `;
 

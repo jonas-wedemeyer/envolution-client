@@ -6,12 +6,12 @@
   transition: left 0.5s;
   top: 0px;
   left: -70%;
-  z-index: 1;
+  z-index: 5;
 }
 
 .wrapper.is-nav-open {
   left: 0px;
-  z-index: 2;
+  z-index: 6;
 }
 
 .nav {
