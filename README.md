@@ -39,18 +39,23 @@ This will build the React app, and open it in the browser.
 
 ### To access the app
 
-You are able to sign-in as a new user. 
+You are able to sign-up as a new user. You will then access the "Submit Profile" page, where you can enter a first and last name of your choosing. The picture is optional.
 
-If you'd like to access the application with a pre-generated user profile, after seeding the database (please refer to the back-end repository), enter on the Sign-up page:
+If you'd like to access the application with a pre-generated user profile, after seeding the database (please refer to the back-end repository), enter on the Sign-in page:
 
-  Email: jonas@wedemeyer.com
-  Password: qwerty
-
-You will then access the "Submit Profile" page, when you can enter a firstname and lastname of your choosing. The picture is optional.
+Email: jonas@wedemeyer.com
+Password: qwerty
 
 ## Tech Stack
 
-* React Redux
+* React
+* Redux
 * Hooks
 * Styled Components
 * JWT
+
+## Developers 
+​
+* Coralie Daccord - [GitHub](https://github.com/Coralie19) -[LinkedIn](https://www.linkedin.com/in/coralie-daccord)
+* Alexa Schaeffer Quintero - [GitHub](https://github.com/miquintero) - [LinkedIn](https://www.linkedin.com/in/alexa-schaeffer-quintero)
+* Jonas Wedemeyer - [GitHub](https://github.com/jonas-wedemeyer) - [LinkedIn](https://www.linkedin.com/in/jonas-wedemeyer)
