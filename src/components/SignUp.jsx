@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
-// import { signUp, updateUser } from '../redux/reducers/authentication/actions';
+import { signUp, updateUser } from '../redux/reducers/authentication/actions';
 import { FlexWrapper, Input, Button } from '../styled-components';
-// import { fetchState } from '../redux/persistState';
 
 const FlexColWrap = styled(FlexWrapper)`
   flex-direction: column;
@@ -27,26 +26,8 @@ const FormInput = styled(Input)`
   transition: all 0.15s ease;
 
   &::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: ${(props) => props.theme.color.secondary};
   }
-`;
-
-const InputImage = styled(Input)`
-  display: none;
-  border: 0;
-  font-family: inherit;
-  padding: 12px 0;
-  height: 48px;
-  font-size: ${(props) => props.theme.fontSize.medium};
-  font-weight: 500;
-  border-bottom: 2px solid ${(props) => props.theme.color.secondary};
-  background: none;
-  border-radius: 0;
-  color: #ffffff00;
-  transition: all 0.15s ease;
-  margin-top: 10px;
-  outline: none;
 `;
 
 const MockInput = styled.div`
@@ -67,13 +48,11 @@ const MockInput = styled.div`
   transition: all 0.15s ease;
 
   &::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: ${(props) => props.theme.color.secondary};
   }
 `;
 
 function SignUp({ history }) {
-  // const dispatch = useDispatch();
   const [values, setValues] = useState({
     email: '',
     password: '',
@@ -81,84 +60,82 @@ function SignUp({ history }) {
   const [profile, setProfile] = useState({
     firstName: '',
     lastName: '',
-    image: 'Choose a file',
+    picture: '',
+    pictureValue: 'Choose your profile picture',
   });
   const [signUpForm, setSignUpForm] = useState(true);
+  const dispatch = useDispatch();
 
-  const handleChangeFirst = (e) => {
+  const handleChangeSignUp = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
   };
 
-  const handleSubmitFirst = (e) => {
+  const handleSubmitSignUp = (e) => {
     e.preventDefault();
-    // const { email, password } = values;
-    // dispatch(signUp(email, password));
+    const { email, password } = values;
+    dispatch(signUp(email, password));
     document.getElementById('next').reset();
     setSignUpForm(false);
   };
 
-  const handleChangeText = (e) => {
+  const handleChangeProfile = (e) => {
     const { name, value } = e.target;
     setProfile({ ...profile, [name]: value });
   };
 
-  const handleImage = (e) => {
-    const image = e.target.files[0];
-    setProfile({ ...profile, image: image.name });
-  };
-
-  const handleSubmitSecond = (e) => {
+  const handleSubmitProfile = (e) => {
     e.preventDefault();
-    history.push('/onboarding');
+    const { firstName, lastName, picture } = profile;
+    dispatch(updateUser({ firstName, lastName, picture }))
+      .then(() => history.push('/onboarding'))
+      .catch((err) => console.log(err)); // eslint-disable-line no-console
   };
 
-  const mockFileInput = () => {
-    const fileInput = document.getElementById('file');
-    fileInput.click();
-  };
+  const cloudinaryWidget = window.cloudinary.createUploadWidget(
+    {
+      cloudName: process.env.REACT_APP_CLOUDINARY_NAME,
+      uploadPreset: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET,
+      sources: ['local', 'camera'],
+    },
+    (error, result) => {
+      if (result && result.event === 'success') {
+        const imageInfo = {
+          picture: result.info.secure_url,
+          pictureValue: result.info.original_filename,
+        };
+        setProfile({ ...profile, ...imageInfo });
+        cloudinaryWidget.close();
+      } else if (error)
+        console.log('There has been an issue while uploading the image', error); // eslint-disable-line no-console
+    },
+  );
 
-  // // WIP | TODO: Refactoring week
-  // const jwtToken = fetchState();
-  // const { firstName, lastName, image } = profile;
-  // dispatch(updateUser(firstName, lastName));
-  // const picture = new FormData();
-  // picture.append('profilePhoto', picture);
-  // fetch('http://localhost:3003/myprofile', { //directly accessing the defined enpoint here instead of passing is as arg
-  // 	method: 'POST',
-  // 	headers: {
-  //     'Authorization': `Bearer ${jwtToken.authentication.token}`
-  // 	},
-  // 	body: JSON.stringify({
-  // 		picture,
-  // 	})
-  // })
-  //   .then((res) => res.json())
-  //   .then(imageRes => console.log(imageRes))
-  //   .catch(err => console.log(err))
-  // };
+  const openWidget = (widget) => {
+    widget.open();
+  };
 
   return (
     <FlexWrapper style={{ justifyContent: 'center' }}>
       {signUpForm ? (
-        <form id='next' onSubmit={handleSubmitFirst}>
+        <form id='next' onSubmit={handleSubmitSignUp}>
           <FlexColWrap>
             <div style={{ height: '58px' }} />
             <FormInput
-              // required
+              required
               autoComplete='off'
               type='email'
               name='email'
               placeholder='Email'
-              onChange={handleChangeFirst}
+              onChange={handleChangeSignUp}
             />
             <FormInput
-              // required
+              required
               autoComplete='off'
               type='password'
               name='password'
               placeholder='Password'
-              onChange={handleChangeFirst}
+              onChange={handleChangeSignUp}
             />
             <Button style={{ marginTop: '25px' }} type='submit'>
               Sign up
@@ -166,7 +143,7 @@ function SignUp({ history }) {
           </FlexColWrap>
         </form>
       ) : (
-        <form onSubmit={handleSubmitSecond}>
+        <form onSubmit={handleSubmitProfile}>
           <FlexColWrap>
             <FormInput
               required
@@ -174,7 +151,7 @@ function SignUp({ history }) {
               type='text'
               name='firstName'
               placeholder='First Name'
-              onChange={handleChangeText}
+              onChange={handleChangeProfile}
             />
             <FormInput
               required
@@ -182,21 +159,15 @@ function SignUp({ history }) {
               type='text'
               name='lastName'
               placeholder='Last Name'
-              onChange={handleChangeText}
+              onChange={handleChangeProfile}
             />
             <MockInput
               type='button'
               value='Choose File'
-              onClick={mockFileInput}
+              onClick={() => openWidget(cloudinaryWidget)}
             >
-              {profile.image}
+              {profile.pictureValue}
             </MockInput>
-            <InputImage
-              id='file'
-              type='file'
-              name='picture'
-              onChange={handleImage}
-            />
             <Button style={{ marginTop: '25px' }} type='submit'>
               Submit Profile
             </Button>
