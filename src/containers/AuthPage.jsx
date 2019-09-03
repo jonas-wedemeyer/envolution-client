@@ -5,7 +5,6 @@ import { SignIn, SignUp } from '../components';
 import HomeImg from '../assets/Categories/home.jpeg';
 import logo from '../assets/Logo/logo-final.png';
 
-// TODO: Outsource styled components to centralised folder
 const LinkDiv = styled.div`
   display: flex;
   align-items: center;
@@ -28,7 +27,6 @@ const TransparentBg = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* background: #ffffff60; */
   margin-left: 5vw;
   margin-right: 5vw;
   border-radius: 10px;
@@ -41,7 +39,7 @@ const Logo = styled.img`
 `;
 
 export default function AuthPage() {
-  const [signIn, setSignIn] = useState(false);
+  const [signIn, setSignIn] = useState(true);
 
   const handleClick = () => {
     setSignIn((prev) => !prev);
