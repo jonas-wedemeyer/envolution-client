@@ -91,8 +91,8 @@ export default function Onboarding({ history }) {
           <Background direction='column' justify='center' align='center'>
             <TextRevert>
               Awesome &nbsp;
-              <strong>Jonas </strong>
-              you completed Envolution&apos;s onboarding
+              <strong>{firstName}</strong>
+              &nbsp;you completed Envolution&apos;s onboarding
             </TextRevert>
             <TextRevert>
               You are on your way to becoming an environmental hero!
