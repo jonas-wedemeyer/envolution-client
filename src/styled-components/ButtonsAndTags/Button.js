@@ -81,4 +81,20 @@ const CardButton = styled.div`
   padding-left: 2.4vw;
 `;
 
-export { Button, CardButton, GreenButton, InButton, SecondaryButton, TransparentButton };
+const SubmitButton = styled(SecondaryButton)`
+  display: flex;
+  margin: 2% auto;
+  width: 60vw;
+  justify-self: center;
+  justify-content: center;
+`;
+
+export {
+  Button,
+  CardButton,
+  GreenButton,
+  InButton,
+  SecondaryButton,
+  SubmitButton,
+  TransparentButton,
+};

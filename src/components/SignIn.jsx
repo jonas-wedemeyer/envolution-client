@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import styled from 'styled-components';
 
 import { signIn } from '../redux/reducers/authentication/actions';
-import { FlexWrapper, Input, Button } from '../styled-components';
-
-const FlexColWrap = styled(FlexWrapper)`
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-`;
+import {
+  FlexColWrap,
+  FlexWrapper,
+  FormInput,
+  Button,
+} from '../styled-components';
 
 function SignIn({ history }) {
   const dispatch = useDispatch();
@@ -36,21 +34,26 @@ function SignIn({ history }) {
     <FlexWrapper style={{ justifyContent: 'center' }}>
       <form onSubmit={handleSubmit}>
         <FlexColWrap>
-          <Input
+          <div style={{ height: '58px' }} />
+          <FormInput
             required
             type='email'
             name='email'
             placeholder='Email'
+            autoComplete='off'
             onChange={handleChange}
           />
-          <Input
+          <FormInput
             required
             type='password'
             name='password'
             placeholder='Password'
+            autoComplete='off'
             onChange={handleChange}
           />
-          <Button type='submit'>Sign in</Button>
+          <Button style={{ marginTop: '25px' }} type='submit'>
+            Sign in
+          </Button>
         </FlexColWrap>
       </form>
     </FlexWrapper>

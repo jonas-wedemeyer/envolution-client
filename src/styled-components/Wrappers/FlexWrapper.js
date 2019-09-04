@@ -12,4 +12,10 @@ const FlexWrapper = styled.div`
   padding: 5px;
 `;
 
-export default FlexWrapper;
+const FlexColWrap = styled(FlexWrapper)`
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+export { FlexColWrap, FlexWrapper };

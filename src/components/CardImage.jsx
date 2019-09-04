@@ -1,19 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Text, Title } from '../styled-components';
-
-const Image = styled.div`
-  background-image: url(${(props) => props.image});
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-`;
+import { Image, Text, Title } from '../styled-components';
 
 const TitleUpCase = styled(Title)`
   text-transform: uppercase;
@@ -28,7 +16,6 @@ const TextRevert = styled(Text)`
   text-align: center;
 `;
 
-// TODO: Refactor for using height with flexEnd
 const Background = styled.div`
   background: rgba(0, 0, 0, 0.4);
   display: flex;

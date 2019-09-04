@@ -9,4 +9,12 @@ const ColumnWrapper = styled.div`
   width: 100%;
 `;
 
-export default ColumnWrapper;
+const FilterWrapper = styled(ColumnWrapper)`
+  border: solid 0.5px black;
+  border-radius: 15px;
+  margin-top: 2vh;
+  padding: 2vh;
+  width: 88%;
+`;
+
+export { ColumnWrapper, FilterWrapper };
