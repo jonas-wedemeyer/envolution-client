@@ -1,6 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+
+import { signOut } from '../../redux/reducers/authentication/actions';
 import { MenuIcon } from '../../styled-components';
 import menu from '../../assets/icons/menu-thick-black.png';
 
@@ -13,9 +16,15 @@ const StyledLink = styled(NavLink)`
 `;
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+
   const handleClick = () => {
     const wrapper = document.getElementById('wrapper');
     wrapper.classList.toggle('is-nav-open');
+  };
+
+  const handleLogout = () => {
+    dispatch(signOut());
   };
 
   return (
@@ -43,7 +52,7 @@ const Navbar = () => {
                 </StyledLink>
               </li>
               <li>
-                <StyledLink to='/' onClick={handleClick}>
+                <StyledLink to='/' onClick={handleLogout}>
                   Logout
                 </StyledLink>
               </li>
