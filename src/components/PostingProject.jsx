@@ -1,60 +1,25 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { connect, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
-import back from '../assets/icons/back-thick.svg';
+import { postProject } from '../redux/reducers/projects/actions';
 
+import back from '../assets/icons/back-thick.svg';
 import {
-  Button,
+  AppWrapper,
+  ColumnWrapper,
   FlexWrapper,
-  Icon,
+  InButton,
   Input,
+  RadioIcon,
   Text,
   TextTitle,
   TopPage,
 } from '../styled-components';
 
-const Page = styled(FlexWrapper)`
-  background-color: #fafafa;
-`;
-
-const FlexColWrap = styled(FlexWrapper)`
-  flex-direction: column;
-  justify-content: flex-end;
-`;
-
-const FormBox = styled.form`
+const FlexColWrapper = styled(ColumnWrapper)`
   margin-top: 60px;
-`;
-
-const IconBox = styled.div`
-  display: flex;
-`;
-
-const Icons = styled.div`
-  padding-top: 16px;
-`;
-
-const IndivIcon = styled(Icon)`
-  height: 48px;
-  width: 48px;
-  padding: 4px;
-`;
-
-const FormInput = styled(Input)`
-  width: 100%;
-  border: 0;
-  font-family: inherit;
-  padding: 12px 0;
-  height: 48px;
-  font-size: 16px;
-  font-weight: 500;
-  border-bottom: 2px solid ${(props) => props.theme.color.primary};
-  background: none;
-  border-radius: 0;
-  color: #223254;
-  transition: all 0.15s ease;
 `;
 
 const FormText = styled(Text)`
@@ -64,68 +29,57 @@ const FormText = styled(Text)`
   font-weight: 500;
 `;
 
-const BtmGreenBtn = styled(Button)`
-  margin: 40px 0;
-  background: ${(props) => (props.isSelected ? '#212121' : '#a5d6a7')};
-  color: ${(props) => (props.isSelected ? '#fafafa' : '#fff')};
-  border: ${(props) =>
-    props.isSelected ? '2px solid #000' : '2px solid #a5d6a7'};
-`;
-
-const Border = styled.div`
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  width: 100%;
-`;
-
 const FormTextTitle = styled(TextTitle)`
   margin: 30px 0;
   font-size: 24px;
 `;
 
 function PostingProject() {
-  const [values, setValues] = useState({
-    projectName: '',
-    description: '',
-    projectDate: null,
-    timeframe: null,
-    category: null,
-    amount: '',
-    fromOrganization: null,
+  const [radioOptions, setRadios] = useState({
+    isOrg: null,
+    isQual: null,
+    availability: null,
   });
-
+  const [category, setCategory] = useState({
+    category: null,
+  });
+  const [values, setValues] = useState({
+    organizationName: '',
+    projectName: '',
+    date: null,
+    time: '',
+    description: '',
+    role: '',
+    qualifications: '',
+    tasks: '',
+    totalSpaces: '',
+    address: '',
+  });
   const [isSelected, setSelection] = useState(false);
+
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const {
-  //     projectName,
-  //     description,
-  //     projectDate,
-  //     timeframe,
-  //     category,
-  //     amount,
-  //     fromOrganization,
-  //   } = values;
-  //   dispatch(
-  //     postProject(
-  //       projectName,
-  //       description,
-  //       projectDate,
-  //       timeframe,
-  //       category,
-  //       amount,
-  //       fromOrganization,
-  //     ),
-  //   );
-  // history.push('/projects');
-  // };
+  const handleRadios = (e) => {
+    setRadios(e.target.value);
+  };
+
+  const handleCategory = (e) => {
+    let count = 0;
+    if (category !== null && count < 1) {
+      setCategory(e.target.name);
+      count += 1;
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(postProject(values, radioOptions.availability, category));
+  };
 
   const renderBtnText = () => {
     return isSelected ? 'Project added!' : 'Add your project';
@@ -136,67 +90,199 @@ function PostingProject() {
   };
 
   return (
-    <Page style={{ justifyContent: 'center' }}>
+    <AppWrapper>
       <TopPage>
         <Link to='/projects'>
           <img src={back} alt='back' height='30px' />
         </Link>
       </TopPage>
-      <FormBox>
-        <FlexColWrap>
-          <FormTextTitle>
-            Add a project.
-            <br />
-            Start a movement.
-          </FormTextTitle>
-          <FormInput
+      <FlexColWrapper>
+        <FormTextTitle>
+          Add a project.
+          <br />
+          Start a movement.
+        </FormTextTitle>
+        <form onSubmit={handleSubmit}>
+          <fieldset id='isOrg'>
+            <FormText>
+              Is this project affiliated with an organization?
+            </FormText>
+            <label htmlFor='isOrg'>
+              <input
+                type='radio'
+                name='notNGO'
+                checked={radioOptions === 'notNGO'}
+                value='notNGO'
+                onChange={handleRadios}
+              />
+              &nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;&nbsp;
+            </label>
+            <label htmlFor='isOrg'>
+              <input
+                type='radio'
+                name='isNGO'
+                checked={radioOptions === 'isNGO'}
+                value='isNGO'
+                onChange={handleRadios}
+              />
+              &nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;&nbsp;
+            </label>
+          </fieldset>
+          <Input
+            required
+            type='text'
+            name='organizationName'
+            placeholder='Name the organization.'
+            onChange={handleChange}
+          />
+          <Input
             required
             type='text'
             name='projectName'
             placeholder='Name the project.'
             onChange={handleChange}
           />
-          <Border />
-          <FormInput
-            required
-            type='text'
-            name='description'
-            placeholder='What is it about?'
-            onChange={handleChange}
-          />
           <FormText>When is it?</FormText>
-          <FormInput
+          <Input
             type='datetime-local'
             name='projectDate'
             onChange={handleChange}
           />
-          <FormText>What is the environmental focus?</FormText>
-          <IconBox>
-            <Icons>
-              <IndivIcon src='/assets/icons/Forest.png' height='4px' />
-              <IndivIcon src='/assets/icons/Ocean.png' height='4px' />
-              <IndivIcon src='/assets/icons/Land.png' height='4px' />
-              <IndivIcon src='/assets/icons/Wildlife.png' height='4px' />
-              <IndivIcon src='/assets/icons/Air.png' height='4px' />
-            </Icons>
-          </IconBox>
-          <FormInput
+          <Input
+            type='text'
+            name='time'
+            placeholder='Duration of project.'
+            onChange={handleChange}
+          />
+          <fieldset id='availability'>
+            <FormText>What is the duration of the project?</FormText>
+            <label htmlFor='availability'>
+              <input
+                type='radio'
+                name='short'
+                checked={radioOptions === 'short'}
+                value='short'
+                onChange={handleRadios}
+              />
+              &nbsp;&nbsp;Short-term&nbsp;&nbsp;&nbsp;&nbsp;
+            </label>
+            <label htmlFor='availability'>
+              <input
+                type='radio'
+                name='long'
+                checked={radioOptions === 'long'}
+                value='long'
+                onChange={handleRadios}
+              />
+              &nbsp;&nbsp;Long-term&nbsp;&nbsp;&nbsp;&nbsp;
+            </label>
+          </fieldset>
+          <Input
+            required
+            type='text'
+            name='description'
+            placeholder='Give a description of the project.'
+            onChange={handleChange}
+          />
+          <fieldset id='category'>
+            <FormText>Pick the environmental focus.</FormText>
+            <FlexWrapper>
+              <RadioIcon
+                type='radio'
+                name='Ocean'
+                src='/assets/icons/Ocean.png'
+                onClick={handleCategory}
+              />
+              <RadioIcon
+                type='radio'
+                name='Land'
+                src='/assets/icons/Land.png'
+                onClick={handleCategory}
+              />
+              <RadioIcon
+                type='radio'
+                name='Air'
+                src='/assets/icons/Air.png'
+                onClick={handleCategory}
+              />
+              <RadioIcon
+                type='radio'
+                name='Wildlife'
+                src='/assets/icons/Wildlife.png'
+                onClick={handleCategory}
+              />
+              <RadioIcon
+                type='radio'
+                name='Forest'
+                src='/assets/icons/Forest.png'
+                onClick={handleCategory}
+              />
+            </FlexWrapper>
+          </fieldset>
+          <Input
+            required
+            type='text'
+            name='role'
+            placeholder='What is the volunteer role title?'
+            onChange={handleChange}
+          />
+          <fieldset id='isOrg'>
+            <FormText>Does this role require specific qualifications?</FormText>
+            <label htmlFor='isQual'>
+              <input
+                type='radio'
+                name='noReq'
+                checked={radioOptions === 'noReq'}
+                value='noReq'
+                onChange={handleRadios}
+              />
+              &nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;&nbsp;
+            </label>
+            <label htmlFor='isQual'>
+              <input
+                type='radio'
+                name='isReq'
+                checked={radioOptions === 'isReq'}
+                value='isReq'
+                onChange={handleRadios}
+              />
+              &nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;&nbsp;
+            </label>
+          </fieldset>
+          <Input
+            required
+            type='text'
+            name='qualifications'
+            placeholder='What are the role qualifications?'
+            onChange={handleChange}
+          />
+          <Input
+            required
+            type='textarea'
+            name='tasks'
+            placeholder='What are the top 3 tasks?'
+            onChange={handleChange}
+          />
+          <Input
             type='number'
-            name='amount'
-            placeholder='How many volunteers needed?'
+            name='totalSpaces'
+            placeholder='How many volunteers are needed?'
             min='1'
             max='100'
             onChange={handleChange}
           />
-          <BtmGreenBtn
-            type='submit'
-            onClick={btnClick}
-            isSelected={!isSelected}>
+          <Input
+            type='text'
+            name='totalSpaces'
+            placeholder='What is the address?'
+            onChange={handleChange}
+          />
+          <InButton type='submit' onClick={btnClick} isSelected={!isSelected}>
             {renderBtnText()}
-          </BtmGreenBtn>
-        </FlexColWrap>
-      </FormBox>
-    </Page>
+          </InButton>
+        </form>
+      </FlexColWrapper>
+    </AppWrapper>
   );
 }
 

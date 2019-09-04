@@ -24,6 +24,7 @@ import {
   Icon,
   MenuIcon,
   OrgCategoryIcon,
+  RadioIcon,
 } from './Visuals/Icon';
 import Image from './Visuals/Image';
 import { Info, SubInfo, Details } from './Text/Info';
@@ -104,6 +105,7 @@ export {
   Location,
   LoadingSpinner,
   ProfilePicture,
+  RadioIcon,
   Row,
   SecondaryButton,
   SmallBackgroundImage,
