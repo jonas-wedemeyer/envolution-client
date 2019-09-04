@@ -1,49 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import styled from 'styled-components';
 
 import { setFilters } from '../redux/reducers/projects/actions';
-import { ColumnWrapper, SecondaryButton } from '../styled-components';
-
-// styled-components
-const FilterWrapper = styled(ColumnWrapper)`
-  border: solid 0.5px black;
-  border-radius: 15px;
-  margin-top: 2vh;
-  padding: 2vh;
-  width: 88%;
-`;
-
-const Fieldset = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 1vh 0vw 2vh 2vw;
-  width: 100%;
-  position: relative;
-`;
-
-const QuestionTitle = styled.h3`
-  display: flex;
-  padding: 2vh 1vw 1vh 1vw;
-  font-size: 26px;
-  font-weight: 700;
-`;
-
-const Answers = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-top: 1vh;
-  width: 60%;
-  position: relative;
-`;
-
-const SubmitButton = styled(SecondaryButton)`
-  display: flex;
-  margin: 2% auto;
-  width: 60vw;
-  justify-self: center;
-  justify-content: center;
-`;
+import {
+  Answers,
+  Fieldset,
+  FilterWrapper,
+  QuestionTitle,
+  SubmitButton,
+} from '../styled-components';
 
 function FilterForm() {
   const [availability, setAvailability] = useState(null);

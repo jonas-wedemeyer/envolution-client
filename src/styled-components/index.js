@@ -4,6 +4,7 @@ import {
   GreenButton,
   InButton,
   SecondaryButton,
+  SubmitButton,
   TransparentButton,
 } from './ButtonsAndTags/Button';
 import AppWrapper from './Wrappers/AppWrapper';
@@ -14,7 +15,7 @@ import {
 } from './InfoContainers/BackgroundImage';
 import { AllProjectCards, Card, Row } from './InfoContainers/Card';
 import { CardDate, Date } from './Text/Date';
-import ColumnWrapper from './Wrappers/ColumnWrapper';
+import { ColumnWrapper, FilterWrapper } from './Wrappers/ColumnWrapper';
 import FlexWrapper from './Wrappers/FlexWrapper';
 import {
   CategoryIcon,
@@ -47,6 +48,7 @@ import {
 import TextTitle from './Text/TextTitle';
 import TopPage from './InfoContainers/TopPage';
 import { LocationTitle, Location, Pin } from './Text/location';
+import { Fieldset, QuestionTitle, Answers } from './InfoContainers/Filter';
 import {
   Statistics,
   EnvironmentalBox,
@@ -55,6 +57,7 @@ import {
 } from './InfoContainers/NumberBox';
 
 export {
+  Answers,
   AllProjectCards,
   AppWrapper,
   Background,
@@ -70,7 +73,9 @@ export {
   Date,
   Details,
   EnvironmentalBox,
+  Fieldset,
   FilterIcon,
+  FilterWrapper,
   FlexWrapper,
   GreenButton,
   Icon,
@@ -85,6 +90,7 @@ export {
   NumberOne,
   OrgCategoryIcon,
   Pin,
+  QuestionTitle,
   ListFlag,
   ListImage,
   LocationTitle,
@@ -97,6 +103,7 @@ export {
   SmallTag,
   Statistics,
   SubInfo,
+  SubmitButton,
   Subtitle,
   SubText,
   Tag,
