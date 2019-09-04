@@ -16,7 +16,7 @@ import {
 import { AllProjectCards, Card, Row } from './InfoContainers/Card';
 import { CardDate, Date } from './Text/Date';
 import { ColumnWrapper, FilterWrapper } from './Wrappers/ColumnWrapper';
-import FlexWrapper from './Wrappers/FlexWrapper';
+import { FlexColWrap, FlexWrapper } from './Wrappers/FlexWrapper';
 import {
   CategoryIcon,
   IconBox,
@@ -27,7 +27,7 @@ import {
 } from './Visuals/Icon';
 import { Info, SubInfo, Details } from './Text/Info';
 import InfoContainer from './InfoContainers/InfoContainer';
-import Input from './Text/Input';
+import { FormInput, Input, MockInput } from './Text/Input';
 import ListFlag from './InfoContainers/ListFlag';
 import ListImage from './InfoContainers/ListImage';
 import LoadingSpinner from './Visuals/LoadingSpinner';
@@ -77,7 +77,9 @@ export {
   Fieldset,
   FilterIcon,
   FilterWrapper,
+  FlexColWrap,
   FlexWrapper,
+  FormInput,
   GreenButton,
   Icon,
   IconBox,
@@ -88,6 +90,7 @@ export {
   MainTitleBlack,
   MainTitleWhite,
   MenuIcon,
+  MockInput,
   Number,
   NumberOne,
   OrgCategoryIcon,
