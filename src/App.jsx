@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import {
@@ -24,7 +24,11 @@ function App() {
     <div className='App'>
       {isLoggedIn !== null ? <Navbar /> : null}
       <Switch>
-        <Route exact path='/' component={AuthPage} />
+        <Route
+          exact
+          path='/'
+          render={() => isLoggedIn !== null ? <Redirect to='/projects' /> : <AuthPage />}
+        />
         <Route exact path='/styled-comps' component={ComponentsList} />
         <PrivateRoute exact path='/onboarding' component={Onboarding} />
         <PrivateRoute exact path='/projects' component={ProjectPage} />
