@@ -1,19 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Text, Title } from '../styled-components';
-
-const Image = styled.div`
-  background-image: url(${(props) => props.image});
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-`;
+import { Image, Text, Title } from '../styled-components';
 
 const TitleUpCase = styled(Title)`
   text-transform: uppercase;

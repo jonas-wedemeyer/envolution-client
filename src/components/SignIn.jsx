@@ -40,6 +40,7 @@ function SignIn({ history }) {
             type='email'
             name='email'
             placeholder='Email'
+            autoComplete='off'
             onChange={handleChange}
           />
           <FormInput
@@ -47,6 +48,7 @@ function SignIn({ history }) {
             type='password'
             name='password'
             placeholder='Password'
+            autoComplete='off'
             onChange={handleChange}
           />
           <Button style={{ marginTop: '25px' }} type='submit'>

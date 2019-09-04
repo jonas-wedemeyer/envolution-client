@@ -123,7 +123,8 @@ function SignUp({ history }) {
             <MockInput
               type='button'
               value='Choose File'
-              onClick={() => openWidget(cloudinaryWidget)}>
+              onClick={() => openWidget(cloudinaryWidget)}
+            >
               {profile.pictureValue}
             </MockInput>
             <Button style={{ marginTop: '25px' }} type='submit'>

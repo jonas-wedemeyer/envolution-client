@@ -25,6 +25,7 @@ import {
   MenuIcon,
   OrgCategoryIcon,
 } from './Visuals/Icon';
+import Image from './Visuals/Image';
 import { Info, SubInfo, Details } from './Text/Info';
 import InfoContainer from './InfoContainers/InfoContainer';
 import { FormInput, Input, MockInput } from './Text/Input';
@@ -83,6 +84,7 @@ export {
   GreenButton,
   Icon,
   IconBox,
+  Image,
   InButton,
   Info,
   InfoContainer,
