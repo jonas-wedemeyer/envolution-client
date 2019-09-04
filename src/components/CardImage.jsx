@@ -28,7 +28,6 @@ const TextRevert = styled(Text)`
   text-align: center;
 `;
 
-// TODO: Refactor for using height with flexEnd
 const Background = styled.div`
   background: rgba(0, 0, 0, 0.4);
   display: flex;

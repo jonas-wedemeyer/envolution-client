@@ -12,6 +12,24 @@ const FlexColWrap = styled(FlexWrapper)`
   align-items: center;
 `;
 
+const FormInput = styled(Input)`
+  border: 0;
+  font-family: inherit;
+  padding: 12px 0;
+  height: 48px;
+  font-size: ${(props) => props.theme.fontSize.medium};
+  font-weight: 500;
+  border-bottom: 2px solid ${(props) => props.theme.color.secondary};
+  background: none;
+  border-radius: 0;
+  color: ${(props) => props.theme.color.secondary};
+  transition: all 0.15s ease;
+
+  &::placeholder {
+    color: ${(props) => props.theme.color.secondary};
+  }
+`;
+
 function SignIn({ history }) {
   const dispatch = useDispatch();
   const [values, setValues] = useState({
@@ -36,21 +54,24 @@ function SignIn({ history }) {
     <FlexWrapper style={{ justifyContent: 'center' }}>
       <form onSubmit={handleSubmit}>
         <FlexColWrap>
-          <Input
+          <div style={{ height: '58px' }} />
+          <FormInput
             required
             type='email'
             name='email'
             placeholder='Email'
             onChange={handleChange}
           />
-          <Input
+          <FormInput
             required
             type='password'
             name='password'
             placeholder='Password'
             onChange={handleChange}
           />
-          <Button type='submit'>Sign in</Button>
+          <Button style={{ marginTop: '25px' }} type='submit'>
+            Sign in
+          </Button>
         </FlexColWrap>
       </form>
     </FlexWrapper>
