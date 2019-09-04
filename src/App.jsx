@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import {
   AuthPage,
@@ -11,17 +12,17 @@ import {
   UserProfile,
 } from './containers';
 import { Navbar } from './components';
-import { fetchState } from './redux/persistState';
+import { getToken } from './redux/reducers/authentication/selector';
 import PrivateRoute from './hoc/PrivateRoute';
 import ComponentsList from './styled-components/ComponentsList';
 import './App.css';
 
 function App() {
-  const isLoggedIn = fetchState();
+  const isLoggedIn = useSelector(getToken);
 
   return (
     <div className='App'>
-      {isLoggedIn !== undefined ? <Navbar /> : null}
+      {isLoggedIn !== null ? <Navbar /> : null}
       <Switch>
         <Route exact path='/' component={AuthPage} />
         <Route exact path='/styled-comps' component={ComponentsList} />
