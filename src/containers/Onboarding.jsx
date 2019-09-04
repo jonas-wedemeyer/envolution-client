@@ -4,7 +4,7 @@ import Swipeable from 'react-swipy';
 import styled from 'styled-components';
 
 import { updateUser } from '../redux/reducers/authentication/actions';
-import getUser from '../redux/reducers/authentication/selector';
+import { getUser } from '../redux/reducers/authentication/selector';
 import { CardImage, InterestCard } from '../components';
 import { Button, Text } from '../styled-components';
 import HomeImg from '../assets/Categories/home.jpeg';
