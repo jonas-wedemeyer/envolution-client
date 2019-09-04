@@ -1,42 +1,9 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 
 import { SignIn, SignUp } from '../components';
+import { BgImage, LinkDiv, Logo, TransparentBg } from '../styled-components';
 import HomeImg from '../assets/Categories/home.jpeg';
 import logo from '../assets/Logo/logo-final.png';
-
-const LinkDiv = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  text-decoration: underline;
-  cursor: pointer;
-`;
-
-const BgImage = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  background-image: url(${(props) => props.image});
-  height: 100vh;
-  background-size: cover;
-  color: ${(props) => props.theme.color.secondary};
-`;
-
-const TransparentBg = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin-left: 5vw;
-  margin-right: 5vw;
-  border-radius: 10px;
-  padding: 10px;
-`;
-
-const Logo = styled.img`
-  height: 200px;
-  width: 200px;
-`;
 
 export default function AuthPage() {
   const [signIn, setSignIn] = useState(true);

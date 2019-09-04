@@ -24,7 +24,6 @@ export default function Onboarding({ history }) {
   const dispatch = useDispatch();
 
   const [interest, setInterest] = useState([]);
-  // TODO: Refactor to generate state dynamically based on categories
   const [cardDeck, setCardDeck] = useState([
     <CardImage image={forest} category='forest' name={firstName} />,
     <CardImage image={air} category='air' />,

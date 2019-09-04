@@ -26,7 +26,6 @@
 .nav__icon {
   position: absolute;
   top: 0;
-  right: -60px;
   padding: 20px;
   font-size: 20px;
   cursor: pointer;

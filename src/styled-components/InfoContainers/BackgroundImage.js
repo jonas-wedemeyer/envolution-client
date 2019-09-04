@@ -21,9 +21,46 @@ const SmallBackgroundImage = styled(BackgroundImage)`
   width: 85%;
 `;
 
-
 const Background = styled.div`
   background: #f9f9f9;
 `;
 
-export { Background, BackgroundImage, SmallBackgroundImage };
+const BackgroundCard = styled.div`
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-top: 50px;
+  border-radius: 10px;
+  width: 90%;
+  padding: 10px;
+`;
+
+const BgImage = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-image: url(${(props) => props.image});
+  height: 100vh;
+  background-size: cover;
+  color: ${(props) => props.theme.color.secondary};
+`;
+
+const TransparentBg = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  border-radius: 10px;
+  padding: 10px;
+`;
+
+export {
+  Background,
+  BackgroundCard,
+  BackgroundImage,
+  BgImage,
+  SmallBackgroundImage,
+  TransparentBg,
+};

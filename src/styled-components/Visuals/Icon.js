@@ -36,7 +36,6 @@ const MenuIcon = styled.div`
   top: 0;
   right: 0;
   z-index: 4;
-  width: 35%;
 `;
 
 const RadioIcon = styled(Icon)`
