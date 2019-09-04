@@ -1,18 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-
+import { MenuIcon } from '../../styled-components';
 import menu from '../../assets/icons/menu-thick-black.png';
 
 import './Navbar.css';
-
-const MenuIcon = styled.div`
-  position: relative;
-  top: 0;
-  right: 0;
-  z-index: 4;
-  width: 35%;
-`;
 
 const StyledLink = styled(NavLink)`
   color: #fff;

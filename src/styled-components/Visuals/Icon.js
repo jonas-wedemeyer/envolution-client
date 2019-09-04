@@ -31,4 +31,12 @@ const CategoryIcon = styled(Icon)`
   margin: 16px 10px;
 `;
 
-export { CategoryIcon, IconBox, FilterIcon, Icon, OrgCategoryIcon };
+const MenuIcon = styled.div`
+  position: relative;
+  top: 0;
+  right: 0;
+  z-index: 4;
+  width: 35%;
+`;
+
+export { CategoryIcon, IconBox, FilterIcon, Icon, MenuIcon, OrgCategoryIcon };

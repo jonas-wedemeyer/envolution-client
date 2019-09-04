@@ -22,6 +22,7 @@ import {
   IconBox,
   FilterIcon,
   Icon,
+  MenuIcon,
   OrgCategoryIcon,
 } from './Visuals/Icon';
 import { Info, SubInfo, Details } from './Text/Info';
@@ -86,6 +87,7 @@ export {
   Input,
   MainTitleBlack,
   MainTitleWhite,
+  MenuIcon,
   Number,
   NumberOne,
   OrgCategoryIcon,
