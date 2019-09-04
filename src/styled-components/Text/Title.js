@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Text from './Text';
 
-// h1 Title black - ok
+// h1 Title black
 const Title = styled.h1`
   color: ${(props) => props.theme.color.secondary};
   font-size: ${(props) => props.theme.fontSize.big};
@@ -9,13 +9,13 @@ const Title = styled.h1`
   /* text-shadow: 0.5px 0.5px ${(props) => props.theme.color.secondary}90; */
 `;
 
-// h1 Title black - ok
+// h1 Title black
 const MainTitleBlack = styled(Title)`
   color: ${(props) => props.theme.color.primary};
   padding: 4vh 1vw 1vh 7vw;
 `;
 
-// h1 Title white - ok
+// h1 Title white
 const MainTitleWhite = styled(Title)`
   padding: 2vh 1vh 2vh 2vh;
   color: #fff;
@@ -27,7 +27,7 @@ const TitleOrg = styled(MainTitleWhite)`
   margin-bottom: 10vh;
 `;
 
-// h3 Subtitle black - ok
+// h3 Subtitle black
 const SubText = styled(MainTitleBlack)`
   font-size: ${(props) => props.theme.fontSize.medium};
   font-weight: ${(props) => props.theme.fontWeight.semiBold};
@@ -40,7 +40,7 @@ const CardTitle = styled(MainTitleWhite)`
   font-size: 22px;
 `;
 
-// h3 Subtitle white - ok
+// h3 Subtitle white
 const CardSubtitle = styled.h3`
   color: ${(props) => props.theme.color.secondary};
   font-size: ${(props) => props.theme.fontSize.medium};
@@ -56,6 +56,20 @@ const TextAboutMe = styled(Text)`
   text-align: left; */
 `;
 
+// Cards
+const TitleUpCase = styled(Title)`
+  text-transform: uppercase;
+  font-size: 36px;
+  text-shadow: 1px 1px #21212180;
+`;
+
+const TextRevert = styled(Text)`
+  font-size: 18px;
+  color: #fafafa;
+  margin-bottom: 10px;
+  text-align: center;
+`;
+
 export {
   CardTitle,
   CardSubtitle,
@@ -63,6 +77,8 @@ export {
   MainTitleWhite,
   SubText,
   TextAboutMe,
+  TextRevert,
   Title,
   TitleOrg,
+  TitleUpCase,
 };

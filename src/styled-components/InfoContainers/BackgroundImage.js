@@ -21,9 +21,19 @@ const SmallBackgroundImage = styled(BackgroundImage)`
   width: 85%;
 `;
 
-
 const Background = styled.div`
   background: #f9f9f9;
 `;
 
-export { Background, BackgroundImage, SmallBackgroundImage };
+const BackgroundCard = styled.div`
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-top: 50px;
+  border-radius: 10px;
+  width: 90%;
+  padding: 10px;
+`;
+
+export { Background, BackgroundCard, BackgroundImage, SmallBackgroundImage };

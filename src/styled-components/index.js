@@ -10,6 +10,7 @@ import {
 import AppWrapper from './Wrappers/AppWrapper';
 import {
   Background,
+  BackgroundCard,
   BackgroundImage,
   SmallBackgroundImage,
 } from './InfoContainers/BackgroundImage';
@@ -44,8 +45,10 @@ import {
   MainTitleWhite,
   SubText,
   TextAboutMe,
+  TextRevert,
   Title,
   TitleOrg,
+  TitleUpCase,
 } from './Text/Title';
 import TextTitle from './Text/TextTitle';
 import TopPage from './InfoContainers/TopPage';
@@ -63,6 +66,7 @@ export {
   AllProjectCards,
   AppWrapper,
   Background,
+  BackgroundCard,
   BackgroundImage,
   Button,
   Card,
@@ -117,9 +121,11 @@ export {
   Text,
   TextAboutMe,
   TextTitle,
+  TextRevert,
   Theme,
   Title,
   TitleOrg,
+  TitleUpCase,
   TopPage,
   TransparentButton,
 };
