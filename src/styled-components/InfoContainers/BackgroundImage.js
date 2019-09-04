@@ -36,4 +36,31 @@ const BackgroundCard = styled.div`
   padding: 10px;
 `;
 
-export { Background, BackgroundCard, BackgroundImage, SmallBackgroundImage };
+const BgImage = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-image: url(${(props) => props.image});
+  height: 100vh;
+  background-size: cover;
+  color: ${(props) => props.theme.color.secondary};
+`;
+
+const TransparentBg = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  border-radius: 10px;
+  padding: 10px;
+`;
+
+export {
+  Background,
+  BackgroundCard,
+  BackgroundImage,
+  BgImage,
+  SmallBackgroundImage,
+  TransparentBg,
+};

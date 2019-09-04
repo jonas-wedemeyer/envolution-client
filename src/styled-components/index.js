@@ -12,7 +12,9 @@ import {
   Background,
   BackgroundCard,
   BackgroundImage,
+  BgImage,
   SmallBackgroundImage,
+  TransparentBg,
 } from './InfoContainers/BackgroundImage';
 import { AllProjectCards, Card, Row } from './InfoContainers/Card';
 import { CardDate, Date } from './Text/Date';
@@ -30,9 +32,11 @@ import Image from './Visuals/Image';
 import { Info, SubInfo, Details } from './Text/Info';
 import InfoContainer from './InfoContainers/InfoContainer';
 import { FormInput, Input, MockInput } from './Text/Input';
+import LinkDiv from './InfoContainers/Link';
 import ListFlag from './InfoContainers/ListFlag';
 import ListImage from './InfoContainers/ListImage';
 import LoadingSpinner from './Visuals/LoadingSpinner';
+import Logo from './Visuals/Logo';
 import ProfilePicture from './Visuals/profilePicture';
 import Subtitle from './Text/Subtitle';
 import { SmallTag, Tag } from './ButtonsAndTags/Tag';
@@ -68,6 +72,7 @@ export {
   Background,
   BackgroundCard,
   BackgroundImage,
+  BgImage,
   Button,
   Card,
   CardButton,
@@ -102,11 +107,13 @@ export {
   OrgCategoryIcon,
   Pin,
   QuestionTitle,
+  LinkDiv,
   ListFlag,
   ListImage,
   LocationTitle,
-  Location,
   LoadingSpinner,
+  Location,
+  Logo,
   ProfilePicture,
   Row,
   SecondaryButton,
@@ -127,5 +134,6 @@ export {
   TitleOrg,
   TitleUpCase,
   TopPage,
+  TransparentBg,
   TransparentButton,
 };
