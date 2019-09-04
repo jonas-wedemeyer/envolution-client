@@ -14,11 +14,10 @@ const Input = styled.input`
   outline: none;
 `;
 
-const FormInput = styled(Input)`
+const FormInput = styled.input`
   border: 0;
   font-family: inherit;
   padding: 12px 0;
-  height: 48px;
   font-size: ${(props) => props.theme.fontSize.medium};
   font-weight: 500;
   border-bottom: 2px solid ${(props) => props.theme.color.secondary};
@@ -30,6 +29,21 @@ const FormInput = styled(Input)`
   &::placeholder {
     color: ${(props) => props.theme.color.secondary};
   }
+`;
+
+const PostFormInput = styled(Input)`
+  width: 100%;
+  border: 0;
+  font-family: inherit;
+  padding: 12px 0;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 2px solid darkgrey;
+  background: none;
+  border-radius: 0;
+  color: #223254;
+  transition: all 0.15s ease;
 `;
 
 const MockInput = styled.div`
@@ -54,4 +68,4 @@ const MockInput = styled.div`
   }
 `;
 
-export { FormInput, Input, MockInput };
+export { FormInput, Input, MockInput, PostFormInput };

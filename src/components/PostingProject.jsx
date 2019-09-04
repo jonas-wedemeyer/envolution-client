@@ -11,7 +11,8 @@ import {
   ColumnWrapper,
   FlexWrapper,
   InButton,
-  Input,
+  FormInput,
+  PostFormInput,
   RadioIcon,
   Text,
   TextTitle,
@@ -27,11 +28,18 @@ const FormText = styled(Text)`
   transform-origin: 0 0;
   transition: all 0.2s ease;
   font-weight: 500;
+  color: darkgray;
 `;
 
 const FormTextTitle = styled(TextTitle)`
   margin: 30px 0;
   font-size: 24px;
+`;
+
+const InButtonCenter = styled(InButton)`
+  display: flex;
+  align-items: center;
+  padding-left: 7vw;
 `;
 
 function PostingProject() {
@@ -82,7 +90,7 @@ function PostingProject() {
   };
 
   const renderBtnText = () => {
-    return isSelected ? 'Project added!' : 'Add your project';
+    return isSelected ? 'Project was added' : 'Add your project';
   };
 
   const btnClick = () => {
@@ -107,35 +115,31 @@ function PostingProject() {
             <FormText>
               Is this project affiliated with an organization?
             </FormText>
-            <label htmlFor='isOrg'>
-              <input
-                type='radio'
-                name='notNGO'
-                checked={radioOptions === 'notNGO'}
-                value='notNGO'
-                onChange={handleRadios}
-              />
-              &nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;&nbsp;
-            </label>
-            <label htmlFor='isOrg'>
-              <input
-                type='radio'
-                name='isNGO'
-                checked={radioOptions === 'isNGO'}
-                value='isNGO'
-                onChange={handleRadios}
-              />
-              &nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;&nbsp;
-            </label>
+            <FormInput
+              type='radio'
+              name='notNGO'
+              checked={radioOptions === 'notNGO'}
+              value='notNGO'
+              onChange={handleRadios}
+            />
+            &nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;&nbsp;
+            <FormInput
+              type='radio'
+              name='isNGO'
+              checked={radioOptions === 'isNGO'}
+              value='isNGO'
+              onChange={handleRadios}
+            />
+            &nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;&nbsp;
           </fieldset>
-          <Input
+          <PostFormInput
             required
             type='text'
             name='organizationName'
             placeholder='Name the organization.'
             onChange={handleChange}
           />
-          <Input
+          <PostFormInput
             required
             type='text'
             name='projectName'
@@ -143,12 +147,12 @@ function PostingProject() {
             onChange={handleChange}
           />
           <FormText>When is it?</FormText>
-          <Input
+          <PostFormInput
             type='datetime-local'
             name='projectDate'
             onChange={handleChange}
           />
-          <Input
+          <PostFormInput
             type='text'
             name='time'
             placeholder='Duration of project.'
@@ -156,28 +160,24 @@ function PostingProject() {
           />
           <fieldset id='availability'>
             <FormText>What is the duration of the project?</FormText>
-            <label htmlFor='availability'>
-              <input
-                type='radio'
-                name='short'
-                checked={radioOptions === 'short'}
-                value='short'
-                onChange={handleRadios}
-              />
-              &nbsp;&nbsp;Short-term&nbsp;&nbsp;&nbsp;&nbsp;
-            </label>
-            <label htmlFor='availability'>
-              <input
-                type='radio'
-                name='long'
-                checked={radioOptions === 'long'}
-                value='long'
-                onChange={handleRadios}
-              />
-              &nbsp;&nbsp;Long-term&nbsp;&nbsp;&nbsp;&nbsp;
-            </label>
+            <FormInput
+              type='radio'
+              name='short'
+              checked={radioOptions === 'short'}
+              value='short'
+              onChange={handleRadios}
+            />
+            &nbsp;&nbsp;Short-term&nbsp;&nbsp;&nbsp;&nbsp;
+            <FormInput
+              type='radio'
+              name='long'
+              checked={radioOptions === 'long'}
+              value='long'
+              onChange={handleRadios}
+            />
+            &nbsp;&nbsp;Long-term&nbsp;&nbsp;&nbsp;&nbsp;
           </fieldset>
-          <Input
+          <PostFormInput
             required
             type='text'
             name='description'
@@ -219,7 +219,7 @@ function PostingProject() {
               />
             </FlexWrapper>
           </fieldset>
-          <Input
+          <PostFormInput
             required
             type='text'
             name='role'
@@ -228,42 +228,38 @@ function PostingProject() {
           />
           <fieldset id='isOrg'>
             <FormText>Does this role require specific qualifications?</FormText>
-            <label htmlFor='isQual'>
-              <input
-                type='radio'
-                name='noReq'
-                checked={radioOptions === 'noReq'}
-                value='noReq'
-                onChange={handleRadios}
-              />
-              &nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;&nbsp;
-            </label>
-            <label htmlFor='isQual'>
-              <input
-                type='radio'
-                name='isReq'
-                checked={radioOptions === 'isReq'}
-                value='isReq'
-                onChange={handleRadios}
-              />
-              &nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;&nbsp;
-            </label>
+            <FormInput
+              type='radio'
+              name='noReq'
+              checked={radioOptions === 'noReq'}
+              value='noReq'
+              onChange={handleRadios}
+            />
+            &nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;&nbsp;
+            <FormInput
+              type='radio'
+              name='isReq'
+              checked={radioOptions === 'isReq'}
+              value='isReq'
+              onChange={handleRadios}
+            />
+            &nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;&nbsp;
           </fieldset>
-          <Input
+          <PostFormInput
             required
             type='text'
             name='qualifications'
             placeholder='What are the role qualifications?'
             onChange={handleChange}
           />
-          <Input
+          <PostFormInput
             required
             type='textarea'
             name='tasks'
             placeholder='What are the top 3 tasks?'
             onChange={handleChange}
           />
-          <Input
+          <PostFormInput
             type='number'
             name='totalSpaces'
             placeholder='How many volunteers are needed?'
@@ -271,15 +267,18 @@ function PostingProject() {
             max='100'
             onChange={handleChange}
           />
-          <Input
+          <PostFormInput
             type='text'
             name='totalSpaces'
             placeholder='What is the address?'
             onChange={handleChange}
           />
-          <InButton type='submit' onClick={btnClick} isSelected={!isSelected}>
+          <InButtonCenter
+            type='submit'
+            onClick={btnClick}
+            isSelected={!isSelected}>
             {renderBtnText()}
-          </InButton>
+          </InButtonCenter>
         </form>
       </FlexColWrapper>
     </AppWrapper>
