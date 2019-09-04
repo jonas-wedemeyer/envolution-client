@@ -27,12 +27,13 @@ import {
   Icon,
   MenuIcon,
   OrgCategoryIcon,
+  RadioIcon,
 } from './Visuals/Icon';
 import Image from './Visuals/Image';
 import { Info, SubInfo, Details } from './Text/Info';
 import InfoContainer from './InfoContainers/InfoContainer';
-import { FormInput, Input, MockInput } from './Text/Input';
 import LinkDiv from './InfoContainers/Link';
+import { FormInput, Input, MockInput, PostFormInput } from './Text/Input';
 import ListFlag from './InfoContainers/ListFlag';
 import ListImage from './InfoContainers/ListImage';
 import LoadingSpinner from './Visuals/LoadingSpinner';
@@ -106,6 +107,7 @@ export {
   NumberOne,
   OrgCategoryIcon,
   Pin,
+  PostFormInput,
   QuestionTitle,
   LinkDiv,
   ListFlag,
@@ -115,6 +117,7 @@ export {
   Location,
   Logo,
   ProfilePicture,
+  RadioIcon,
   Row,
   SecondaryButton,
   SmallBackgroundImage,

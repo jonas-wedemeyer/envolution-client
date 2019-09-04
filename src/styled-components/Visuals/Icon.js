@@ -38,4 +38,22 @@ const MenuIcon = styled.div`
   z-index: 4;
 `;
 
-export { CategoryIcon, IconBox, FilterIcon, Icon, MenuIcon, OrgCategoryIcon };
+const RadioIcon = styled(Icon)`
+  height: 7vh;
+  width: 7vh;
+  padding: 1vw;
+  transition: box-shadow 0.3s;
+  &:hover {
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  }
+`;
+
+export {
+  CategoryIcon,
+  IconBox,
+  FilterIcon,
+  Icon,
+  MenuIcon,
+  OrgCategoryIcon,
+  RadioIcon,
+};
