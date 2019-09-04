@@ -1,3 +1,3 @@
-const getUser = (state) => state.authentication.loggedUser;
+export const getToken = (state) => state.authentication.token;
 
-export default getUser;
+export const getUser = (state) => state.authentication.loggedUser;
