@@ -44,28 +44,24 @@ function SignUp({ history }) {
       .catch((err) => console.log(err)); // eslint-disable-line no-console
   };
 
-  const cloudinaryWidget = window.cloudinary.createUploadWidget(
-    {
+  const openCloudinaryWidget = () => {
+    const cloudinaryWidget = window.cloudinary.openUploadWidget({
       cloudName: process.env.REACT_APP_CLOUDINARY_NAME,
       uploadPreset: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET,
       sources: ['local', 'camera'],
-    },
-    (error, result) => {
+    }, (error, result) => {
       if (result && result.event === 'success') {
         const imageInfo = {
           picture: result.info.secure_url,
           pictureValue: result.info.original_filename,
         };
         setProfile({ ...profile, ...imageInfo });
-        cloudinaryWidget.close();
+        cloudinaryWidget.close(); 
       } else if (error)
         console.log('There has been an issue while uploading the image', error); // eslint-disable-line no-console
-    },
-  );
-
-  const openWidget = (widget) => {
-    widget.open();
-  };
+    });
+    return cloudinaryWidget;
+  } 
 
   return (
     <FlexWrapper style={{ justifyContent: 'center' }}>
@@ -123,7 +119,7 @@ function SignUp({ history }) {
             <MockInput
               type='button'
               value='Choose File'
-              onClick={() => openWidget(cloudinaryWidget)}
+              onClick={() => openCloudinaryWidget()}
             >
               {profile.pictureValue}
             </MockInput>
