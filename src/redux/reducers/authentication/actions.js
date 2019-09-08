@@ -1,11 +1,10 @@
-export const signUp = (email, password) => ({
+export const signUp = (userInput) => ({
   type: 'SIGN_UP',
   api: {
     path: '/sign-up',
     method: 'POST',
     body: {
-      email,
-      password,
+      ...userInput,
     },
   },
 });
