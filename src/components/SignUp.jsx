@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { signUp, updateUser } from '../redux/reducers/authentication/actions';
+import { signUp } from '../redux/reducers/authentication/actions';
 import {
   FlexColWrap,
   FlexWrapper,
@@ -12,41 +12,34 @@ import {
 } from '../styled-components';
 
 function SignUp({ history }) {
-  const [values, setValues] = useState({
+  const dispatch = useDispatch();
+  const [profile, setProfile] = useState({
     email: '',
     password: '',
-  });
-  const [profile, setProfile] = useState({
     firstName: '',
     lastName: '',
+    aboutMe: '',
     picture: '',
     pictureValue: 'Choose your profile picture',
   });
   const [signUpForm, setSignUpForm] = useState(true);
-  const dispatch = useDispatch();
-
-  const handleChangeSignUp = (e) => {
-    const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
-  };
-
-  const handleSubmitSignUp = (e) => {
-    e.preventDefault();
-    const { email, password } = values;
-    dispatch(signUp(email, password));
-    document.getElementById('next').reset();
-    setSignUpForm(false);
-  };
 
   const handleChangeProfile = (e) => {
     const { name, value } = e.target;
     setProfile({ ...profile, [name]: value });
   };
 
+  const handleSubmitSignUp = (e) => {
+    e.preventDefault();
+    document.getElementById('next').reset();
+    setSignUpForm(false);
+  };
+
   const handleSubmitProfile = (e) => {
     e.preventDefault();
-    const { firstName, lastName, picture } = profile;
-    dispatch(updateUser({ firstName, lastName, picture }))
+    const userInput = { ...profile };
+    delete userInput.pictureValue;
+    dispatch(signUp(userInput))
       .then(() => history.push('/onboarding'))
       .catch((err) => console.log(err)); // eslint-disable-line no-console
   };
@@ -86,7 +79,7 @@ function SignUp({ history }) {
               type='email'
               name='email'
               placeholder='Email'
-              onChange={handleChangeSignUp}
+              onChange={handleChangeProfile}
             />
             <FormInput
               required
@@ -94,7 +87,7 @@ function SignUp({ history }) {
               type='password'
               name='password'
               placeholder='Password'
-              onChange={handleChangeSignUp}
+              onChange={handleChangeProfile}
             />
             <Button style={{ marginTop: '25px' }} type='submit'>
               Sign up
@@ -118,6 +111,13 @@ function SignUp({ history }) {
               type='text'
               name='lastName'
               placeholder='Last Name'
+              onChange={handleChangeProfile}
+            />
+            <FormInput
+              autoComplete='off'
+              type='text'
+              name='aboutMe'
+              placeholder='Tell us a bit about yourself'
               onChange={handleChangeProfile}
             />
             <MockInput
