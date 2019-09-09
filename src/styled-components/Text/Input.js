@@ -25,6 +25,8 @@ const FormInput = styled.input`
   border-radius: 0;
   color: ${(props) => props.theme.color.secondary};
   transition: all 0.15s ease;
+  width: 250px;
+  outline: none;
 
   &::placeholder {
     color: ${(props) => props.theme.color.secondary};
@@ -48,13 +50,13 @@ const PostFormInput = styled(Input)`
 
 const MockInput = styled.div`
   cursor: pointer;
-  margin-top: 10px;
+
   outline: none;
-  width: 92%;
+  width: 250px;
   border: 0;
   font-family: inherit;
   padding: 12px 0;
-  height: 48px;
+  height: 50px;
   font-size: ${(props) => props.theme.fontSize.medium};
   font-weight: 500;
   border-bottom: 2px solid ${(props) => props.theme.color.secondary};
