@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { signUp, updateUser } from '../redux/reducers/authentication/actions';
+import { signUp } from '../redux/reducers/authentication/actions';
 import {
   FlexColWrap,
   FlexWrapper,
@@ -12,67 +12,56 @@ import {
 } from '../styled-components';
 
 function SignUp({ history }) {
-  const [values, setValues] = useState({
+  const dispatch = useDispatch();
+  const [profile, setProfile] = useState({
     email: '',
     password: '',
-  });
-  const [profile, setProfile] = useState({
     firstName: '',
     lastName: '',
+    aboutMe: '',
     picture: '',
     pictureValue: 'Choose your profile picture',
   });
   const [signUpForm, setSignUpForm] = useState(true);
-  const dispatch = useDispatch();
-
-  const handleChangeSignUp = (e) => {
-    const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
-  };
-
-  const handleSubmitSignUp = (e) => {
-    e.preventDefault();
-    const { email, password } = values;
-    dispatch(signUp(email, password));
-    document.getElementById('next').reset();
-    setSignUpForm(false);
-  };
 
   const handleChangeProfile = (e) => {
     const { name, value } = e.target;
     setProfile({ ...profile, [name]: value });
   };
 
+  const handleSubmitSignUp = (e) => {
+    e.preventDefault();
+    document.getElementById('next').reset();
+    setSignUpForm(false);
+  };
+
   const handleSubmitProfile = (e) => {
     e.preventDefault();
-    const { firstName, lastName, picture } = profile;
-    dispatch(updateUser({ firstName, lastName, picture }))
+    const userInput = { ...profile };
+    delete userInput.pictureValue;
+    dispatch(signUp(userInput))
       .then(() => history.push('/onboarding'))
       .catch((err) => console.log(err)); // eslint-disable-line no-console
   };
 
-  const cloudinaryWidget = window.cloudinary.createUploadWidget(
-    {
+  const openCloudinaryWidget = () => {
+    const cloudinaryWidget = window.cloudinary.openUploadWidget({
       cloudName: process.env.REACT_APP_CLOUDINARY_NAME,
       uploadPreset: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET,
       sources: ['local', 'camera'],
-    },
-    (error, result) => {
+    }, (error, result) => {
       if (result && result.event === 'success') {
         const imageInfo = {
           picture: result.info.secure_url,
           pictureValue: result.info.original_filename,
         };
         setProfile({ ...profile, ...imageInfo });
-        cloudinaryWidget.close();
+        cloudinaryWidget.close(); 
       } else if (error)
         console.log('There has been an issue while uploading the image', error); // eslint-disable-line no-console
-    },
-  );
-
-  const openWidget = (widget) => {
-    widget.open();
-  };
+    });
+    return cloudinaryWidget;
+  } 
 
   return (
     <FlexWrapper style={{ justifyContent: 'center' }}>
@@ -86,7 +75,7 @@ function SignUp({ history }) {
               type='email'
               name='email'
               placeholder='Email'
-              onChange={handleChangeSignUp}
+              onChange={handleChangeProfile}
             />
             <FormInput
               required
@@ -94,7 +83,7 @@ function SignUp({ history }) {
               type='password'
               name='password'
               placeholder='Password'
-              onChange={handleChangeSignUp}
+              onChange={handleChangeProfile}
             />
             <Button style={{ marginTop: '25px' }} type='submit'>
               Sign up
@@ -120,10 +109,17 @@ function SignUp({ history }) {
               placeholder='Last Name'
               onChange={handleChangeProfile}
             />
+            <FormInput
+              autoComplete='off'
+              type='text'
+              name='aboutMe'
+              placeholder='Tell us a bit about yourself'
+              onChange={handleChangeProfile}
+            />
             <MockInput
               type='button'
               value='Choose File'
-              onClick={() => openWidget(cloudinaryWidget)}
+              onClick={() => openCloudinaryWidget()}
             >
               {profile.pictureValue}
             </MockInput>
